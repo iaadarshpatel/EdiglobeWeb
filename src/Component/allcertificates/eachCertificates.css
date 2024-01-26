@@ -1,0 +1,7 @@
+.eachcertificate_img {
+    padding: 8px !important;
+    
+}
+.eachcertificate_img:hover{
+    box-shadow: 0px 10px 30px rgba(0, 35, 71, 0.1);
+}

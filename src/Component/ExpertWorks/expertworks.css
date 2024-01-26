@@ -1,0 +1,19 @@
+.expertworks_area {
+    background: #002347;
+  }
+.text-color{
+  color: var(--bgcolor) !important;
+}
+.section_gap{
+  padding-bottom: 35px !important;
+}
+.main_title{
+  margin-bottom: 2rem !important;
+
+}
+.image-01{
+  display: inline-block;
+  max-height: 1.75rem;
+  max-width: 80px;
+  object-fit: contain;
+}

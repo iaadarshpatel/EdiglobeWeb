@@ -1,0 +1,188 @@
+.section_gap {
+    padding: 50px 0px 50px 0px;
+  }
+  
+  .company_area {
+    background: #002347;
+  }
+  
+.companies-collection{
+  width: 80px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  grid-column-gap: 60px;
+  justify-content: flex-start;  
+}
+
+.image-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  overflow-x: hidden;
+  animation: fade 5s ease-in-out infinite;
+  white-space: nowrap; /* Prevent line breaks between images */
+  width: 100%; /* Ensure all images are in view */
+}
+
+
+.image-01{
+  margin: 15px;
+  display: inline-block;
+  max-height: 1.75rem;
+  max-width: 80px;
+  object-fit: contain;
+}
+
+
+
+.clock_sec {
+  color: #fff;
+}
+
+.clock_sec h1 {
+  font-size: 42px;
+  color: #fff;
+}
+
+@media (max-width: 575px) {
+  .clock_sec h1 {
+    font-size: 30px;
+  }
+  .image-01 {
+    max-width: 40px;
+    margin: 0px;
+    max-height: 1rem; /* Adjust the size as needed for smaller screens */
+  }
+}
+
+.clock_sec .clockinner {
+  background: #334f6c;
+  padding: 20px;
+  margin-right: 15px;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 5px;
+  margin-top: 65px;
+}
+
+@media (max-width: 991px) {
+  .clock_sec .clockinner {
+    margin-top: 40px;
+  }
+}
+
+@media (max-width: 767px) {
+  .clock_sec .clockinner {
+    margin: 0 15px;
+    padding: 10px;
+    margin-top: 30px;
+  }
+  .image-01 {
+    max-width: 60px;
+    margin: 0px;
+    max-height: 1rem; /* Adjust the size as needed for smaller screens */
+  }
+}
+
+@media (max-width: 400px) {
+  .clock_sec .clockinner {
+    margin-right: 0;
+    padding: 10px 5px;
+  }
+}
+
+.clock_sec .clockinner:last-child {
+  margin-right: 0;
+}
+
+@media (max-width: 575px) {
+  .clock_sec .clockinner:last-child {
+    margin-right: 15px;
+  }
+}
+
+.clock_sec .clockinner h1 {
+  font-size: 36px;
+  display: inline-block;
+}
+
+@media (max-width: 1199px) {
+  .clock_sec .clockinner h1 {
+    display: block;
+  }
+}
+
+.register_form {
+  background: #fff;
+  text-align: center;
+  padding: 40px;
+}
+
+@media (max-width: 991px) {
+  .register_form {
+    margin-top: 60px;
+  }
+}
+
+.register_form h3 {
+  font-size: 24px;
+  margin-bottom: 0;
+}
+
+.register_form input {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid #eeeeee;
+  padding: 12px;
+}
+
+.register_form input:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.register_form input.placeholder {
+  color: #aaaaaa;
+  font-size: 14px;
+  font-weight: 500;
+  font-family: "Roboto", sans-serif;
+}
+
+.register_form input:-moz-placeholder {
+  color: #aaaaaa;
+  font-size: 14px;
+  font-weight: 500;
+  font-family: "Roboto", sans-serif;
+}
+
+.register_form input::-moz-placeholder {
+  color: #aaaaaa;
+  font-size: 14px;
+  font-weight: 500;
+  font-family: "Roboto", sans-serif;
+}
+
+.register_form input::-webkit-input-placeholder {
+  color: #aaaaaa;
+  font-size: 14px;
+  font-weight: 500;
+  font-family: "Roboto", sans-serif;
+}
+
+.register_form .primary-btn {
+  width: 100%;
+  border: 1px solid var(--text-color);
+  color: var(--text-color);
+  background: #fff;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-top: 30px;
+}
+
+.register_form .primary-btn:hover {
+  border: 1px solid var(--bgcolor);
+  background: var(--text-color);
+  color: var(--bgcolor);
+}

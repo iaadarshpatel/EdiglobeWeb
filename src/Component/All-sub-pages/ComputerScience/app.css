@@ -1,0 +1,245 @@
+.course_details_area .title {
+    font-size: 21px;
+    border: none;
+    cursor: pointer;
+    margin-top: 40px;
+    border-bottom: 1px solid #eeeeee;
+    position: relative;
+    padding-bottom: 10px;
+    margin-bottom: 22px;
+}
+
+.course_details_area .title:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -1px;
+    height: 1px;
+    width: 74px;
+    background: var(--text-color);
+}
+
+.course_details_area{
+    margin-bottom: 35px;
+}
+
+.course_details_left .course_list {
+    margin-bottom: 0;
+}
+
+.main_image {
+    width: 180px;
+}
+
+.bullet:before {
+    content: "\2022";
+    font-size: 2rem;
+    margin-right: 1rem;
+    position: relative;
+    top: 5px;
+    left: 5px;
+}
+
+.price_tag::before {
+    content: "\20B9";
+}
+
+.price_tag {
+    font-size: 2rem;
+}
+
+label {
+    background-color: #f9f9f9;
+    list-style: none;
+    background: #f9f9f9;
+    padding: 10px 22px;
+    /* margin-bottom: 10px; */
+}
+
+input {
+    background-color: #f9f9f9;
+}
+
+
+@media (max-width: 575px) {
+    .course_details_left .course_list {
+        padding-left: 0;
+    }
+}
+
+.course_details_left .course_list li {
+    list-style: none;
+    margin-bottom: 20px;
+}
+
+.course_details_left .course_list li .primary-btn {
+    background: #f9f9f9;
+    color: #7b838a;
+    box-shadow: none;
+    font-size: 12px;
+    border-radius: 0px;
+}
+
+.course_details_left .course_list li .primary-btn:hover {
+    background: #fdc632;
+    color: #ffffff;
+}
+
+@media (max-width: 575px) {
+    .course_details_left .course_list li .primary-btn {
+        min-width: 100px;
+        font-size: 10px;
+        padding: 0 10px;
+    }
+}
+
+.course_details_left .course_list li:last-child {
+    margin-bottom: 0;
+}
+
+@media (max-width: 991px) {
+    .right-contents {
+        margin-top: 50px;
+    }
+}
+
+.right-contents ul {
+    padding-left: 0;
+}
+
+.right-contents ul li {
+    list-style: none;
+    background: #f9f9f9;
+    padding: 10px 22px;
+    margin-bottom: 10px;
+}
+
+.right-contents ul li a {
+    color: #7b838a;
+    text-align: left;
+}
+
+.right-contents ul li a p {
+    margin-bottom: 0px;
+}
+
+.right-contents ul li .or {
+    color: #002347;
+    font-weight: 500;
+}
+
+.right-contents .enroll {
+    margin-top: 10px;
+    width: 100%;
+}
+
+.right-contents .reviews span,
+.right-contents .reviews .star {
+    /* width: 31%; */
+    margin-bottom: 10px;
+}
+
+.right-contents .avg-review {
+    background: #04091e;
+    text-align: center;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 20px 0px;
+}
+
+.right-contents .avg-review span {
+    font-size: 18px;
+    color: #fdc632;
+}
+
+@media (max-width: 991px) {
+    .right-contents .avg-review {
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .right-contents .single-reviews .thumb {
+        margin-right: 10px;
+    }
+}
+
+.right-contents .single-reviews h5 {
+    display: inline-flex;
+}
+
+@media (max-width: 1024px) {
+    .right-contents .single-reviews h5 {
+        display: block;
+    }
+}
+
+.right-contents .single-reviews h5 .star {
+    margin-left: 10px;
+}
+
+@media (max-width: 1024px) {
+    .right-contents .single-reviews h5 .star {
+        margin: 10px 0;
+    }
+}
+
+.right-contents .feedback {
+    margin-top: 30px;
+}
+
+.right-contents .feedback textarea {
+    resize: none;
+    height: 130px;
+    background: #f9f9ff;
+}
+
+.right-contents .feedback textarea:focus {
+    box-shadow: none;
+}
+
+.right-contents .star .checked {
+    color: #fdc632;
+}
+
+.right-contents .comments-area {
+    padding: 0;
+    border: 0;
+    background: transparent;
+}
+
+.right-contents .comments-area .star {
+    margin-left: 20px;
+}
+
+
+@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700);
+.snip1517 {
+  font-family: 'Source Sans Pro', Arial, sans-serif;
+  color: #ffffff;
+  text-align: left;
+  font-size: 16px;
+  margin: 30px 10px;
+}
+.plan-cost {
+  padding: 0 20px;
+  margin: 0;
+}
+
+.plan-price {
+  font-weight: 400;
+  font-size: 1.5em;
+  margin: 10px 0;
+  display: inline-block;
+}
+
+.plan-type {
+  opacity: 0.8;
+  font-size: .5em;
+  text-transform: uppercase;
+}
+
+.course_gap{
+    padding: 30px 0px !important;
+}

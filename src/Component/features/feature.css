@@ -1,0 +1,110 @@
+.main_title{
+    text-align: center;
+    margin-bottom: 5.3rem;
+}
+
+.main_title h2{
+    text-align: center;
+    margin-bottom: 1rem; 
+    font-size: 2.25rem;
+    line-height: 35px;
+    font-weight: bold;
+    color: var(--text-color);
+    font-family: "Rubik", sans-serif;
+}
+
+.main_title p{
+    font-size: 1rem;
+    text-align: center;
+    margin-bottom: 0;
+    font-style: italic;
+    color: var(--bg-color);
+}
+
+.feature_container{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2.5rem;
+}
+
+.single_feature{
+    position: relative;
+    background: var(--card-bg-color);
+    padding: 2.5rem 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.desc h4{
+    font-size: 20px;
+    font-weight: 500;
+    color: var(--text-color);
+    margin: 1rem 0 .5rem;
+    font-family: "Rubik", sans-serif;
+}
+
+.desc p{
+    margin-bottom: 0%;
+    font-family: "Roboto", sans-serif;
+    font-size: 1rem;
+}
+
+.desc p:hover{
+    color: var(--text-color);
+}
+
+.icon{
+    color: var(--text-color);
+    font-size: 3rem;
+}
+
+.section_gap{
+    padding-top: 8.1rem;
+}
+
+
+
+/* =============== MEDIA QUERIES (LARGE DEVICES) ==============*/
+@media screen and (max-width: 1024px){
+   
+    .feature_container{
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+    }
+}
+
+/* =============== MEDIA QUERIES (MEDIUM DEVICES) ==============*/
+@media screen and (max-width: 850px){
+    .container{
+        width: var(--container-width-md);
+    }   
+    .feature_container{
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+    }
+    .section_gap{
+        padding-top: 5.8rem;
+    }
+
+}
+
+/* =============== MEDIA QUERIES (MEDIUM & SMALL DEVICES) ==============*/
+@media screen and (max-width: 600px){
+    .container{
+        width: var(--container-width-md);
+    }   
+    .feature_container{
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+}
+
+/* =============== MEDIA QUERIES (SMALL DEVICES) ==============*/
+@media screen and (max-width: 400px){
+    .container{
+        width: var(--container-width-sm);
+    }
+    #feature{
+        padding-top: var(--section_gap_medium);
+    }
+}

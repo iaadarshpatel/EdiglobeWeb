@@ -1,0 +1,81 @@
+.testimonial{
+  padding: 20px;
+  margin: 20px 10px;
+}
+.testimonial .pic{
+  width: 160px;
+  height: 122px;
+  float: left;
+  margin-right: 50px;
+  position: relative;
+}
+.testimonial .pic:before,
+.testimonial .pic:after{
+  content: "";
+  display: block;
+  height: 50%;
+  width: 50%;
+  position: absolute;
+}
+.testimonial .pic:before{
+  bottom: -15%;
+  left: -10%;
+  border-bottom: 3px solid var(--text-color);
+  border-left: 3px solid var(--text-color);
+}
+.testimonial .pic:after{
+  top: -20%;
+  right: -10%;
+  border-top: 3px solid var(--text-color);
+  border-right: 3px solid var(--text-color);
+}
+.testimonial .pic img{
+  width: 100%;
+  height: auto;
+}
+.testimonial .testimonial-content{
+  display: table;
+  position: relative;
+}
+.testimonial .testimonial-content:before{
+  content: "\f10d";
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  position: absolute;
+  top: -30px;
+  left: -15px;
+  font-size: 60px;
+  color: var(--bgcolor);
+  z-index: -1;
+}
+.testimonial .testimonial-title{
+  font-size: 1.5rem;
+  color: var(--text-color);
+  font-weight: 700 !important;
+  padding-bottom: 10px;
+}
+
+.testimonial .description{
+  font-size: 14px;
+  color: #7c7c7c;
+  line-height: 22px;
+  margin-top: 12px;
+}
+
+@media only screen and (max-width: 980px){
+  .testimonial{
+      padding: 20px 0;
+      margin: 20px 15px;
+  }
+  .testimonial .pic{
+      float: none;
+  }
+  .testimonial .testimonial-content{
+      display: block;
+      margin-top: 30px;
+  }
+  .testimonial .testimonial-content:before{
+      z-index: 1;
+      top: -200px;
+  }
+}

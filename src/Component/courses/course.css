@@ -1,0 +1,213 @@
+#course{
+    padding: 0px 0px 70px 0px;
+  margin-top: 130px;
+}
+
+.courses_container{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2.5rem;
+}
+.single_course {
+    background: #f9f9ff;
+    display: inline-block;
+    vertical-align: middle;
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-property: box-shadow;
+    transition-property: box-shadow;
+  }
+  .single_course:hover, .single_course:focus, .single_course:active {
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
+  }
+
+/* .course_head{
+    padding: 0px 30px 10px 30px;
+} */
+
+
+.course_head img{
+    width: 100%;
+}
+
+.course_content{
+    padding: 30px 15px;
+    background: #f9f9ff;
+    position: relative;
+}
+.course_content:hover{
+    background: #fff;
+}
+
+.course_content .price{
+    position: absolute;
+    top: -36px;
+    right: 3rem;
+    z-index: 2;
+    background-color: var(--text-color);
+    color: var(--bgcolor);
+    display: inline-block;
+    height: 55px;
+    line-height: 55px;
+    width: 55px;
+    text-align: center;
+    border-radius: 50px;
+    font-family: "Rubik", sans-serif;
+    font-weight: 500;
+    font-size: 1rem;
+    -webkit-transition: all 0.3s ease 0s;
+    -moz-transition: all 0.3s ease 0s;
+    -o-transition: all 0.3s ease 0s;
+    transition: all 0.3s ease 0s;
+}
+
+.course_content .price:hover{
+    background-color: var(--text-color);
+    color: var(--bgcolor);
+}
+
+
+.course_content .course_tag{
+    padding: 8px 24px;
+    font-size: 1rem;
+    color: #fff;
+    background: #002347;
+    text-transform: uppercase;
+}
+
+.course_content .course_name{
+    margin-top: 2rem;
+}
+
+.single_course .course_content h4 {
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.single_course .course_content h4 a{
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+    color: var(--text-color);
+    font-family: "Rubik", sans-serif;
+}
+
+.single_course p:hover{
+    color: var(--text-color);
+}
+
+.course_meta{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    position: relative;
+    margin-top: 1.5rem;
+}
+
+.auth_meta span{
+    color: var(--text-color);
+    font-family: "Rubik", sans-serif;
+    font-weight: 500;
+    padding-left: 1rem;
+}
+
+.follows{
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    align-items: center;
+}
+
+.follows i{
+    padding-right: 10px;
+    color: none;
+}
+
+.follows a{
+    vertical-align: middle;
+    text-decoration: none;
+    color: var(--text-color);
+}
+
+
+
+
+/* =============== MEDIA QUERIES (LARGE DEVICES) ==============*/
+@media screen and (max-width: 1024px){
+    .courses_container{
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+    }
+    .section_gap{
+        padding-top: 5.8rem;
+    }
+}
+
+
+/* =============== MEDIA QUERIES (MEDIUM DEVICES) ==============*/
+@media screen and (max-width: 850px){
+    .container{
+        width: var(--container-width-md);
+    }   
+    .courses_container{
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+    }
+    .section_gap{
+        padding-top: 5.8rem;
+    }
+
+}
+
+
+/* =============== MEDIA QUERIES (LARGE DEVICES) ==============*/
+@media screen and (max-width: 768px) {
+    .courses_container{
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    .section_gap{
+        padding-top: 5.8rem;
+    }
+    
+}
+
+
+/* =============== MEDIA QUERIES (LARGE DEVICES) ==============*/
+@media screen and (max-width: 650px) {
+    .courses_container{
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    .section_gap{
+        padding-top: 5.8rem;
+    }
+}
+
+
+/* =============== MEDIA QUERIES (MEDIUM & SMALL DEVICES) ==============*/
+@media screen and (max-width: 600px){
+    .container{
+        width: var(--container-width-md);
+    }   
+    .courses_container{
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+    }
+
+}
+
+/* =============== MEDIA QUERIES (SMALL DEVICES) ==============*/
+@media screen and (max-width: 400px){
+    .container{
+        width: var(--container-width-sm);
+    }
+    #course{
+        padding-top: var( --section_gap_medium);
+    }
+}
+
+

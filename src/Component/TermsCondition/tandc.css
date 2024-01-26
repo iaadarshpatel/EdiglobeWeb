@@ -1,0 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+@import url('https://fonts.cdnfonts.com/css/typo-round');
+
+.main_title {
+    margin-bottom: 4rem !important;
+}
+
+strong {
+    color: var(--text-color);
+}

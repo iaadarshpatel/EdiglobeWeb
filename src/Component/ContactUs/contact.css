@@ -1,0 +1,90 @@
+.contact_info .info_item {
+    position: relative;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+}
+
+.contact_info .info_item i {
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-size: 20px;
+    line-height: 24px;
+    color: #002347;
+    font-weight: 600;
+}
+
+.contact_info .info_item h6 {
+    font-size: 16px;
+    line-height: 24px;
+    color: "Roboto", sans-serif;
+    font-weight: bold;
+    color: #002347;
+    margin: 0 0 0 10px;
+}
+
+.contact_info .info_item h6 a {
+    color: #002347;
+}
+
+.contact_info .info_item p {
+    font-size: 14px;
+    line-height: 24px;
+    padding: 2px 0px;
+}
+
+.contact_info p{
+    margin-left: 1rem;
+}
+
+.contact_form .form-group {
+    margin-bottom: 1rem;
+}
+
+.contact_form .form-group .form-control {
+    line-height: 26px;
+    color: #999;
+    border: 1px solid #eeeeee;
+    font-family: "Roboto", sans-serif;
+    border-radius: 0px;
+    padding-left: 20px;
+}
+
+.contact_form .form-group .form-control:focus {
+    box-shadow: none;
+    outline: none;
+}
+
+.contact_form .form-group .form-control.placeholder {
+    color: #002347;
+    font-size: 13px;
+}
+
+.contact_form .form-group .form-control:-moz-placeholder {
+    color: #002347;
+    font-size: 13px;
+}
+
+.contact_form .form-group .form-control::-moz-placeholder {
+    color: #002347;
+    font-size: 13px;
+}
+
+.contact_form .form-group .form-control::-webkit-input-placeholder {
+    color: #002347;
+    font-size: 13px;
+}
+
+.contact_form .form-group textarea {
+    resize: none;
+}
+
+.contact_form .form-group textarea.form-control {
+    height: 152px;
+}
+
+.contact_form .primary-btn {
+    margin-top: 20px;
+    cursor: pointer;
+}

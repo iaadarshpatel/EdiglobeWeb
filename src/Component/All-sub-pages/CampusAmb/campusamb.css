@@ -1,0 +1,44 @@
+.campusAmb_area {
+    z-index: 1;
+    min-height: 600px;
+    position: relative;
+    background: url(../../../assets/ca2.jpg) no-repeat center;
+    background-size: cover;
+}
+
+.campus_text {
+    color: var(--text-color);
+    opacity: 5;
+    font-size: 70px;
+    font-weight: 900;
+}
+
+#perks_benefits {
+    background: #002347;
+}
+
+.btn-light:hover {
+    background: var(--bgcolor);
+    color: var(--text-color);
+}
+
+.certificate_img{
+    border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 15px;
+  /* width: 150px; */
+}
+
+
+@media (max-width: 768px)and (min-width: 470px) {
+    .campus_text {
+        font-size: 45px;
+        /* Adjust the font size for smaller screens */
+    }
+}
+
+@media (max-width: 469px)and (min-width: 290px) {
+    .campus_text {
+        font-size: 40px;
+    }
+}

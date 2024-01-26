@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;900&family=Rubik:wght@500;600;700;800;900&display=swap');
+@import url('https://fonts.cdnfonts.com/css/typo-round');
+
+
+.navbar-bg{
+    position: sticky;
+    top: 0px;
+    width: 100%;
+    z-index: 99;
+    transition: 0.4s, all 0.3s linear;
+    padding: 0%;
+    margin: 0%;
+    background-color: #fff;
+    /* max-height: 80px; */
+}
+
+/* 
+.logo a{
+    text-decoration: none;
+    font-family: "Rubik", sans-serif;
+    font-weight: bold;
+    position: absolute;
+    color: #1e2a5a ;
+}
+
+
+.btn-outline-success{
+    border: 1px solid var(--text-color);
+    color: var(--text-color);  
+}
+
+.btn-outline-success:hover{
+    border: 1px solid var(--bgcolor);
+    background: var(--text-color);
+    color: var(--bgcolor);
+}
+
+.navbar.colorChange{
+    transition: all 0.5s ease 0s;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.navbar{
+    max-height: 4.3rem;
+}
+
+.navbar li{
+    margin-right: 40px;
+}
+
+.navbar li a{
+    font: 500 14px "Rubik", sans-serif;
+}
+
+.navbar li a:hover{
+    color: var(--logo-color)!important;
+} */
