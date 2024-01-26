@@ -9,6 +9,14 @@
   }
 
 
+  .preloader-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: white; 
+    overflow: hidden; 
+  }
 
 .blog_item {
     margin-bottom: 40px;
@@ -379,13 +387,15 @@ label {
 
 /* Full-width input fields */
 input[type=text], input[type=email], select {
-  /* width: 100%;
+  /* 
+  width: 100%;
   padding: 8px;
   margin-bottom: 5px;
   display: block;
   border: none;
   background: #fff;
-  border: 1px solid #dee2e6; */
+  border: 1px solid #dee2e6;
+   */
 }
 
 select {
