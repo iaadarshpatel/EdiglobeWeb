@@ -181,8 +181,8 @@ const firstWord = words[0].charAt(0).toUpperCase() + words[0].slice(1);
                       <button className="btn btn-outline-dark mx-2 w-25" onClick={handleClearClick}>Close</button>
                     )}
                   </div>
-                  <label htmlFor="phone">Phone:</label>
-                  <input type="text" placeholder="Calling Number" name="phone" className="form-control" required pattern="[0-9]{10}" />
+                  <label htmlFor="phone">Alternative Number:</label>
+                  <input type="text" placeholder="Alternative Number" name="phone" className="form-control" required pattern="[0-9]{10}" />
                   <label htmlFor="text">Registration Id:</label>
                   <input type="text" placeholder="Registration Id" name="registrationid" className="form-control" required pattern="[0-9]{10}" />
 

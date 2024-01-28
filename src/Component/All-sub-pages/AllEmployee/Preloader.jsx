@@ -1,7 +1,6 @@
 import React from 'react'
-import preloader from '../../../assets/loader2.mp4'
 import './allemployee.css';
-import loader from '../../../assets/Logo3.gif'
+import loader from '../../../assets/Logo2.gif'
 
 const Preloader = () => {
   return (

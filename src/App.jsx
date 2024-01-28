@@ -24,6 +24,7 @@ import ObForm from './Component/All-sub-pages/AllEmployee/ObForm';
 import { ai, arvr, finance, machinelearning, webdev, staadpro, vlsi, aws, hr, bioinformatics,marketingmanagement, autocad, robotics, geneticengineering, digitalmarketing, appdev, cybersecurity } from './Component/All-sub-pages/ComputerScience/courseOutlineData';
 import Openform from './Component/All-sub-pages/AllEmployee/Openform'
 import Preloader from './Component/All-sub-pages/AllEmployee/Preloader';
+import PointConfetti from './Component/All-sub-pages/AllEmployee/PointConfetti';
 
 function App() {
   const [enteredEmail, setEnteredEmail] = useState('');
@@ -301,6 +302,7 @@ Digital marketing is a dynamic and strategic approach to promoting products or s
         <Route path='/obform' element={<ObForm enteredEmail={enteredEmail} setEnteredEmail={setEnteredEmail}/>} />
         <Route path='/Openform' element={<Openform enteredEmail={enteredEmail} setEnteredEmail={setEnteredEmail}/>} />
         <Route path='/Preloader' element={<Preloader />} />
+        <Route path='/PointConfetti' element={<PointConfetti />} />
         <Route path='/computerscience/appdevelopment' element={<Dev
           title={PropsDetails[0].title}
           course_desc={PropsDetails[0].course_desc}
