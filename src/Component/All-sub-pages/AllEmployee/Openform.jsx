@@ -28,6 +28,7 @@ const Openform = ({enteredEmail, setEnteredEmail}) => {
 
   const handleEmailChange = (event) => {
     setEnteredEmail(event.target.value);
+    
   };
 
   const handleKeyDown = (event) => {
