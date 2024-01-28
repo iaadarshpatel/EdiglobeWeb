@@ -30,6 +30,13 @@ const Openform = ({enteredEmail, setEnteredEmail}) => {
     setEnteredEmail(event.target.value);
   };
 
+  const handleKeyDown = (event) => {
+    if (event.key === 'Enter') {
+      event.preventDefault(); // Prevent the default behavior (e.g., form submission)
+      handleCheckButtonClick();
+    }
+  };
+
   // Function to find object by email in an array
   const findObjectByEmail = (dataArray, email) => {
     if (Array.isArray(dataArray)) {
@@ -103,6 +110,7 @@ const handleCheckButtonClick = () => {
                     pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$"
                     value={enteredEmail}
                     onChange={handleEmailChange}
+                    onKeyDown={handleKeyDown}
                   />
                   <p className='text-danger' style={{fontSize: "14px"}}>{dataError}</p>
                 </div>
