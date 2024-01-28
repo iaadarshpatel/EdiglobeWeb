@@ -22,6 +22,7 @@
   .preloader-container img {
     max-width: 100%; /* Adjust the maximum width as needed */
     max-height: 100%; /* Adjust the maximum height as needed */
+    overflow-y: hidden;
 }
 
 .blog_item {
