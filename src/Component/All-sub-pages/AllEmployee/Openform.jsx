@@ -38,7 +38,7 @@ const Openform = ({enteredEmail, setEnteredEmail}) => {
     return null;
   };
   
-  const errorMessage = "Please enter your registered email-id or contact support@ediglobe.com"
+  const errorMessage = "Please enter your registered email-id or drop a mail on support@ediglobe.com"
 
 const handleCheckButtonClick = () => {
   // Add your logic for checking the email

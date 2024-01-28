@@ -158,8 +158,12 @@ const AllEmployee = () => {
                       : "bg-blue"
                   }`} role="status" style={{ "backgroundColor": "purple" }}></div>
                 <aside className="single_sidebar_widget author_widget mt-2">
-                    <img src={`https://drive.google.com/uc?id=${process.env.REACT_APP_PROFILE_PHOTO}`}
-                        alt="" className="avatar xl rounded-circle img-thumbnail shadow-sm" />
+                <img
+                src={process.env.REACT_APP_DUMMY_IMG}
+                alt=""
+                className="avatar xl rounded-circle img-thumbnail shadow-sm"
+              />
+
                     <h4>{full_name}</h4>
                     <span className="text-muted small d-inline-block">Employee Id :{employee_id}</span>
                     <span className={`light-info-bg text-center w-auto p-3 fs-6 fw-bolder py-1 px-1 rounded-1 d-inline-block mb-2 mt-1 ${
