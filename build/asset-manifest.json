@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.2387b486.css",
-    "main.js": "/static/js/main.975eea2b.js",
+    "main.css": "/static/css/main.b04eeb19.css",
+    "main.js": "/static/js/main.fb46209d.js",
     "static/media/iot.jpg": "/static/media/iot.1776362910e38cf0581a.jpg",
     "static/media/market-mang.jpg": "/static/media/market-mang.026c30b4538a30175277.jpg",
     "static/media/ca2.jpg": "/static/media/ca2.83640dd859bb4f9ae2c7.jpg",
@@ -35,6 +35,7 @@
     "static/media/certi_1.jpeg": "/static/media/certi_1.4a39d0ea0043f67da4c5.jpeg",
     "static/media/course-details.jpg": "/static/media/course-details.0eefa66b661831272ff0.jpg",
     "static/media/fa-brands-400.ttf": "/static/media/fa-brands-400.016b4a6cdced82ab3aa1.ttf",
+    "static/media/Logo2.gif": "/static/media/Logo2.606cbf5b5b05d4fdd653.gif",
     "static/media/Shabnoor.jpeg": "/static/media/Shabnoor.17674ef143b35cf4d066.jpeg",
     "static/media/divya.jpg": "/static/media/divya.ab5a602eb72b4c733ad5.jpg",
     "static/media/Harshita.jpg": "/static/media/Harshita.df23e03e74b32b2feb28.jpg",
@@ -64,18 +65,17 @@
     "static/media/IT-01.png": "/static/media/IT-01.93038b080f91433319ee.png",
     "static/media/IBM-01.png": "/static/media/IBM-01.e780c16573b20b02dff6.png",
     "static/media/Untitled-2-01.png": "/static/media/Untitled-2-01.e6b9f3904923d5c0255b.png",
-    "static/media/loader2.mp4": "/static/media/loader2.8a9e4e8570adf7b327f7.mp4",
     "static/media/fa-regular-400.woff2": "/static/media/fa-regular-400.b041b1fa4fe241b23445.woff2",
     "static/media/certiport-logo.png": "/static/media/certiport-logo.d5f48bcb91f2199a50aa.png",
     "static/media/t1.jpg": "/static/media/t1.6ce301503a1f3a659800.jpg",
     "static/media/fa-v4compatibility.ttf": "/static/media/fa-v4compatibility.c6a0c95b0a95c4553700.ttf",
     "static/media/fa-v4compatibility.woff2": "/static/media/fa-v4compatibility.1bac2991f3dbfa237aec.woff2",
     "index.html": "/index.html",
-    "main.2387b486.css.map": "/static/css/main.2387b486.css.map",
-    "main.975eea2b.js.map": "/static/js/main.975eea2b.js.map"
+    "main.b04eeb19.css.map": "/static/css/main.b04eeb19.css.map",
+    "main.fb46209d.js.map": "/static/js/main.fb46209d.js.map"
   },
   "entrypoints": [
-    "static/css/main.2387b486.css",
-    "static/js/main.975eea2b.js"
+    "static/css/main.b04eeb19.css",
+    "static/js/main.fb46209d.js"
   ]
 }

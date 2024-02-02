@@ -30,7 +30,7 @@ const PointConfetti = () => {
           width={screenSize.width}
           height={screenSize.height}
           gravity={0.2} // Adjust the gravity to control the downward acceleration
-          numberOfPieces={300} // Increase the number of pieces to create more confetti
+          numberOfPieces={200} // Increase the number of pieces to create more confetti
           drawShape={(ctx) => {
             ctx.beginPath();
             for (let i = 0; i < 22; i++) {

@@ -1,15 +1,18 @@
 import { initializeApp } from "firebase/app";
 import { getDatabase  } from "firebase/database";
 
+
 const firebaseConfig = {
-    apiKey: "AIzaSyAKd7c2e__1z8HFBwZ8cmYy82eW4WIHIWk",
-    authDomain: "ediglobe-1b491.firebaseapp.com",
-    databaseURL: "https://ediglobe-1b491-default-rtdb.firebaseio.com",
-    projectId: "ediglobe-1b491",
-    storageBucket: "ediglobe-1b491.appspot.com",
-    messagingSenderId: "450149643696",
-    appId: "1:450149643696:web:a154f877f7bb0dafeb9275"
-  };
+  apiKey: "AIzaSyAN0ZvG_xGj7pFzpPp4HKKYG5EAT0dpCGM",
+  authDomain: "onboarding-b9e49.firebaseapp.com",
+  databaseURL: "https://onboarding-b9e49-default-rtdb.firebaseio.com",
+  projectId: "onboarding-b9e49",
+  storageBucket: "onboarding-b9e49.appspot.com",
+  messagingSenderId: "779678839483",
+  appId: "1:779678839483:web:fea39f0d2df8844926ef9e"
+};
+
+
   
   // Initialize Firebase
   const app = initializeApp(firebaseConfig);

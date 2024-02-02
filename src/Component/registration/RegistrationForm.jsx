@@ -145,8 +145,8 @@ const RegistrationForm = () => {
           <p>It is high time for learning</p>
           {rcbData && (
             <div>
-              {Object.keys(rcbData).map((key) => (
-                <div key={key}>
+            {Object.keys(rcbData).map((key) => (
+              <div key={key}>
                   <h5>Email: {rcbData[key].email}</h5>
                   <h5>Phone: {rcbData[key].phone}</h5>
                   <h5>Full Name: {rcbData[key].fullName}</h5>

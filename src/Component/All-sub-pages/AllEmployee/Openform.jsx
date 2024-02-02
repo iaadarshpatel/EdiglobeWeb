@@ -3,12 +3,16 @@ import { Navigate } from 'react-router-dom';
 import Footer from '../../footer/Footer';
 import axios from 'axios';
 import Nav from '../../Nav/Nav';
+import db from '../../../FirebaseConfig';
+import { onValue, ref } from "firebase/database";
 
-const Openform = ({enteredEmail, setEnteredEmail}) => {
+const Openform = ({ enteredEmail, setEnteredEmail }) => {
   const [redirectToObForm, setRedirectToObForm] = useState(false);
   const [razorpayData, setrazorpayData] = useState();
   const [error, setError] = useState(true);
   const [dataError, setDataError] = useState();
+  const [obData, setObData] = useState('');
+  const [emails, setEmails] = useState([]);
 
   useEffect(() => {
     setEnteredEmail('')
@@ -24,11 +28,10 @@ const Openform = ({enteredEmail, setEnteredEmail}) => {
     };
     apiData();
   }, []);
-  
+
 
   const handleEmailChange = (event) => {
     setEnteredEmail(event.target.value);
-    
   };
 
   const handleKeyDown = (event) => {
@@ -45,26 +48,43 @@ const Openform = ({enteredEmail, setEnteredEmail}) => {
     }
     return null;
   };
-  
+
   const errorMessage = "Please enter your registered email-id or drop a mail on support@ediglobe.com"
 
-const handleCheckButtonClick = () => {
-  // Add your logic for checking the email
-  const matchedObject = findObjectByEmail(razorpayData, enteredEmail);
+  const handleCheckButtonClick = () => {
+    // Add your logic for checking the email
+    const matchedObject = findObjectByEmail(razorpayData, enteredEmail);
+    if (matchedObject) {
+      setRedirectToObForm(true);
+    } else {
+      setDataError(errorMessage)
+      setEnteredEmail('')
 
-  if (matchedObject) {
-    setRedirectToObForm(true);
-  } else {
-    setDataError(errorMessage)
-    setEnteredEmail('')
+      setTimeout(() => {
+        setDataError('');
+        setEnteredEmail('');
+      }, 5000);
+    }
+  };
 
-    setTimeout(() => {
-      setDataError('');
-      setEnteredEmail('');
-    }, 5000);
-  }
-  
-};
+  //Fetching Data from Google db
+  const fetchObData = async (event) => {
+    event.preventDefault();
+    const starCountRef = ref(db, 'OB Form Data');
+    onValue(starCountRef, (snapshot) => {
+      const data = snapshot.val();
+
+      if (data) {
+        // Convert object to array of [key, value] pairs
+        const dataArray = Object.entries(data);
+        // Log or process each property
+        dataArray.forEach(([key, value]) => {
+        });
+        // Set the state with the entire data object
+        setObData(data);
+      }
+    });
+  };
 
   // Use Navigate within the context of your route or Routes component
   if (redirectToObForm) {
@@ -94,7 +114,13 @@ const handleCheckButtonClick = () => {
             <h2>Check Your Email!</h2>
             <p>Form gathers the required information for a student's official enrollment in an Ediglobe course.</p>
           </div>
-
+          <button onClick={fetchObData}>Click</button>
+          
+          {ObForm.map((email, index) => (
+            <div key={index}>
+              <h5>Email: {email}</h5>
+            </div>
+          ))}
           <div className="row justify-content-center">
             <div className="col-md-4">
               <form>
@@ -110,10 +136,10 @@ const handleCheckButtonClick = () => {
                     required
                     pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$"
                     value={enteredEmail}
-                    onChange={handleEmailChange}
                     onKeyDown={handleKeyDown}
+                    onChange={handleEmailChange}
                   />
-                  <p className='text-danger' style={{fontSize: "14px"}}>{dataError}</p>
+                  <p className='text-danger' style={{ fontSize: "14px" }}>{dataError}</p>
                 </div>
                 <button className="btn primary-btn2" type='button' onClick={handleCheckButtonClick}>Check</button>
               </form>
@@ -123,7 +149,7 @@ const handleCheckButtonClick = () => {
 
           </div>
         </div>
-      </section>
+      </section >
       <Footer />
     </>
   );
