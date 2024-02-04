@@ -11,8 +11,8 @@ const Openform = ({ enteredEmail, setEnteredEmail }) => {
   const [razorpayData, setrazorpayData] = useState();
   const [error, setError] = useState(true);
   const [dataError, setDataError] = useState();
-  const [obData, setObData] = useState('');
   const [emails, setEmails] = useState([]);
+  console.log(emails);
 
   useEffect(() => {
     setEnteredEmail('')
@@ -44,32 +44,46 @@ const Openform = ({ enteredEmail, setEnteredEmail }) => {
   // Function to find object by email in an array
   const findObjectByEmail = (dataArray, email) => {
     if (Array.isArray(dataArray)) {
-      return dataArray.find(obj => obj.email.toLowerCase() === email.toLowerCase());
-    }
+      return dataArray.find(obj => obj.Student_email && obj.Student_email.toLowerCase() === email.toLowerCase());
+    } 
     return null;
   };
+  
 
   const errorMessage = "Please enter your registered email-id or drop a mail on support@ediglobe.com"
 
-  const handleCheckButtonClick = () => {
-    // Add your logic for checking the email
-    const matchedObject = findObjectByEmail(razorpayData, enteredEmail);
-    if (matchedObject) {
-      setRedirectToObForm(true);
-    } else {
-      setDataError(errorMessage)
-      setEnteredEmail('')
+  const handleCheckButtonClick =  () => {
+    // await fetchObData(event);
 
+    // Add your logic for checking the email
+    const matchedObject = findObjectByEmail(emails, enteredEmail); // Use the emails state instead of razorpayData
+    console.log(emails);
+    console.log(enteredEmail);
+    if (matchedObject) {
+      setDataError("Email already used to fill the form");
+      setEnteredEmail('');
       setTimeout(() => {
         setDataError('');
-        setEnteredEmail('');
       }, 5000);
+    } else {
+      const matchedRazorpayObject = findObjectByEmail(razorpayData, enteredEmail);
+      if (!matchedRazorpayObject) {
+        setRedirectToObForm(true);
+      } else {
+        setDataError(errorMessage);
+        setEnteredEmail('');
+        setTimeout(() => {
+          setDataError('');
+        }, 5000);
+      }
     }
   };
 
-  //Fetching Data from Google db
-  const fetchObData = async (event) => {
-    event.preventDefault();
+  useEffect(() => {
+    fetchObData();
+  }, []);
+  
+  const fetchObData =  () => {
     const starCountRef = ref(db, 'OB Form Data');
     onValue(starCountRef, (snapshot) => {
       const data = snapshot.val();
@@ -77,14 +91,15 @@ const Openform = ({ enteredEmail, setEnteredEmail }) => {
       if (data) {
         // Convert object to array of [key, value] pairs
         const dataArray = Object.entries(data);
-        // Log or process each property
-        dataArray.forEach(([key, value]) => {
-        });
-        // Set the state with the entire data object
-        setObData(data);
+        console.log(dataArray);
+        // Map over the array and extract the email property
+        const emailArray = dataArray.map(([key, value]) => ({ Student_email: value.Student_email, index: key }));
+        // Set the state with the array of emails
+        setEmails(emailArray);
       }
     });
   };
+  
 
   // Use Navigate within the context of your route or Routes component
   if (redirectToObForm) {
@@ -114,13 +129,8 @@ const Openform = ({ enteredEmail, setEnteredEmail }) => {
             <h2>Check Your Email!</h2>
             <p>Form gathers the required information for a student's official enrollment in an Ediglobe course.</p>
           </div>
-          <button onClick={fetchObData}>Click</button>
           
-          {ObForm.map((email, index) => (
-            <div key={index}>
-              <h5>Email: {email}</h5>
-            </div>
-          ))}
+
           <div className="row justify-content-center">
             <div className="col-md-4">
               <form>

@@ -20,6 +20,7 @@ const ObForm = ({ enteredEmail }) => {
   const [matchedEmaild, setmatchedEmaild] = useState('');
   const [matchedPhone, setmatchedPhone] = useState('');
   const [matchedAddOn, setmatchedAddOn] = useState('');
+  console.log(matchedAddOn);
 
   //State for firebase
   const [userData, setUserData] = useState({
@@ -135,11 +136,26 @@ const ObForm = ({ enteredEmail }) => {
     try {
       const currentDateTime = new Date().toLocaleString();
       // Check if any required field is empty
-      if (!userData.college_email || !userData.whatsapp_phone || !userData.alternative_phone || !userData.college_name || !userData.branch_of_study || !userData.year_of_study || !userData.reg_id || !userData.internship_month || !userData.internship_prog || !userData.add_on) {
+      if (
+        !userData.college_email ||
+        !userData.whatsapp_phone ||
+        !userData.alternative_phone ||
+        !userData.college_name ||
+        !userData.branch_of_study ||
+        !userData.year_of_study ||
+        !userData.reg_id ||
+        !userData.internship_month ||
+        !userData.internship_prog ||
+        (matchedAddOn == "Yes" && !userData.add_on)
+      ) {
         throw new Error('Please fill in all required fields.');
-    }
+      }
+      
       const userRef = push(ref(db, 'OB Form Data'));
       await set(userRef, {
+        Student_name: matchedName,
+        Student_email: matchedEmaild,
+        Student_phone: matchedPhone,
         college_email: userData.college_email,
         college_name: userData.college_name,
         alternative_phone: userData.alternative_phone,
@@ -149,6 +165,7 @@ const ObForm = ({ enteredEmail }) => {
         internship_prog: userData.internship_prog,
         internship_month: userData.internship_month,
         reg_id: userData.reg_id,
+        Opted_AddOn: matchedAddOn,
         add_on: userData.add_on,
         date: currentDateTime,
       });
@@ -279,7 +296,7 @@ const ObForm = ({ enteredEmail }) => {
 
                     <label htmlFor="fullName">Full Name:
                       <span className='badge text-bg-danger w-auto py-1  ms-2 bg-opacity-25 text-dark'>
-                        {matchedName && matchedName}
+                        {matchedName && matchedName }
                       </span></label>
 
                     <label htmlFor="reg_email">Registered Email:
@@ -402,29 +419,28 @@ const ObForm = ({ enteredEmail }) => {
                         onChange={postUserData}
                       >
                         <option selected>Select Internship</option>
-                        <option value="CSE">Business Analytics</option>
-                        <option value="IT">Stock Marketing</option>
-                        <option value="ECE">Cyber Security</option>
-                        <option value="EEE">Digital Marketing</option>
-                        <option value="Civil">VLSI</option>
-                        <option value="Mechanical">Genetic Engineering</option>
-                        <option value="Management">Data Science</option>
-                        <option value="Bio_Technology">Bioinformatics</option>
-                        <option value="Other">Artificial Intelligence</option>
-                        <option value="Other">Internet of Things</option>
-                        <option value="Other">Web development</option>
-                        <option value="Other">Robotics</option>
-                        <option value="Other">Finance</option>
-                        <option value="Other">Nanoscience/Nanotechnology</option>
-                        <option value="Other">Embedded System</option>
-                        <option value="Other">AWS</option>
-                        <option value="Other">Construction planning</option>
-                        <option value="Other">Hybrid Electric Vehicle</option>
-                        <option value="Other">Machine Learning</option>
-                        <option value="Other">App Development</option>
-                        <option value="Other">HR</option>
-                        <option value="Other">Hybrid Electric Vehicle</option>
-                        <option value="Other">I.C. Engine</option>
+                        <option value="Business Analytics">Business Analytics</option>
+                        <option value="Stock_Marketing">Stock Marketing</option>
+                        <option value="Cyber_Security">Cyber Security</option>
+                        <option value="Digital_Marketing">Digital Marketing</option>
+                        <option value="VLSI">VLSI</option>
+                        <option value="Genetic_Engineering">Genetic Engineering</option>
+                        <option value="Data_Science">Data Science</option>
+                        <option value="Bioinformatics">Bioinformatics</option>
+                        <option value="Artificial_Intelligence">Artificial Intelligence</option>
+                        <option value="Internet_of_Things">Internet of Things</option>
+                        <option value="Web_development">Web development</option>
+                        <option value="Robotics">Robotics</option>
+                        <option value="Finance">Finance</option>
+                        <option value="Nanoscience/Nanotechnology">Nanoscience/Nanotechnology</option>
+                        <option value="Embedded_System">Embedded System</option>
+                        <option value="AWS">AWS</option>
+                        <option value="Construction_planning">Construction planning</option>
+                        <option value="Machine_Learning">Machine Learning</option>
+                        <option value="App_Development">App Development</option>
+                        <option value="HR">HR</option>
+                        <option value="Hybrid_Electric_Vehicle">Hybrid Electric Vehicle</option>
+                        <option value="I.C.Engine">I.C. Engine</option>
                       </select>
 
                       <label htmlFor="branch">Which month you want to start with the program?:</label>
@@ -437,9 +453,9 @@ const ObForm = ({ enteredEmail }) => {
                         onChange={postUserData}
                       >
                         <option selected>Select Month</option>
-                        <option value="1st_year">February 2024</option>
-                        <option value="2nd_year">March 2024</option>
-                        <option value="3rd_year">April 2024</option>
+                        <option value="February 2024">February 2024</option>
+                        <option value="March 2024">March 2024</option>
+                        <option value="April 2024">April 2024</option>
                       </select>
                     </div>
 
@@ -457,8 +473,9 @@ const ObForm = ({ enteredEmail }) => {
                           type='text'
                           placeholder="Series Number"
                           name="add_on"
-                          className="form-control"
                           required
+                          pattern="[A-Za-z0-9]+"
+                          className="form-control"
                           value={userData.add_on}
                           onChange={postUserData}
                         />
