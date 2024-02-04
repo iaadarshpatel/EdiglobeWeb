@@ -153,8 +153,8 @@ const ObForm = ({ enteredEmail }) => {
       
       const userRef = push(ref(db, 'OB Form Data'));
       await set(userRef, {
-        Student_name: matchedName,
-        Student_email: matchedEmaild,
+        student_name: matchedName,
+        student_email: matchedEmaild,
         Student_phone: matchedPhone,
         college_email: userData.college_email,
         college_name: userData.college_name,
@@ -219,7 +219,7 @@ const ObForm = ({ enteredEmail }) => {
   //Checking array(True | False)
   const findObjectByEmail = (dataArray, email) => {
     if (Array.isArray(dataArray)) {
-      return dataArray.find(obj => obj.email.toLowerCase() === email.toLowerCase());
+      return dataArray.find(obj => obj.student_email && obj.student_email.toLowerCase() === email.toLowerCase());
     }
     return null;
   };
@@ -237,7 +237,7 @@ const ObForm = ({ enteredEmail }) => {
   useEffect(() => {
     const matchedObject = findObjectByEmail(data, enteredEmail);
     if (matchedObject) {
-      setmatchedEmaild(matchedObject.email);
+      setmatchedEmaild(matchedObject.student_email);
     } else {
       setmatchedEmaild('');
     }
