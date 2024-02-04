@@ -59,7 +59,7 @@ const ObForm = ({ enteredEmail }) => {
   const validatewhatsapp_phone = (whatsapp_phone) => {
     const phonePattern = /^\d{10}$/;
     if (!whatsapp_phone.match(phonePattern)) {
-      return 'Invalid phone number. Please enter 10 digits.';
+      return 'Please enter a 10-digit number starting with 6, 7, 8, or 9.';
     }
     return '';
   };
@@ -67,7 +67,7 @@ const ObForm = ({ enteredEmail }) => {
   const validatealternative_phone = (alternative_phone) => {
     const phonePattern = /^\d{10}$/;
     if (!alternative_phone.match(phonePattern)) {
-      return 'Invalid phone number. Please enter 10 digits.';
+      return 'Please enter a 10-digit number starting with 6, 7, 8, or 9.';
     }
     return '';
   };
@@ -173,7 +173,7 @@ const ObForm = ({ enteredEmail }) => {
       Swal.fire({
         icon: 'success',
         title: 'Success!',
-        text: 'Data submitted successfully!',
+        text: 'OB Form filled successfully!',
       });
 
       // Clear the form after successful submission
