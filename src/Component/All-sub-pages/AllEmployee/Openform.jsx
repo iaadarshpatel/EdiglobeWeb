@@ -60,7 +60,7 @@ const Openform = ({ enteredEmail, setEnteredEmail }) => {
     console.log(emails);
     console.log(enteredEmail);
     if (matchedObject) {
-      setDataError("Email already used to fill the form");
+      setDataError("Ob Form already filled");
       setEnteredEmail('');
       setTimeout(() => {
         setDataError('');
