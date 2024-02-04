@@ -13,14 +13,13 @@ import { push, ref, set } from "firebase/database";
 
 const ObForm = ({ enteredEmail }) => {
 
-  const [selected, setSelected] = useState('');
   const [load, setLoad] = useState(true);
   const [data, setData] = useState('');
   const [matchedName, setMatchedName] = useState('');
   const [matchedEmaild, setmatchedEmaild] = useState('');
   const [matchedPhone, setmatchedPhone] = useState('');
   const [matchedAddOn, setmatchedAddOn] = useState('');
-  console.log(matchedAddOn);
+  const [matchedreg_id, setmatchedreg_id] = useState('');
 
   //State for firebase
   const [userData, setUserData] = useState({
@@ -56,6 +55,7 @@ const ObForm = ({ enteredEmail }) => {
     validateField(name, value);
   };
 
+
   const validatewhatsapp_phone = (whatsapp_phone) => {
     const phonePattern = /^\d{10}$/;
     if (!whatsapp_phone.match(phonePattern)) {
@@ -73,9 +73,8 @@ const ObForm = ({ enteredEmail }) => {
   };
 
   const validateRegId = (reg_id) => {
-    const numericCount = (reg_id.match(/\d/g) || []).length;
-    if (numericCount < 5) {
-      return 'Invalid registration ID. It should contain at least 5 numeric characters.';
+    if (reg_id == "") {
+      return 'Reg_id should not be blank.';
     }
     return '';
   };
@@ -149,6 +148,11 @@ const ObForm = ({ enteredEmail }) => {
         (matchedAddOn == "Yes" && !userData.add_on)
       ) {
         throw new Error('Please fill in all required fields.');
+      }
+
+        // Check if reg_id matches matchedreg_id
+      else if (userData.reg_id !== matchedreg_id) {
+        throw new Error('Registration ID does not match.');
       }
       
       const userRef = push(ref(db, 'OB Form Data'));
@@ -224,6 +228,14 @@ const ObForm = ({ enteredEmail }) => {
     return null;
   };
 
+  useEffect(() => {
+    const matchedObject = findObjectByEmail(data, enteredEmail);
+    if (matchedObject) {
+      setmatchedreg_id(matchedObject.reg_id);
+    } else {
+      setmatchedreg_id('');
+    }
+  }, [data, enteredEmail]);
 
   useEffect(() => {
     const matchedObject = findObjectByEmail(data, enteredEmail);
@@ -372,6 +384,7 @@ const ObForm = ({ enteredEmail }) => {
                         value={userData.reg_id}
                         onChange={postUserData}
                         required />
+                        <small className='font-monospace mb-2'>Use the <b className='text-dark'>same</b> Reg.ID from your onboarding email.</small>
                       {errors.reg_id && <div className="error">{errors.reg_id}</div>}
                     </div>
 
@@ -459,9 +472,8 @@ const ObForm = ({ enteredEmail }) => {
                       </select>
                     </div>
 
-                    <hr />
                     {matchedAddOn === "Yes" ? (
-                      <div className="col-sm-6 add_on_certificate">
+                      <div className="col-sm-6 add_on_certificate mt-3">
                         <label htmlFor="certificate" id='remove-margin'>Add On Certificate:</label>
                         <small className='font-monospace mb-2'>Mention only Certificate <b className='text-dark'>Series Number</b> from
                           <a
