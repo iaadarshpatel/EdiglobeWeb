@@ -223,6 +223,7 @@ const ObForm = ({ enteredEmail }) => {
   //Checking array(True | False)
   const findObjectByEmail = (dataArray, email) => {
     if (Array.isArray(dataArray)) {
+      console.log("Obform", dataArray);
       return dataArray.find(obj => obj.student_email && obj.student_email.toLowerCase() === email.toLowerCase());
     }
     return null;

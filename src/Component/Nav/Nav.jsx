@@ -66,7 +66,6 @@ const Nav = () => {
                             <form className="d-flex">
                                 <button className="btn btn-outline-dark" type="submit">SignUp</button>
                                 <Link to='/AllEmployee'>
-                                
                                 <button className="btn btn-outline-dark ms-1 p-2" type="submit">Employee Portal</button>
                                 </Link>
                                 <Link to='/Openform'>

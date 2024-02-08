@@ -45,18 +45,20 @@ const Openform = ({ enteredEmail, setEnteredEmail }) => {
     const foundObject = dataArray.find(obj => obj.student_email && obj.student_email.toLowerCase() === email.toLowerCase());
   
     if (foundObject) {
+      console.log("Find object by email (true)");
       return true;
     }
+    console.log("Find object by email (false)");
     return false;
   };
-  
 
   const errorMessage = "Please enter your registered email-id or drop a mail on support@ediglobe.com"
 
   const handleCheckButtonClick = () => {
-    // Add your logic for checking the email
     const matchedObject = findObjectByEmail(emails, enteredEmail);
+    console.log(razorpayData);
     const matchedRazorpayObject = findObjectByEmail(razorpayData, enteredEmail);
+    console.log("Openform",matchedRazorpayObject);
   
     if (matchedRazorpayObject && !matchedObject) {
       setRedirectToObForm(true);
