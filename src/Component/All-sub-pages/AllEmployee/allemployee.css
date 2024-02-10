@@ -8,6 +8,10 @@
     border-radius: 5px;
   }
 
+.checkbtn:hover{
+    background-color: var(--text-color) !important;
+}
+
 
   .preloader-container {
     padding: 2rem !important;

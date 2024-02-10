@@ -57,7 +57,7 @@ const Management = () => {
             auth_name: "Cameron",
             user_icon: <FiUser />,
             like_icon: <FiHeart />,
-            link_path: ""
+            link_path: "/management/ba"
         },
         {
             id: 5,
@@ -68,7 +68,7 @@ const Management = () => {
             auth_name: "Cameron",
             user_icon: <FiUser />,
             like_icon: <FiHeart />,
-            link_path: ""
+            link_path: "/management/stockmarket"
         },
         {
             id: 6,

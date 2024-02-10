@@ -31,7 +31,8 @@ const ECE = () => {
             course_detail: "IoT (Internet of Things) is the interconnection of devices and objects via the internet, allowing them to collect and share data.",
             auth_name: "Aadarsh",
             user_icon: <FiUser />,
-            like_icon: <FiHeart />
+            like_icon: <FiHeart />,
+            link_path: "/ece/iot"
         },
         {
             id: 3,

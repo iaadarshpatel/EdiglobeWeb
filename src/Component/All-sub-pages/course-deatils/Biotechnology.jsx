@@ -30,7 +30,9 @@ const BioTechnology = () => {
       course_detail: "Nanotechnology is the manipulation of matter at the nanoscale, involving structures smaller than 100 nanometers.",
       auth_name: "Aadarsh",
       user_icon: <FiUser />,
-      like_icon: <FiHeart />
+      like_icon: <FiHeart />,
+      link_path: "/biotechnology/nanoscience"
+
     },
     {
       id: 3,

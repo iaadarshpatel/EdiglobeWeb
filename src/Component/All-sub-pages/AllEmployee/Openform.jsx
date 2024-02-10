@@ -12,6 +12,7 @@ const Openform = ({ enteredEmail, setEnteredEmail }) => {
   const [error, setError] = useState(true);
   const [dataError, setDataError] = useState();
   const [emails, setEmails] = useState([]);
+  const [inputValid, setInputValid] = useState('')
 
   useEffect(() => {
     setEnteredEmail('')
@@ -43,22 +44,19 @@ const Openform = ({ enteredEmail, setEnteredEmail }) => {
   // Function to find object by email in an array
   const findObjectByEmail = (dataArray, email) => {
     const foundObject = dataArray.find(obj => obj.student_email && obj.student_email.toLowerCase() === email.toLowerCase());
-  
     if (foundObject) {
-      console.log("Find object by email (true)");
       return true;
     }
-    console.log("Find object by email (false)");
     return false;
   };
 
+
   const errorMessage = "Please enter your registered email-id or drop a mail on support@ediglobe.com"
 
-  const handleCheckButtonClick = () => {
+  const handleCheckButtonClick = (event) => {
+    setInputValid(event.target.value)
     const matchedObject = findObjectByEmail(emails, enteredEmail);
-    console.log(razorpayData);
     const matchedRazorpayObject = findObjectByEmail(razorpayData, enteredEmail);
-    console.log("Openform",matchedRazorpayObject);
   
     if (matchedRazorpayObject && !matchedObject) {
       setRedirectToObForm(true);
@@ -95,6 +93,7 @@ const Openform = ({ enteredEmail, setEnteredEmail }) => {
         // Map over the array and extract the email property
         const emailArray = dataArray.map(([key, value]) => ({ student_email: value.student_email, index: key }));
         // Set the state with the array of emails
+        console.log(emailArray);
         setEmails(emailArray);
       }
     });
@@ -105,6 +104,8 @@ const Openform = ({ enteredEmail, setEnteredEmail }) => {
   if (redirectToObForm) {
     return <Navigate to="/ObForm" replace={true} />;
   }
+
+const isInputvalid = enteredEmail.includes("@")
 
   return (
     <>
@@ -150,7 +151,8 @@ const Openform = ({ enteredEmail, setEnteredEmail }) => {
                   />
                   <p className='text-danger' style={{ fontSize: "14px" }}>{dataError}</p>
                 </div>
-                <button className="btn primary-btn2" type='button' onClick={handleCheckButtonClick}>Check</button>
+                <button disabled={!isInputvalid || razorpayData==null || emails==null} id='checkbtn' 
+                className="checkbtn btn btn-outline-dark px-4 py-2" type='button' onClick={handleCheckButtonClick}>Check</button>
               </form>
             </div>
           </div>

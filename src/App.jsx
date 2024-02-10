@@ -21,7 +21,7 @@ import Refundpolicy from './Component/All-sub-pages/refundPolicy/Refundpolicy';
 import Dev from './Component/All-sub-pages/ComputerScience/Dev';
 import AllEmployee from './Component/All-sub-pages/AllEmployee/AllEmployee';
 import ObForm from './Component/All-sub-pages/AllEmployee/ObForm';
-import { ai, arvr, finance, machinelearning, webdev, staadpro, vlsi, aws, hr, bioinformatics,marketingmanagement, autocad, robotics, geneticengineering, digitalmarketing, appdev, cybersecurity } from './Component/All-sub-pages/ComputerScience/courseOutlineData';
+import { ai, arvr, finance, machinelearning, webdev, staadpro, vlsi, aws, hr, bioinformatics,marketingmanagement, autocad, robotics, geneticengineering, digitalmarketing, appdev, cybersecurity, ba, stockmarket, iot, nanoscience } from './Component/All-sub-pages/ComputerScience/courseOutlineData';
 import Openform from './Component/All-sub-pages/AllEmployee/Openform'
 import Preloader from './Component/All-sub-pages/AllEmployee/Preloader';
 import PointConfetti from './Component/All-sub-pages/AllEmployee/PointConfetti';
@@ -273,7 +273,78 @@ Digital marketing is a dynamic and strategic approach to promoting products or s
       course_outline: arvr,
       check_curriculum: "An AR/VR curriculum often covers topics like immersive technology basics, 3D modeling, programming languages (e.g., Unity, C#), spatial computing, user experience design, and creating interactive experiences.",
       download: ""
-    }
+    },
+    {
+      id: 18,
+      title: "Business Analytics",
+      course_desc: "Discover the immersive world: Building Business.",
+      objective: (
+        <>
+        The primary objective of Business Analytics is to harness data insights for informed decision-making, operational optimization, and sustainable business success. Decision support is a cornerstone, providing decision-makers with timely, accurate, and actionable insights derived from data analysis. These insights offer a deeper understanding of customer behavior, market trends, and operational performance, aligning decisions with strategic objectives.
+        </>
+      ),
+      eligibility: "Eligibility for Business Analytics courses typically requires a bachelor's degree in fields like business, economics, statistics, mathematics, or computer science, along with proficiency in quantitative subjects.",
+      course_outline: ba,
+      check_curriculum: "The Business Analytics curriculum blends statistical analysis, data mining, and business fundamentals, emphasizing practical skills for data-driven decision-making across industries.",
+      download: ""
+    },
+    {
+      id: 19,
+      title: "Stock Market",
+      course_desc: "The Stock Market course provides an in-depth understanding of financial markets.",
+      objective: (
+        <>
+        The primary objective of the stock market is to facilitate the buying and selling of securities (such as stocks and bonds) between investors, providing a platform for capital raising and wealth accumulation through investments in publicly traded companies.<b></b>
+        The primary objective of the stock market is to provide liquidity, price discovery, and capital formation, enabling investors to buy and sell securities efficiently, while companies can raise funds for growth and expansion through the sale of stocks.
+        </>
+      ),
+      eligibility: "Eligibility for a stock market course typically requires a basic understanding of finance, economics, and a high school diploma or equivalent.",
+      course_outline: stockmarket,
+      check_curriculum: "The stock market course curriculum includes basics of financial markets, stock analysis techniques, portfolio management strategies, trading tactics, and regulatory considerations. Students learn to understand, analyze, and engage in stock market activities efficiently.",
+      download: ""
+    },
+    {
+      id: 20,
+      title: "Internet Of Things",
+      course_desc: "IoT devices gather data from their surroundings through sensors and other means.",
+      objective: (
+        <>
+        The primary objective of the Internet of Things (IoT) is to enable everyday objects and devices to connect to the internet, allowing them to collect, exchange, and analyze data. By connecting physical objects to the digital world, IoT aims to create smarter, more efficient systems that can improve various aspects of life and business.
+        </>
+      ),
+      eligibility: "Eligibility for an Internet of Things course typically requires a relevant educational background in fields like computer science or engineering, along with a basic understanding of programming and technical concepts.",
+      course_outline: iot,
+      check_curriculum: "An IoT curriculum typically includes topics such as IoT architecture, embedded systems, networking protocols (Wi-Fi, Bluetooth, etc.), data analytics, security and privacy, cloud and edge computing, machine learning, IoT applications (smart cities, healthcare, etc.), and hands-on projects.",
+      download: ""
+    },
+    {
+      id: 21,
+      title: "Nanoscience/Nanotechnology",
+      course_desc: "This course provides an introduction to the fundamental principles and applications of nanoscience, focusing on the behavior of materials and systems at the nanoscale",
+      objective: (
+        <>
+        The primary objective of nanoscience and nanotechnology is to understand, manipulate, and utilize matter at the nanoscale (typically ranging from 1 to 100 nanometers) to develop innovative materials, devices, and systems with unique properties and functionalities. This interdisciplinary field aims to revolutionize various industries, including electronics, medicine, energy, and materials science, by exploiting the novel physical, chemical, and biological phenomena that occur at the nanoscale.
+        </>
+      ),
+      eligibility: "Eligibility for Nanoscience/Nanotechnology internships or courses typically requires candidates to have a background in fields like physics, chemistry, materials science, engineering, or biology. Candidates should have a good academic standing and may need to meet specific GPA requirements.",
+      course_outline: nanoscience,
+      check_curriculum: "The curriculum for a Nanoscience/Nanotechnology internship course typically covers fundamental concepts such as nanomaterial synthesis, characterization methods, nanofabrication techniques, nanodevices, nanobiotechnology applications.",
+      download: ""
+    },
+    {
+      id: 22,
+      title: "Construction Planning",
+      course_desc: "This course provides an introduction to the fundamental principles and applications of nanoscience, focusing on the behavior of materials and systems at the nanoscale",
+      objective: (
+        <>
+        The primary objective of nanoscience and nanotechnology is to understand, manipulate, and utilize matter at the nanoscale (typically ranging from 1 to 100 nanometers) to develop innovative materials, devices, and systems with unique properties and functionalities. This interdisciplinary field aims to revolutionize various industries, including electronics, medicine, energy, and materials science, by exploiting the novel physical, chemical, and biological phenomena that occur at the nanoscale.
+        </>
+      ),
+      eligibility: "Eligibility for Nanoscience/Nanotechnology internships or courses typically requires candidates to have a background in fields like physics, chemistry, materials science, engineering, or biology. Candidates should have a good academic standing and may need to meet specific GPA requirements.",
+      course_outline: nanoscience,
+      check_curriculum: "The curriculum for a Nanoscience/Nanotechnology internship course typically covers fundamental concepts such as nanomaterial synthesis, characterization methods, nanofabrication techniques, nanodevices, nanobiotechnology applications.",
+      download: ""
+    },
   ];
   
   return (
@@ -465,6 +536,51 @@ Digital marketing is a dynamic and strategic approach to promoting products or s
             course_outline={PropsDetails[16].course_outline}
             check_curriculum={PropsDetails[16].check_curriculum}
             download={PropsDetails[16].download}
+          />} />
+          <Route path='/management/ba' element={<Dev 
+            title={PropsDetails[17].title}
+            course_desc={PropsDetails[17].course_desc}
+            objective={PropsDetails[17].objective}
+            eligibility={PropsDetails[17].eligibility}
+            course_outline={PropsDetails[17].course_outline}
+            check_curriculum={PropsDetails[17].check_curriculum}
+            download={PropsDetails[17].download}
+          />} />
+          <Route path='/management/stockmarket' element={<Dev 
+            title={PropsDetails[18].title}
+            course_desc={PropsDetails[18].course_desc}
+            objective={PropsDetails[18].objective}
+            eligibility={PropsDetails[18].eligibility}
+            course_outline={PropsDetails[18].course_outline}
+            check_curriculum={PropsDetails[18].check_curriculum}
+            download={PropsDetails[18].download}
+          />} />
+          <Route path='/ece/iot' element={<Dev 
+            title={PropsDetails[19].title}
+            course_desc={PropsDetails[19].course_desc}
+            objective={PropsDetails[19].objective}
+            eligibility={PropsDetails[19].eligibility}
+            course_outline={PropsDetails[19].course_outline}
+            check_curriculum={PropsDetails[19].check_curriculum}
+            download={PropsDetails[19].download}
+          />} />
+          <Route path='/biotechnology/nanoscience' element={<Dev 
+            title={PropsDetails[20].title}
+            course_desc={PropsDetails[20].course_desc}
+            objective={PropsDetails[20].objective}
+            eligibility={PropsDetails[20].eligibility}
+            course_outline={PropsDetails[20].course_outline}
+            check_curriculum={PropsDetails[20].check_curriculum}
+            download={PropsDetails[20].download}
+          />} />
+          <Route path='/civil/cp' element={<Dev 
+            title={PropsDetails[21].title}
+            course_desc={PropsDetails[21].course_desc}
+            objective={PropsDetails[21].objective}
+            eligibility={PropsDetails[21].eligibility}
+            course_outline={PropsDetails[21].course_outline}
+            check_curriculum={PropsDetails[21].check_curriculum}
+            download={PropsDetails[21].download}
           />} />
             
       </Routes>

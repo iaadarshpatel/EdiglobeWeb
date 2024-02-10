@@ -1,19 +1,24 @@
 export const myCourseOutlineData = [
   {
     "id": 1,
-    "question": "Inventory Management ",
-    "answer": "Inventory management is the process of overseeing and controlling the flow of goods and products within a business. It involves maintaining optimal stock levels, tracking inventory movements, and ensuring timely restocking to meet customer demand while minimizing carrying costs and stockouts"
+    "question": "Time Value of Money ",
+    "answer": "Understanding the Time Value of Money (TVM) Power of Compounding (8th Wonder of World) Why the TVM is important in Business & Financial Planning"
   },
   {
     "id": 2,
-    "question": "Trade Receivable Management",
-    "answer": "Trade receivable management involves overseeing and optimizing a company's accounts receivable. It includes strategies for efficient billing, credit terms, collection procedures, and maintaining positive customer relationships. Effective management ensures a steady cash flow and minimizes the risk of bad debts"
+    "question": "Basic Microsoft Excel for Finance",
+    "answer": "Work Sheet Functions for Data Analysis & Evaluation Filtering, Sorting & Pivot Table,Left, Mid, Right, Text to Columns"
   },
   {
     "id": 3,
-    "question": "Cash Management",
-    "answer": "Cash management involves monitoring, controlling, and optimizing the use of cash within a business. It includes activities such as budgeting, forecasting, liquidity management, and optimizing cash flow to meet short-term financial obligations while maximizing returns on excess cash. \r"
+    "question": "Real Time Stock Prices",
+    "answer": "How to Pull a Real Time Stock Prices in Excel. \r"
   },
+  {
+    "id": 4,
+    "question": "Understanding Balance Sheet",
+    "answer": "How to Read Balance for Business Point of View. What are the Information Available in Balance Sheet? Financial Weakness & Strength How Analyze from Balance Sheet . \r"
+    },
   {
     "id": 4,
     "question": "Introduction of staadpro",
@@ -468,6 +473,16 @@ export const myCourseOutlineData = [
     "id": 94,
     "question": "React JS",
     "answer": "Learn the foundations of React JS through hands-on exploration of JSX, containers, class components, and functional components."
+  },
+  {
+    "id": 95,
+    "question": "STP",
+    "answer": "Recognizing the basics of marketing, segmentation, targeting, and positioning. Overview of Market Mix."
+  },
+  {
+    "id": 96,
+    "question": "Market Research",
+    "answer": "Being aware of the steps involved in conducting market research as well as the methods used."
   }
 ];
 
@@ -477,7 +492,7 @@ export const vlsi = myCourseOutlineData.slice(8, 11);
 export const aws = myCourseOutlineData.slice(12, 15);
 export const hr = myCourseOutlineData.slice(16, 19);
 export const bioinformatics = myCourseOutlineData.slice(20, 23);
-export const marketingmanagement = myCourseOutlineData.slice(24, 27);
+export const marketingmanagement = myCourseOutlineData.slice(23, 27);
 export const autocad = myCourseOutlineData.slice(28, 31);
 export const embeddedsystem = myCourseOutlineData.slice(32, 35);
 export const robotics = myCourseOutlineData.slice(36, 39);
@@ -490,4 +505,8 @@ export const machinelearning = myCourseOutlineData.slice(64, 71);
 export const ai = myCourseOutlineData.slice(72, 78);
 export const arvr = myCourseOutlineData.slice(79, 87);
 export const webdev = myCourseOutlineData.slice(87, 95);
+export const ba = myCourseOutlineData.slice(87, 95);
+export const stockmarket = myCourseOutlineData.slice(87, 95);
+export const iot = myCourseOutlineData.slice(87, 95);
+export const nanoscience = myCourseOutlineData.slice(87, 95);
 
