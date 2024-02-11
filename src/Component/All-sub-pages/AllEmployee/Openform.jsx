@@ -93,7 +93,6 @@ const Openform = ({ enteredEmail, setEnteredEmail }) => {
         // Map over the array and extract the email property
         const emailArray = dataArray.map(([key, value]) => ({ student_email: value.student_email, index: key }));
         // Set the state with the array of emails
-        console.log(emailArray);
         setEmails(emailArray);
       }
     });
