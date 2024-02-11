@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Home from './Home';
 import About from './Component/aboutUs/about';
 import TermsCondition from './Component/TermsCondition/TermsCondition';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, HashRouter } from 'react-router-dom';
 import FaqPage from './Component/FaqPage/FaqPage';
 import Privacy from './Component/Privacy-Policy/Privacy';
 import Contact from './Component/ContactUs/Contact';
@@ -348,7 +348,7 @@ Digital marketing is a dynamic and strategic approach to promoting products or s
   ];
   
   return (
-    <BrowserRouter>
+    <HashRouter>
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/home' element={<Home />} />
@@ -582,9 +582,8 @@ Digital marketing is a dynamic and strategic approach to promoting products or s
             check_curriculum={PropsDetails[21].check_curriculum}
             download={PropsDetails[21].download}
           />} />
-            
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 

@@ -32,9 +32,9 @@ const Nav = () => {
             <section className="navbar-bg">
                 <nav className={`navbar  navbar-expand-lg navbar-light ${colorChange ? 'navbar colorChange' : 'navbar'}`}>
                     <div className="container">
-                    <Link to="/">
+                    <a href="https://ediglobe.com"  rel="noopener noreferrer">
                     <img src={logo} alt="course_pic" />
-                  </Link>
+                    </a>
                         <button className="navbar-toggler"
                             type="button"
                             data-bs-toggle="collapse"
