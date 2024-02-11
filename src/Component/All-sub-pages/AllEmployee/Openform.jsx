@@ -106,6 +106,10 @@ const Openform = ({ enteredEmail, setEnteredEmail }) => {
   }
 
 const isInputvalid = enteredEmail.includes("@")
+const buttonColor = {
+  backgroundColor: 'var(--text-color)', 
+  color: 'white'
+};
 
   return (
     <>
@@ -151,8 +155,15 @@ const isInputvalid = enteredEmail.includes("@")
                   />
                   <p className='text-danger' style={{ fontSize: "14px" }}>{dataError}</p>
                 </div>
-                <button disabled={!isInputvalid || razorpayData==null || emails==null} id='checkbtn' 
-                className="checkbtn btn btn-outline-dark px-4 py-2" type='button' onClick={handleCheckButtonClick}>Check</button>
+                <button 
+                    disabled={!isInputvalid || razorpayData == null || emails == null} 
+                    id='checkbtn'
+                    className={`checkbtn btn`}
+                    style={buttonColor}
+                    type='button'
+                    onClick={handleCheckButtonClick}>
+                    Check
+                  </button>
               </form>
             </div>
           </div>
