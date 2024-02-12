@@ -3,7 +3,7 @@ import './expert.css';
 import t1 from '../../assets/trainer/jyoti.png';
 import t2 from '../../assets/trainer/ansh.jpg';
 import t3 from '../../assets/trainer/divya.jpg';
-import t4 from '../../assets/trainer/Shabnoor.jpeg';
+import t4 from '../../assets/trainer/raj.jpg';
 
 
 const data = [
@@ -35,10 +35,10 @@ const data = [
   {
     id: 4,
     Image: t4,
-    mentorname: "Shabnoor",
-    designation: "Backend Developer",
-    aboutmentor: "Guiding backend devs to successful careers ",
-    url: "https://www.linkedin.com/in/shabnoor-parveen-8b5854193/"
+    mentorname: "Abhishek Raj",
+    designation: "Data Scientist",
+    aboutmentor: "Let's talk about Data Science and Artifical Intelligence",
+    url: "https://www.linkedin.com/in/abhishek-raj-permani-495483156/"
 
   }]
 
