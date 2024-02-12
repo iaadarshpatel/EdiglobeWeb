@@ -3,9 +3,9 @@ import { getDatabase  } from "firebase/database";
 
 
 const firebaseConfig = {
-  apiKey: "AIzaSyAN0ZvG_xGj7pFzpPp4HKKYG5EAT0dpCGM",
-  authDomain: "onboarding-b9e49.firebaseapp.com",
-  databaseURL: "https://onboarding-b9e49-default-rtdb.firebaseio.com",
+  apiKey: process.env.REACT_apiKey,
+  authDomain: process.env.REACT_authDomain,
+  databaseURL: process.env.REACT_databaseURL,
   projectId: "onboarding-b9e49",
   storageBucket: "onboarding-b9e49.appspot.com",
   messagingSenderId: "779678839483",
