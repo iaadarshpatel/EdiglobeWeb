@@ -40,7 +40,7 @@ const RegistrationForm = () => {
   };
 
   const validatePhone = (phone) => {
-    const phonePattern = /^\d{10}$/;
+    const phonePattern = /^[6-9]\d{9}$/;
     if (!phone.match(phonePattern)) {
       return 'Invalid phone number. Please enter 10 digits.';
     }
@@ -72,49 +72,56 @@ const RegistrationForm = () => {
   };
 
   // Connect with Firebase
-  const submitRCDData = async (event) => {
-    event.preventDefault();
-    try {
-      const currentDateTime = new Date().toLocaleString();
+// Connect with Firebase
+const submitRCDData = async (event) => {
+  event.preventDefault();
+  try {
+    const currentDateTime = new Date().toLocaleString();
 
-      // Check if any required field is empty
-      if (!userData.fullName || !userData.phone || !userData.email || !userData.course) {
-        throw new Error('Please fill in all required fields.');
-      }
-
-      const userRef = push(ref(db, 'RCB Leads'));
-
-      await set(userRef, {
-        fullName: userData.fullName,
-        phone: userData.phone,
-        email: userData.email,
-        course: userData.course,
-        date: currentDateTime,
-      });
-
-      Swal.fire({
-        icon: 'success',
-        title: 'Success!',
-        text: 'Data submitted successfully!',
-      });
-
-      // Clear the form after successful submission
-      setUserData({
-        fullName: '',
-        phone: '',
-        email: '',
-        course: '',
-      });
-    } catch (error) {
-      console.error('Error submitting data: ', error.message);
-
-      Swal.fire({
-        icon: 'error',
-        title: 'Submission Error',
-        text: error.message || 'There was an error submitting the data. Please try again later.',
-      });
+    // Check if any required field is empty
+    if (!userData.fullName || !userData.phone || !userData.email || !userData.course) {
+      throw new Error('Please fill in all required fields.');
     }
-  };
+
+    // Check if there are any validation errors
+    if (errors.fullName || errors.phone || errors.email) {
+      throw new Error('Please fix validation errors before submitting.');
+    }
+
+    const userRef = push(ref(db, 'RCB Leads'));
+
+    await set(userRef, {
+      fullName: userData.fullName,
+      phone: userData.phone,
+      email: userData.email,
+      course: userData.course,
+      date: currentDateTime,
+    });
+
+    Swal.fire({
+      icon: 'success',
+      title: 'Success!',
+      text: 'Data submitted successfully!',
+    });
+
+    // Clear the form after successful submission
+    setUserData({
+      fullName: '',
+      phone: '',
+      email: '',
+      course: '',
+    });
+  } catch (error) {
+    console.error('Error submitting data: ', error.message);
+
+    Swal.fire({
+      icon: 'error',
+      title: 'Submission Error',
+      text: error.message || 'There was an error submitting the data. Please try again later.',
+    });
+  }
+};
+
 
   const fetchData = async (event) => {
     event.preventDefault();
@@ -161,10 +168,10 @@ const RegistrationForm = () => {
                 <input name="fullName" placeholder="Your Name" value={userData.fullName} onChange={postUserData} required pattern="[A-Za-z ]*" />
                 {errors.fullName && <div className="error">{errors.fullName}</div>}
 
-                <input name="phone" placeholder="Your Phone Number" value={userData.phone} onChange={postUserData} required pattern="[0-9]{10}" />
+                <input name="phone" placeholder="Your Phone Number" value={userData.phone} onChange={postUserData} />
                 {errors.phone && <div className="error">{errors.phone}</div>}
 
-                <input name="email" placeholder="Your Email Address" value={userData.email} onChange={postUserData} required pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$" type="email" />
+                <input name="email"  type="email" placeholder="Your Email Address" value={userData.email} onChange={postUserData} required pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$"/>
                 {errors.email && <div className="error">{errors.email}</div>}
 
                 <select

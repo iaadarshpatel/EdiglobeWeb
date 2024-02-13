@@ -2,15 +2,20 @@ import React, { useState, useEffect } from 'react';
 import Confetti from 'react-confetti';
 
 const PointConfetti = () => {
-  const [screenSize, setScreenSize] = useState({ width: window.innerWidth, height: window.innerHeight });
   const [showConfetti, setShowConfetti] = useState(true);
+  const [confettiHeight, setConfettiHeight] = useState(window.innerHeight);
 
   useEffect(() => {
     const handleResize = () => {
-      setScreenSize({ width: window.innerWidth, height: window.innerHeight });
+      // Update the confetti height on window resize
+      setConfettiHeight(Math.max(window.innerHeight, document.documentElement.scrollHeight));
     };
 
+    // Listen for window resize events
     window.addEventListener('resize', handleResize);
+
+    // Set the initial confetti height
+    setConfettiHeight(Math.max(window.innerHeight, document.documentElement.scrollHeight));
 
     const timer = setTimeout(() => {
       setShowConfetti(false);
@@ -27,8 +32,8 @@ const PointConfetti = () => {
     <>
       {showConfetti && (
         <Confetti
-          width={screenSize.width}
-          height={screenSize.height}
+          width={window.innerWidth}
+          height={confettiHeight}
           gravity={0.2} // Adjust the gravity to control the downward acceleration
           numberOfPieces={200} // Increase the number of pieces to create more confetti
           drawShape={(ctx) => {

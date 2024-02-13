@@ -57,7 +57,7 @@ const ObForm = ({ enteredEmail }) => {
 
 
   const validatewhatsapp_phone = (whatsapp_phone) => {
-    const phonePattern = /^\d{10}$/;
+    const phonePattern = /^[6-9]\d{9}$/;
     if (!whatsapp_phone.match(phonePattern)) {
       return 'Please enter a 10-digit number starting with 6, 7, 8, or 9.';
     }
@@ -65,7 +65,7 @@ const ObForm = ({ enteredEmail }) => {
   };
 
   const validatealternative_phone = (alternative_phone) => {
-    const phonePattern = /^\d{10}$/;
+    const phonePattern = /^[6-9]\d{9}$/;
     if (!alternative_phone.match(phonePattern)) {
       return 'Please enter a 10-digit number starting with 6, 7, 8, or 9.';
     }
@@ -82,7 +82,7 @@ const ObForm = ({ enteredEmail }) => {
   const validateEmail = (college_email) => {
     const emailPattern = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$/;
     if (!college_email.match(emailPattern)) {
-      return 'Invalid email address.';
+      return 'Invalid college email address.';
     }
     return '';
   };
@@ -121,7 +121,6 @@ const ObForm = ({ enteredEmail }) => {
       case 'add_on':
         setErrors({ ...errors, add_on: validateAddOn(value) });
         break;
-        
       default:
         break;
     }
@@ -148,6 +147,10 @@ const ObForm = ({ enteredEmail }) => {
         (matchedAddOn == "Yes" && !userData.add_on)
       ) {
         throw new Error('Please fill in all required fields.');
+      }
+
+      if (errors.college_email || errors.whatsapp_phone || errors.alternative_phone|| errors.college_name) {
+        throw new Error('Please fix validation errors before submitting.');
       }
 
         // Check if reg_id matches matchedreg_id
@@ -332,9 +335,9 @@ const ObForm = ({ enteredEmail }) => {
                         name="college_email"
                         className="form-control"
                         value={userData.college_email}
-                        onChange={postUserData}
-                        pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$" 
-                        required/>
+                        required
+                        onChange={postUserData} 
+                        pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$"/>
                       {errors.college_email && <div className="error">{errors.college_email}</div>}
 
                       <label htmlFor="college">College Name:</label>
@@ -373,8 +376,7 @@ const ObForm = ({ enteredEmail }) => {
                         className="form-control"
                         value={userData.alternative_phone}
                         onChange={postUserData}
-                        required
-                        pattern="[0-9]{10}" />
+                        required pattern="[6-9][0-9]{9}" />
                       {errors.alternative_phone && <div className="error">{errors.alternative_phone}</div>}
 
                       <label htmlFor="text">Registration Id:</label>
@@ -398,7 +400,7 @@ const ObForm = ({ enteredEmail }) => {
                         value={userData.whatsapp_phone}
                         onChange={postUserData}
                         required
-                        pattern="[0-9]{10}" />
+                        pattern="[6-9][0-9]{9}" />
                       {errors.whatsapp_phone && <div className="error">{errors.whatsapp_phone}</div>}
 
                       <label htmlFor="branch">Branch Of Study:</label>
@@ -466,9 +468,9 @@ const ObForm = ({ enteredEmail }) => {
                         onChange={postUserData}
                       >
                         <option selected>Select Month</option>
-                        <option value="February 2024">February 2024</option>
                         <option value="March 2024">March 2024</option>
                         <option value="April 2024">April 2024</option>
+                        <option value="May 2024">May 2024</option>
                       </select>
                     </div>
 

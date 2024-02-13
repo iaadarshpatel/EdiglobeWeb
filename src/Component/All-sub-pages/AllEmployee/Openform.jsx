@@ -12,7 +12,7 @@ const Openform = ({ enteredEmail, setEnteredEmail }) => {
   const [error, setError] = useState(true);
   const [dataError, setDataError] = useState();
   const [emails, setEmails] = useState([]);
-  const [inputValid, setInputValid] = useState('')
+  const [inputValid, setInputValid] = useState('');
 
   useEffect(() => {
     setEnteredEmail('')
@@ -49,7 +49,6 @@ const Openform = ({ enteredEmail, setEnteredEmail }) => {
     }
     return false;
   };
-
 
   const errorMessage = "Please enter your registered email-id or drop a mail on support@ediglobe.com"
 
@@ -162,7 +161,7 @@ const buttonColor = {
                     type='button'
                     onClick={handleCheckButtonClick}>
                     Check
-                  </button>
+                    </button>
               </form>
             </div>
           </div>
