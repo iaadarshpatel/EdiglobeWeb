@@ -32,7 +32,7 @@ const Footer = () => {
 <br />
             <li className='about-details'>
               <span>
-                <BiSolidPhoneCall style={color} className='phone-icon' /><a>+91 9113211755</a>
+                <BiSolidPhoneCall style={color} className='phone-icon' /><a>+91 9113214130</a>
               </span>
             </li>
             <li className='about-details'>

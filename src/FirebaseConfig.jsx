@@ -1,7 +1,6 @@
 import { initializeApp } from "firebase/app";
 import { getDatabase  } from "firebase/database";
 
-
 const firebaseConfig = {
   apiKey: process.env.REACT_apiKey,
   authDomain: process.env.REACT_authDomain,
@@ -13,8 +12,6 @@ const firebaseConfig = {
 };
 
 
-
-  
   // Initialize Firebase
   const app = initializeApp(firebaseConfig);
   const db = getDatabase(app)
