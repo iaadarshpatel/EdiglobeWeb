@@ -19,7 +19,7 @@ const ObForm = ({ enteredEmail }) => {
   const [matchedEmaild, setmatchedEmaild] = useState('');
   const [matchedPhone, setmatchedPhone] = useState('');
   const [matchedAddOn, setmatchedAddOn] = useState('');
-  const [matchedreg_id, setmatchedreg_id] = useState('');
+  // const [matchedreg_id, setmatchedreg_id] = useState('');
 
   //State for firebase
   const [userData, setUserData] = useState({
@@ -31,7 +31,7 @@ const ObForm = ({ enteredEmail }) => {
     year_of_study: "",
     internship_prog: "",
     internship_month: "",
-    reg_id: "",
+    // reg_id: "",
     add_on: "",
   });
 
@@ -39,7 +39,7 @@ const ObForm = ({ enteredEmail }) => {
     college_email: "",
     whatsapp_phone: "",
     alternative_phone: "",
-    reg_id: "",
+    // reg_id: "",
     add_on: "",
     college_name: "",
   });
@@ -72,12 +72,12 @@ const ObForm = ({ enteredEmail }) => {
     return '';
   };
 
-  const validateRegId = (reg_id) => {
-    if (reg_id == "") {
-      return 'Reg_id should not be blank.';
-    }
-    return '';
-  };
+  // const validateRegId = (reg_id) => {
+  //   if (reg_id == "") {
+  //     return 'Reg_id should not be blank.';
+  //   }
+  //   return '';
+  // };
 
   const validateEmail = (college_email) => {
     const emailPattern = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$/;
@@ -112,9 +112,9 @@ const ObForm = ({ enteredEmail }) => {
       case 'college_name':
         setErrors({ ...errors, college_name: validateCollegeName(value) });
         break;
-      case 'reg_id':
-        setErrors({ ...errors, reg_id: validateRegId(value) });
-        break;
+      // case 'reg_id':
+      //   setErrors({ ...errors, reg_id: validateRegId(value) });
+      //   break;
       case 'college_email':
         setErrors({ ...errors, college_email: validateEmail(value) });
         break;
@@ -141,7 +141,7 @@ const ObForm = ({ enteredEmail }) => {
         !userData.college_name ||
         !userData.branch_of_study ||
         !userData.year_of_study ||
-        !userData.reg_id ||
+        // !userData.reg_id ||
         !userData.internship_month ||
         !userData.internship_prog ||
         (matchedAddOn == "Yes" && !userData.add_on)
@@ -154,9 +154,9 @@ const ObForm = ({ enteredEmail }) => {
       }
 
         // Check if reg_id matches matchedreg_id
-      else if (userData.reg_id !== matchedreg_id) {
-        throw new Error('Registration ID does not match.');
-      }
+      // else if (userData.reg_id !== matchedreg_id) {
+      //   throw new Error('Registration ID does not match.');
+      // }
       
       const userRef = push(ref(db, 'OB Form Data'));
       await set(userRef, {
@@ -171,7 +171,7 @@ const ObForm = ({ enteredEmail }) => {
         year_of_study: userData.year_of_study,
         internship_prog: userData.internship_prog,
         internship_month: userData.internship_month,
-        reg_id: userData.reg_id,
+        // reg_id: userData.reg_id,
         Opted_AddOn: matchedAddOn,
         add_on: userData.add_on,
         date: currentDateTime,
@@ -193,7 +193,7 @@ const ObForm = ({ enteredEmail }) => {
         year_of_study: "",
         internship_prog: "",
         internship_month: "",
-        reg_id: "",
+        // reg_id: "",
         add_on: "",
       });
       navigate('/Openform', { replace: true });  // Use navigate to redirect
@@ -231,14 +231,14 @@ const ObForm = ({ enteredEmail }) => {
     return null;
   };
 
-  useEffect(() => {
-    const matchedObject = findObjectByEmail(data, enteredEmail);
-    if (matchedObject) {
-      setmatchedreg_id(matchedObject.reg_id);
-    } else {
-      setmatchedreg_id('');
-    }
-  }, [data, enteredEmail]);
+  // useEffect(() => {
+  //   const matchedObject = findObjectByEmail(data, enteredEmail);
+  //   if (matchedObject) {
+  //     setmatchedreg_id(matchedObject.reg_id);
+  //   } else {
+  //     setmatchedreg_id('');
+  //   }
+  // }, [data, enteredEmail]);
 
   useEffect(() => {
     const matchedObject = findObjectByEmail(data, enteredEmail);
@@ -379,15 +379,6 @@ const ObForm = ({ enteredEmail }) => {
                         required pattern="[6-9][0-9]{9}" />
                       {errors.alternative_phone && <div className="error">{errors.alternative_phone}</div>}
 
-                      <label htmlFor="text">Registration Id:</label>
-                      <input placeholder="Registration Id"
-                        name="reg_id"
-                        className="form-control"
-                        value={userData.reg_id}
-                        onChange={postUserData}
-                        required />
-                        <small className='font-monospace mb-2'>Use the <b className='text-dark'>same</b> Reg.ID from your onboarding email.</small>
-                      {errors.reg_id && <div className="error">{errors.reg_id}</div>}
                     </div>
 
                     <div className="col-sm-6">
