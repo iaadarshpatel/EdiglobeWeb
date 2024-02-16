@@ -447,6 +447,8 @@ const ObForm = ({ enteredEmail }) => {
                         <option value="HR">HR</option>
                         <option value="Hybrid_Electric_Vehicle">Hybrid Electric Vehicle</option>
                         <option value="I.C.Engine">I.C. Engine</option>
+                        <option value="AutoCad">AutoCad</option>
+                        <option value="Car_Designing">Car Designing</option>
                       </select>
 
                       <label htmlFor="branch">Which month you want to start with the program?:</label>
