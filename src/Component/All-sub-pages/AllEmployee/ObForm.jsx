@@ -451,7 +451,7 @@ const ObForm = ({ enteredEmail }) => {
                         <option value="Car_Designing">Car Designing</option>
                       </select>
 
-                      <label htmlFor="branch">Which month you want to start with the program?:</label>
+                      <label htmlFor="branch">Which month you want to start with the program?</label>
                       <select
                         className="form-select"
                         name='internship_month'

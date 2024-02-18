@@ -181,10 +181,30 @@ const submitRCDData = async (event) => {
                   value={userData.course}
                   onChange={postUserData}>
                   <option value="" disabled>Select a course</option>
-                  <option value="Web Development">Web Development</option>
-                  <option value="Digital Marketing">Digital Marketing</option>
-                  <option value="Machine Learning">Machine Learning</option>
-                  <option value="Artificial Intelligence">Artificial Intelligence</option>
+                  <option value="Business Analytics">Business Analytics</option>
+                        <option value="Stock_Marketing">Stock Marketing</option>
+                        <option value="Cyber_Security">Cyber Security</option>
+                        <option value="Digital_Marketing">Digital Marketing</option>
+                        <option value="VLSI">VLSI</option>
+                        <option value="Genetic_Engineering">Genetic Engineering</option>
+                        <option value="Data_Science">Data Science</option>
+                        <option value="Bioinformatics">Bioinformatics</option>
+                        <option value="Artificial_Intelligence">Artificial Intelligence</option>
+                        <option value="Internet_of_Things">Internet of Things</option>
+                        <option value="Web_development">Web development</option>
+                        <option value="Robotics">Robotics</option>
+                        <option value="Finance">Finance</option>
+                        <option value="Nanoscience/Nanotechnology">Nanoscience/Nanotechnology</option>
+                        <option value="Embedded_System">Embedded System</option>
+                        <option value="AWS">AWS</option>
+                        <option value="Construction_planning">Construction planning</option>
+                        <option value="Machine_Learning">Machine Learning</option>
+                        <option value="App_Development">App Development</option>
+                        <option value="HR">HR</option>
+                        <option value="Hybrid_Electric_Vehicle">Hybrid Electric Vehicle</option>
+                        <option value="I.C.Engine">I.C. Engine</option>
+                        <option value="AutoCad">AutoCad</option>
+                        <option value="Car_Designing">Car Designing</option>
                 </select>
               </div>
               <div className="text-center">
