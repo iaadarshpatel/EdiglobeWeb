@@ -148,7 +148,7 @@ const submitRCDData = async (event) => {
     <>
       <div className="col-lg-4 offset-lg-1">
         <div className="register_form">
-          <h3>Enroll Now</h3>
+          <h3>Request Call Back</h3>
           <p>It is high time for learning</p>
           {rcbData && (
             <div>
