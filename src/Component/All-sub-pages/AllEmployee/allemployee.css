@@ -2,6 +2,12 @@
     width: 5px;
 }
 
+iframe{
+    padding-left: 10%;
+    padding-right: 10%;
+    scroll-behavior: unset;
+}
+
 /* Handle of the scrollbar */
 ::-webkit-scrollbar-thumb {
     background-color: var(--text-color);

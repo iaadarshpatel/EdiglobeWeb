@@ -52,12 +52,16 @@ label {
     background-color: #f9f9f9;
     list-style: none;
     background: #f9f9f9;
-    padding: 10px 22px;
+    /* padding: 10px 22px; */
     /* margin-bottom: 10px; */
 }
 
 input {
-    background-color: #f9f9f9;
+    border: none;
+    border-bottom: 1px solid var(--text-color);
+    padding: 8px;
+    width: 100%;
+    /* background-color: #f9f9f9; */
 }
 
 
