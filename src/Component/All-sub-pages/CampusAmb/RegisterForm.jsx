@@ -96,6 +96,9 @@ const RegisterForm = ({ containerClass }) => {
                 if (!userData.fullName || !userData.phone || !userData.email || !userData.college || !userData.graduation_year) {
                     throw new Error('Please fill in all required fields.');
                 }
+                if (errors.fullName || errors.phone || errors.email|| errors.college || errors.graduation_year) {
+                    throw new Error('Please fix validation errors before submitting.');
+                  }
                 
             const currentDateTime = new Date().toLocaleString();
             const userRef = push(ref(db, 'Campus Ambassador')); 
