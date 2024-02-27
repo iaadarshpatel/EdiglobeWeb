@@ -147,7 +147,6 @@ const AllEmployee = () => {
                 <div className="col-lg-4 mb-2" key={id}>
                   <div className="blog_right_sidebar rounded position-relative">
                     
-
                   <div className={`spinner-grow ${
                     working_status === "Currently Working"
                       ? "bg-success bg-opacity-25"

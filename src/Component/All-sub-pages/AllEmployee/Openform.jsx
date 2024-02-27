@@ -36,7 +36,7 @@
 
     const handleKeyDown = (event) => {
       if (event.key === 'Enter') {
-        event.preventDefault(); // Prevent the default behavior (e.g., form submission)
+        event.preventDefault(); 
         handleCheckButtonClick();
       }
     };
@@ -167,7 +167,6 @@
               </div>
             </div>
             <div className="text-center mt-2">
-
             </div>
           </div>
         </section >

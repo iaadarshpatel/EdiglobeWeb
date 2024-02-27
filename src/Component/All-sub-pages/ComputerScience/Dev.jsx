@@ -129,16 +129,16 @@ function Dev({ title, course_desc, objective, eligibility, check_curriculum, cou
                         </div>
                         <div className="col-lg-4 right-contents">
                             <form className='shadow p-1 mb-5 bg-body'>
-                                <label className="justify-content-between rcb_call d-flex">
+                                <label className="justify-content-between form-label rcb_call d-flex">
                                     <input type="text" placeholder="Full Name" />
                                 </label>
-                                <label className="justify-content-between rcb_call d-flex">
+                                <label className="justify-content-between form-label rcb_call d-flex">
                                     <input type="text" placeholder="Email" />
                                 </label>
-                                <label className="justify-content-between rcb_call d-flex">
+                                <label className="justify-content-between form-label rcb_call d-flex">
                                     <input type="text" placeholder="Contact Number" />
                                 </label>
-                                <label className="justify-content-between rcb_call d-flex">
+                                <label className="justify-content-between form-label rcb_call d-flex">
                                     <input type="text" placeholder="Institue Name" />
                                 </label>
                                 <a className="primary-btn2 text-uppercase enroll rounded-0">
