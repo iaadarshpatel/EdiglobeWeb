@@ -461,9 +461,9 @@ const ObForm = ({ enteredEmail }) => {
                         onChange={postUserData}
                       >
                         <option selected>Select Month</option>
-                        <option value="March 2024">March 2024</option>
                         <option value="April 2024">April 2024</option>
                         <option value="May 2024">May 2024</option>
+                        <option value="June 2024">June 2024</option>
                       </select>
                     </div>
 
