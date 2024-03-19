@@ -14,6 +14,18 @@
     /* max-height: 80px; */
 }
 
+#student-dropdown .student-focus:focus{
+    background-color: var(--text-color);
+    color: var(--bgcolor);
+}
+
+#student-dashboard-btn button:hover,
+#student-dashboard-btn button:focus,
+#student-dashboard-btn button:active{
+    background-color: var(--text-color);
+    color: #fff;
+}
+
 /* 
 .logo a{
     text-decoration: none;

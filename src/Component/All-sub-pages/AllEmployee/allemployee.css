@@ -390,7 +390,7 @@ iframe{
 }
 
 label {
-    background: none;
+    background: none !important;
     color: #002347;
     padding-left: 5px;
     margin: 0px;

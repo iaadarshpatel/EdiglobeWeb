@@ -11,7 +11,7 @@ const Pricing = () => {
           id: 1,
           price: "5000",
           dynamicColor: "#016ca5",
-          course_type: "Self Paced",
+          course_type: "Self Learning",
           course_description: [
             {
               course_desc_1: "30+ hrs Recorded Session",
@@ -31,7 +31,7 @@ const Pricing = () => {
         {
           id: 2,
           price: "7000",
-          course_type: "Mentor Led",
+          course_type: "Expert Led learning",
           course_description: [
             {
               course_desc_1: "16-24 hrs live interactive sessions",

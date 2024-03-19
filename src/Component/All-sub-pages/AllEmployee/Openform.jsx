@@ -55,6 +55,7 @@
     const handleCheckButtonClick = (event) => {
       setInputValid(event.target.value)
       const matchedObject = findObjectByEmail(emails, enteredEmail);
+      console.log(emails);
       const matchedRazorpayObject = findObjectByEmail(razorpayData, enteredEmail);
     
       if (matchedRazorpayObject && !matchedObject) {
@@ -76,7 +77,6 @@
       }
     };
     
-
     useEffect(() => {
       fetchObData();
     }, []);

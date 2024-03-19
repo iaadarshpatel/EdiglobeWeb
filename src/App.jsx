@@ -20,11 +20,13 @@ import BioTechnology from './Component/All-sub-pages/course-deatils/Biotechnolog
 import Refundpolicy from './Component/All-sub-pages/refundPolicy/Refundpolicy';
 import Dev from './Component/All-sub-pages/ComputerScience/Dev';
 import AllEmployee from './Component/All-sub-pages/AllEmployee/AllEmployee';
-import ObForm from './Component/All-sub-pages/AllEmployee/ObForm';
 import { ai, arvr, finance, machinelearning, webdev, staadpro, vlsi, aws, hr, bioinformatics,marketingmanagement, autocad, robotics, geneticengineering, digitalmarketing, appdev, cybersecurity, ba, stockmarket, iot, nanoscience } from './Component/All-sub-pages/ComputerScience/courseOutlineData';
+import ObForm from './Component/All-sub-pages/AllEmployee/ObForm';
 import Openform from './Component/All-sub-pages/AllEmployee/Openform'
 import Preloader from './Component/All-sub-pages/AllEmployee/Preloader';
 import PointConfetti from './Component/All-sub-pages/AllEmployee/PointConfetti';
+import Projectsubmission from './Component/All-sub-pages/Projects/Projectpage'
+import Project from './Component/All-sub-pages/Projects/Project'
 
 function App() {
   const [enteredEmail, setEnteredEmail] = useState('');
@@ -372,6 +374,8 @@ Digital marketing is a dynamic and strategic approach to promoting products or s
         <Route path='/refundpolicy' element={<Refundpolicy />} />
         <Route path='/obform' element={<ObForm enteredEmail={enteredEmail} setEnteredEmail={setEnteredEmail}/>} />
         <Route path='/Openform' element={<Openform enteredEmail={enteredEmail} setEnteredEmail={setEnteredEmail}/>} />
+        <Route path='/projectsubmission' element={<Projectsubmission enteredEmail={enteredEmail} setEnteredEmail={setEnteredEmail} />} />
+        <Route path='/project' element={<Project enteredEmail={enteredEmail} setEnteredEmail={setEnteredEmail} />} />
         <Route path='/Preloader' element={<Preloader />} />
         <Route path='/PointConfetti' element={<PointConfetti />} />
         <Route path='/computerscience/appdevelopment' element={<Dev

@@ -92,7 +92,8 @@ const cards = () => {
                     className="mySwiper"
                 >
                     <SwiperSlide className="courses_container">
-                        {department_data.slice(0, 3).map(({ id, department_name, department_details, department_reviews, department_rating, rating_num, link_path }) => (
+                        {
+                            department_data.slice(0, 3).map(({ id, department_name, department_details, department_reviews, department_rating, rating_num, link_path }) => (
                             
                             <div class="ag-courses_item" key={id}>
                                 <a href="#" class="ag-courses-item_link">

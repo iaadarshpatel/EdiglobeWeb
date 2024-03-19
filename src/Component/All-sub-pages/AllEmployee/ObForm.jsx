@@ -464,7 +464,7 @@ const ObForm = ({ enteredEmail }) => {
                         <option value="April 2024">April 2024</option>
                         <option value="May 2024">May 2024</option>
                         <option value="June 2024">June 2024</option>
-                      </select>
+                      </select> 
                     </div>
 
                     {matchedAddOn === "Yes" ? (

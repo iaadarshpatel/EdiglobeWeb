@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react';
 import Footer from './Component/footer/Footer';
 import Nav from './Component/Nav/Nav';
 import Hero from './Component/hero/hero';
@@ -11,25 +11,42 @@ import Department from './Component/departments/cards';
 import ExpertWorks from './Component/ExpertWorks/ExpertWorks';
 import Collab from './Component/collabration/Collab';
 import Certificates from './Component/allcertificates/EachCertificates';
-
+import Preloader from './Component/All-sub-pages/AllEmployee/Preloader';
 
 const Home = () => {
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    // Simulate loading delay
+    const timeout = setTimeout(() => {
+      setLoading(false);
+    }, 3000);
+
+    return () => clearTimeout(timeout);
+  }, []);
+
   return (
     <>
-    <Nav/>
-    <Hero/>
-    <Feature/>
-    <Collab/>
-    <Department/>
-    <Courses/>
-    <Registration  />
-    <Expert/>
-    <ExpertWorks/>
-    <Testimonial/>
-    <Certificates/>
-    <Footer/>
+      {loading ? (
+        <Preloader /> 
+      ) : (
+        <>
+          <Nav/>
+          <Hero/>
+          <Feature/>
+          <Collab/>
+          <Department/>
+          <Courses/>
+          <Registration  />
+          <Expert/>
+          <ExpertWorks/>
+          <Testimonial/>
+          <Certificates/>
+          <Footer/>
+        </>
+      )}
     </>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;

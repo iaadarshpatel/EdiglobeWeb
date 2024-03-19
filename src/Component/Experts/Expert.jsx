@@ -4,6 +4,15 @@ import t1 from '../../assets/trainer/jyoti.png';
 import t2 from '../../assets/trainer/ansh.jpg';
 import t3 from '../../assets/trainer/divya.jpg';
 import t4 from '../../assets/trainer/raj.jpg';
+import { Swiper, SwiperSlide } from 'swiper/react';
+
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
+
+// import required modules
+import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 
 
 const data = [
@@ -54,35 +63,80 @@ const Expert = () => {
             </div>
           </div>
         </div>
+        <Swiper
+          spaceBetween={30}
+          centeredSlides={true}
+          autoplay={true} 
+          speed={1200}
+          pagination={{
+            clickable: true,
+          }}
+          modules={[Autoplay, Pagination, Navigation]}
+          className="mySwiper"
+        >
 
-        <div className="row justify-content-center d-flex align-items-center">
-          {
-            data.map(({ id, Image, mentorname, designation, aboutmentor, url }) => {
-              return (
-                <div className="col-lg-3 col-md-6 col-sm-12 single-trainer" data-aos="fade-up" key={id}>
-                  <div className="thumb d-flex justify-content-sm-center">
-                    <img className="img-fluid" src={Image} alt="" />
-                  </div>
-                  <div className="meta-text text-sm-center">
-                    <h4>{mentorname}</h4>
-                    <p className="designation">{designation}</p>
-                    <div className="mb-4">
-                      <p>{aboutmentor}</p>
+          <SwiperSlide>
+            <div className="row justify-content-center d-flex align-items-center">
+              {
+                data.slice(0, 4).map(({ id, Image, mentorname, designation, aboutmentor, url }) => {
+                  return (
+                    <div className="col-lg-3 col-md-6 col-sm-12 single-trainer" data-aos="fade-up" key={id}>
+                      <div className="thumb d-flex justify-content-sm-center">
+                        <img className="img-fluid" src={Image} alt="" />
+                      </div>
+                      <div className="meta-text text-sm-center">
+                        <h4>{mentorname}</h4>
+                        <p className="designation">{designation}</p>
+                        <div className="mb-4">
+                          <p>{aboutmentor}</p>
+                        </div>
+
+                        <div className="align-items-center justify-content-center d-flex">
+                          <a href={url} target="_blank" rel="LinkedIn_profiles">
+                            <button class="btn border-dark d-flex social_btn">
+                              <i class="fab fa-linkedin"></i>&nbsp;LinkedIn
+                            </button>
+                          </a>
+                        </div>
+                      </div>
                     </div>
+                  )
+                })}
+            </div>
+          </SwiperSlide>
 
-                    <div className="align-items-center justify-content-center d-flex">
-                    <a href={url} target="_blank" rel="LinkedIn_profiles">
-                      <button class="btn border-dark d-flex social_btn">
-                        <i class="fab fa-linkedin"></i>&nbsp;LinkedIn
-                      </button>
-                      </a>
+          <SwiperSlide>
+            <div className="row justify-content-center d-flex align-items-center">
+              {
+                data.slice(0, 4).map(({ id, Image, mentorname, designation, aboutmentor, url }) => {
+                  return (
+                    <div className="col-lg-3 col-md-6 col-sm-12 single-trainer" data-aos="fade-up" key={id}>
+                      <div className="thumb d-flex justify-content-sm-center">
+                        <img className="img-fluid" src={Image} alt="" />
+                      </div>
+                      <div className="meta-text text-sm-center">
+                        <h4>{mentorname}</h4>
+                        <p className="designation">{designation}</p>
+                        <div className="mb-4">
+                          <p>{aboutmentor}</p>
+                        </div>
+
+                        <div className="align-items-center justify-content-center d-flex">
+                          <a href={url} target="_blank" rel="LinkedIn_profiles">
+                            <button class="btn border-dark d-flex social_btn">
+                              <i class="fab fa-linkedin"></i>&nbsp;LinkedIn
+                            </button>
+                          </a>
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                </div>
-              )
-            })}
+                  )
+                })}
 
-        </div>
+            </div>
+          </SwiperSlide>
+
+        </Swiper>
       </div>
     </section>
   )

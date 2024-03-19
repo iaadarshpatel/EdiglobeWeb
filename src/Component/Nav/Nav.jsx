@@ -32,17 +32,17 @@ const Nav = () => {
             <section className="navbar-bg">
                 <nav className={`navbar  navbar-expand-lg navbar-light ${colorChange ? 'navbar colorChange' : 'navbar'}`}>
                     <div className="container">
-                    <a href="https://ediglobe.com"  rel="noopener noreferrer">
-                    <img src={logo} alt="course_pic" />
-                    </a>
+                        <a href="https://ediglobe.com" rel="noopener noreferrer">
+                            <img src={logo} alt="course_pic" />
+                        </a>
                         <button className="navbar-toggler"
                             type="button"
                             data-bs-toggle="collapse"
                             data-bs-target="#navbarSupportedContent"
                             aria-controls="navbarSupportedContent"
                             aria-expanded="false"
-                            aria-label="Toggle navigation"> 
-                            
+                            aria-label="Toggle navigation">
+
                             {show ? <LiaTimesSolid /> : <FaBarsStaggered />}
                         </button>
                         <div className="collapse navbar-collapse" id="navbarSupportedContent">
@@ -54,19 +54,19 @@ const Nav = () => {
                                 <li className="nav-item">
                                     <Link to="/AllDeparts" className='nav-link'>Courses</Link>
                                 </li>
-
-                                
                                 <li className="nav-item">
                                     <Link to="/Contact" className='nav-link'>Contact Us</Link>
                                 </li>
                             </ul>
-                            <form className="d-flex">
-                                <button className="btn btn-outline-dark" type="submit">SignUp</button>
-                                
-                                <Link to='/Openform'>
-                                <button className="btn btn-outline-dark ms-1 p-2" type="submit">OB Form</button>
-                                </Link>
-                            </form>
+                            <div class="dropdown" id='student-dashboard-btn'>
+                            <button type="button" class="btn dropdown-toggle btn-outline-dark" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Student Dashboard
+                                </button>
+                            <ul class="dropdown-menu" id='student-dropdown'>
+                                <Link to='/Openform' className='dropdown-item student-focus' type='submit'>OB Form</Link>
+                                <Link class="dropdown-item student-focus" to="/projectsubmission">Submit Project</Link>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </nav>
