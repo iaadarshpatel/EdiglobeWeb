@@ -76,6 +76,7 @@ function Dev({ title, course_desc, objective, eligibility, check_curriculum, cou
                     </div>
                 </div>
             </section>
+            
             <section id='department' className='course_details_area section_gap'>
                 <div className="container">
                     <div className="main_title" data-aos="fade-up">
