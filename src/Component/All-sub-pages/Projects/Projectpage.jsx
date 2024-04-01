@@ -21,7 +21,6 @@ const Projectsubmission = ({ enteredEmail, setEnteredEmail }) => {
       try {
         const response = await axios.get("https://script.google.com/macros/s/AKfycbxdDyMSUlLPRPtoBNSri1US3Vko2LXxDJOOlMNTf2BACyGcggPYm_CfFuDcOCtn5XQiag/exec?action=getUsers");
         setprojectData(response.data);
-        console.log(setprojectData);
       } catch (error) {
         setError(error.message);
       } finally {

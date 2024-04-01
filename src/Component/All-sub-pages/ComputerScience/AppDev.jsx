@@ -8,7 +8,6 @@ import Department from '../../departments/cards'
 import './app.css'
 import Rating from '../../departments/Rating'
 import Pricing from '../Pricing';
-import courseData from './CourseFaqdata';
 
 const AppDev = () => {
 
