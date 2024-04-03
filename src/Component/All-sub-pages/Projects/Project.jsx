@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import Nav from '../../Nav/Nav'
 import Footer from '../../footer/Footer'
-import Rating from '../../departments/Rating'
 import { MdCancel } from "react-icons/md";
 import { Navigate } from 'react-router-dom';
 import axios from 'axios';
 import Preloader from '../AllEmployee/Preloader';
+import ProjectRating from '../../departments/ProjectRating';
 
 const Project = ({ enteredEmail }) => {
 
@@ -98,7 +98,7 @@ const Project = ({ enteredEmail }) => {
                 <div className='project-pic'>
                   <img src="https://files.codingninjas.in/menu_application02-.webp" alt="" />
                   <div className='mt-4'>
-                    <h6 className='d-flex'>Rating: <Rating /></h6>
+                    <h6 className='d-flex'>Rating: <ProjectRating /></h6>
                     <hr className='line' />
                     <a href="https://ninjasfiles.s3.amazonaws.com/Restaurant%20New%20Doc%20two-3844111111%20%281%29-3944.pdf" download>
                       <button className="project-btn">Download Kit</button>
