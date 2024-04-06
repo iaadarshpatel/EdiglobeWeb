@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.1e5fb661.css",
-    "main.js": "/static/js/main.963fade1.js",
+    "main.css": "/static/css/main.4fc2d22e.css",
+    "main.js": "/static/js/main.b6fa6ba8.js",
     "static/media/iot.jpg": "/static/media/iot.1776362910e38cf0581a.jpg",
     "static/media/market-mang.jpg": "/static/media/market-mang.026c30b4538a30175277.jpg",
     "static/media/ca2.jpg": "/static/media/ca2.83640dd859bb4f9ae2c7.jpg",
@@ -56,6 +56,7 @@
     "static/media/student.gif": "/static/media/student.0dd320649a7388614208.gif",
     "static/media/hr.jpg": "/static/media/hr.97ee7efa6d5fdfe1b971.jpg",
     "static/media/Dewasis.png": "/static/media/Dewasis.156aa0e8462833b59ead.png",
+    "static/media/project.jpeg": "/static/media/project.b3f42db33c880b8b1144.jpeg",
     "static/media/Unity-01.png": "/static/media/Unity-01.327ea8094df919409a38.png",
     "static/media/jyoti.png": "/static/media/jyoti.dba8ab5558bfc0827504.png",
     "static/media/Autodesk-01.png": "/static/media/Autodesk-01.029a4b09407f76085998.png",
@@ -71,11 +72,11 @@
     "static/media/fa-v4compatibility.ttf": "/static/media/fa-v4compatibility.c6a0c95b0a95c4553700.ttf",
     "static/media/fa-v4compatibility.woff2": "/static/media/fa-v4compatibility.1bac2991f3dbfa237aec.woff2",
     "index.html": "/index.html",
-    "main.1e5fb661.css.map": "/static/css/main.1e5fb661.css.map",
-    "main.963fade1.js.map": "/static/js/main.963fade1.js.map"
+    "main.4fc2d22e.css.map": "/static/css/main.4fc2d22e.css.map",
+    "main.b6fa6ba8.js.map": "/static/js/main.b6fa6ba8.js.map"
   },
   "entrypoints": [
-    "static/css/main.1e5fb661.css",
-    "static/js/main.963fade1.js"
+    "static/css/main.4fc2d22e.css",
+    "static/js/main.b6fa6ba8.js"
   ]
 }

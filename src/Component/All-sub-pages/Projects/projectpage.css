@@ -57,11 +57,13 @@
 }
 
 .project-pic img {
+  border: 1px solid var(--text-color);
   width: 100%;
-  height: 200px;
+  height: 236px;
   object-fit: cover;
   border-radius: 6px;
 }
+
 
 .project-content {
   display: flex;
@@ -98,6 +100,8 @@
 }
 
 .project-btn {
+  position: absolute !important;
+  bottom: 0px !important;
   width: 100%;
   padding: 14px;
   border-radius: 4px;
@@ -150,16 +154,12 @@ input[type="file"]::before {
 
 
 .text-bg-custom {
-  background-color: #f1f2f2 !important;
-  color: var(--text-color) !important;
+  background-color: var(--text-color) !important;
+  color: #fff !important;
   width: auto;
 }
 
-.text-bg-custom1 {
-  background-color: #E1A392 !important;
-  color: var(--text-color) !important;
-  width: auto;
-}
+
 
 .text-bg-custom2 {
   background-color: #9b80e9 !important;
@@ -174,6 +174,7 @@ input[type="file"]::before {
 }
 
 .line {
+  margin-bottom: 16px !important;
   width: 100%;
   height: 2px;
   background: var(--text-color);
@@ -202,6 +203,11 @@ input[type="file"]::before {
 
   .project-upload{
     display: none;
+  }
+
+  .project-btn {
+    position: static !important;
+    margin-top: 10px; 
   }
 
 }
