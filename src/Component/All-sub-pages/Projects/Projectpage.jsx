@@ -3,7 +3,7 @@ import { Navigate } from 'react-router-dom';
 import Nav from '../../Nav/Nav';
 import Footer from '../../footer/Footer';
 import './projectpage.css';
-import axios from 'axios';
+import axios from 'axios';  
 import db from '../../../FirebaseConfig';
 import { onValue, ref } from "firebase/database";
 

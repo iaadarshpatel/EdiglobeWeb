@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.4fc2d22e.css",
-    "main.js": "/static/js/main.b6fa6ba8.js",
+    "main.js": "/static/js/main.4ec931c3.js",
     "static/media/iot.jpg": "/static/media/iot.1776362910e38cf0581a.jpg",
     "static/media/market-mang.jpg": "/static/media/market-mang.026c30b4538a30175277.jpg",
     "static/media/ca2.jpg": "/static/media/ca2.83640dd859bb4f9ae2c7.jpg",
@@ -10,6 +10,7 @@
     "static/media/ba.jpg": "/static/media/ba.73161653bafd27c9a000.jpg",
     "static/media/banner.jpg": "/static/media/banner.df8285af8b15d837293d.jpg",
     "static/media/hev.jpg": "/static/media/hev.d41b7fd479aee47f5817.jpg",
+    "static/media/datascience.jpg": "/static/media/datascience.e08f047319fa466d631f.jpg",
     "static/media/car.jpg": "/static/media/car.526d5bbdf7cafa7f6d25.jpg",
     "static/media/icengine.jpg": "/static/media/icengine.acb1f2bca6c0feb8be3f.jpg",
     "static/media/bioinformatics.jpg": "/static/media/bioinformatics.298a4dc5f36e71a3d6aa.jpg",
@@ -73,10 +74,10 @@
     "static/media/fa-v4compatibility.woff2": "/static/media/fa-v4compatibility.1bac2991f3dbfa237aec.woff2",
     "index.html": "/index.html",
     "main.4fc2d22e.css.map": "/static/css/main.4fc2d22e.css.map",
-    "main.b6fa6ba8.js.map": "/static/js/main.b6fa6ba8.js.map"
+    "main.4ec931c3.js.map": "/static/js/main.4ec931c3.js.map"
   },
   "entrypoints": [
     "static/css/main.4fc2d22e.css",
-    "static/js/main.b6fa6ba8.js"
+    "static/js/main.4ec931c3.js"
   ]
 }

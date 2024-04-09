@@ -20,7 +20,7 @@ import BioTechnology from './Component/All-sub-pages/course-deatils/Biotechnolog
 import Refundpolicy from './Component/All-sub-pages/refundPolicy/Refundpolicy';
 import Dev from './Component/All-sub-pages/ComputerScience/Dev';
 import AllEmployee from './Component/All-sub-pages/AllEmployee/AllEmployee';
-import { ai, arvr, finance, machinelearning, webdev, staadpro, vlsi, aws, hr, bioinformatics,marketingmanagement, autocad, robotics, geneticengineering, digitalmarketing, appdev, cybersecurity, ba, stockmarket, iot, nanoscience } from './Component/All-sub-pages/ComputerScience/courseOutlineData';
+import { ai, arvr, finance, machinelearning, webdev, staadpro, vlsi, aws, hr, bioinformatics,marketingmanagement, autocad, robotics, geneticengineering, digitalmarketing, appdev, cybersecurity, ba, stockmarket, iot, nanoscience, datascience } from './Component/All-sub-pages/ComputerScience/courseOutlineData';
 import ObForm from './Component/All-sub-pages/AllEmployee/ObForm';
 import Openform from './Component/All-sub-pages/AllEmployee/Openform'
 import Preloader from './Component/All-sub-pages/AllEmployee/Preloader';
@@ -347,6 +347,20 @@ Digital marketing is a dynamic and strategic approach to promoting products or s
       check_curriculum: "The curriculum for a Nanoscience/Nanotechnology internship course typically covers fundamental concepts such as nanomaterial synthesis, characterization methods, nanofabrication techniques, nanodevices, nanobiotechnology applications.",
       download: ""
     },
+    {
+      id: 23,
+      title: "Data Science",
+      course_desc: "Data science utilizes statistical and computational methods to analyze data, uncover patterns, and derive actionable insights for businesses and organizations.",
+      objective: (
+        <>
+        The primary objective of data science is to leverage data to extract valuable insights, make accurate predictions, optimize processes, and enhance decision-making across various domains. By utilizing advanced analytical techniques, statistical models, and machine learning algorithms, data science aims to uncover hidden patterns, trends, and correlations within large datasets. This enables businesses and organizations to gain a competitive edge, improve operational efficiency, personalize experiences for users, detect anomalies or fraud, and ultimately drive innovation and growth. Data science plays a crucial role in transforming raw data into actionable knowledge that fuels informed decisions and strategic initiatives, leading to tangible benefits and value creation in today's data-driven world.
+        </>
+      ),
+      eligibility: "Eligibility for data science roles typically requires a solid background in mathematics, statistics, and programming languages such as Python, R, or SQL. A bachelor's degree in computer science, mathematics, statistics, engineering, or a related field is commonly sought after for entry-level positions. Advanced roles in data science often necessitate a master's degree or Ph.D. in data science, machine learning, or a related discipline, coupled with relevant work experience in data analytics, machine learning algorithms, data visualization, and big data technologies. Proficiency in data manipulation, statistical modeling, and machine learning frameworks is highly valued in the field of data science.",
+      course_outline: datascience,
+      check_curriculum: "A data science curriculum for a website typically encompasses several key areas. It begins with an introduction to the field, covering the basics of data and its significance in modern contexts. ",
+      download: ""
+    }
   ];
   
   return (
@@ -585,6 +599,15 @@ Digital marketing is a dynamic and strategic approach to promoting products or s
             course_outline={PropsDetails[21].course_outline}
             check_curriculum={PropsDetails[21].check_curriculum}
             download={PropsDetails[21].download}
+          />} />
+          <Route path='/computerscience/datascience' element={<Dev 
+            title={PropsDetails[22].title}
+            course_desc={PropsDetails[22].course_desc}
+            objective={PropsDetails[22].objective}
+            eligibility={PropsDetails[22].eligibility}
+            course_outline={PropsDetails[22].course_outline}
+            check_curriculum={PropsDetails[22].check_curriculum}
+            download={PropsDetails[22].download}
           />} />
       </Routes>
     </HashRouter>

@@ -19,6 +19,8 @@ const ObForm = ({ enteredEmail }) => {
   const [matchedEmaild, setmatchedEmaild] = useState('');
   const [matchedPhone, setmatchedPhone] = useState('');
   const [matchedAddOn, setmatchedAddOn] = useState('');
+  const [matchedType, setmatchedType] = useState('');
+  
   // const [matchedreg_id, setmatchedreg_id] = useState('');
 
   //State for firebase
@@ -276,6 +278,15 @@ const ObForm = ({ enteredEmail }) => {
     }
   }, [data, enteredEmail]);
 
+  useEffect(() => {
+    const matchedObject = findObjectByEmail(data, enteredEmail);
+    if (matchedObject) {
+      setmatchedType(matchedObject.TYPE);
+    } else {
+      setmatchedAddOn('');
+    }
+  }, [data, enteredEmail]);
+
 
   const words = matchedName.toLowerCase().split(' ');
   const firstWord = words[0].charAt(0).toUpperCase() + words[0].slice(1);
@@ -307,8 +318,7 @@ const ObForm = ({ enteredEmail }) => {
                       <li class="list-group-item">&#9755;&nbsp;Details cannot changed further.</li>
                     </ol>
                   </div>
-                  <div className='rounded border p-2'>
-
+                  <div className='rounded border py-2'>
                     <label htmlFor="fullName">Full Name:
                       <span className='badge text-bg-danger w-auto py-1  ms-2 bg-opacity-25 text-dark'>
                         {matchedName && matchedName }
@@ -325,6 +335,10 @@ const ObForm = ({ enteredEmail }) => {
                     <label htmlFor="phone ">Opted for AddOn:
                       <span className='badge text-bg-dark w-auto ms-2 py-1 bg-opacity-25 text-dark'>
                         {matchedAddOn && matchedAddOn}</span></label>
+
+                    <label htmlFor="TYPE ">Course Type:
+                      <span className='badge text-bg-dark w-auto ms-2 py-1 bg-opacity-25 text-dark'>
+                        {matchedType && matchedType}</span></label>
                   </div>
                   <div className="row">
                     <div className="col-sm-6">
@@ -424,6 +438,18 @@ const ObForm = ({ enteredEmail }) => {
                         value={userData.internship_prog}
                         onChange={postUserData}
                       >
+                      {(matchedType === "EXPERT LED WITH ADD ON" || matchedType === "EXPERT LED") && (
+                        <>
+                        <option selected>Select Internship</option>
+                        <option value="Business Analytics">Business Analytics</option>
+                        <option value="Stock_Marketing">Stock Marketing</option>
+                        <option value="Cyber_Security">Cyber Security</option>
+                        <option value="Digital_Marketing">Digital Marketing</option>
+                        <option value="VLSI">VLSI</option>
+                        </>
+                      )}
+                      {matchedType !== "EXPERT LED" && matchedType !== "EXPERT LED WITH ADD ON" && (
+                        <>
                         <option selected>Select Internship</option>
                         <option value="Business Analytics">Business Analytics</option>
                         <option value="Stock_Marketing">Stock Marketing</option>
@@ -449,6 +475,9 @@ const ObForm = ({ enteredEmail }) => {
                         <option value="I.C.Engine">I.C. Engine</option>
                         <option value="AutoCad">AutoCad</option>
                         <option value="Car_Designing">Car Designing</option>
+                        </>
+                      )}
+                      }
                       </select>
 
                       <label htmlFor="branch">Which month you want to start with the program?</label>

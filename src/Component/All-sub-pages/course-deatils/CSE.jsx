@@ -8,6 +8,7 @@ import cloud from '../../../assets/courses/cloud.jpg'
 import ml from '../../../assets/courses/ml.png'
 import ai from '../../../assets/courses/ai.jpg'
 import arvr from '../../../assets/courses/arvr.jpg'
+import ds from '../../../assets/courses/datascience.jpg'
 import { FiUser } from 'react-icons/fi'
 import { FiHeart } from 'react-icons/fi'
 import { Link } from 'react-router-dom'
@@ -91,6 +92,17 @@ const CSE = () => {
       user_icon: <FiUser />,
       like_icon: <FiHeart />,
       link_path: "/computerscience/arvr"
+    },
+    {
+      id: 8,
+      Image: ds,
+      price: "$50",
+      course_name: "Data Science",
+      course_detail: "Data science utilizes statistical and computational methods to analyze data, uncover patterns, and derive actionable insights for businesses.",
+      auth_name: "Cameron",
+      user_icon: <FiUser />,
+      like_icon: <FiHeart />,
+      link_path: "/computerscience/datascience"
     }
   ]
 

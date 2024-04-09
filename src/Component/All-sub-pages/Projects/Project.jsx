@@ -142,7 +142,7 @@ const Project = ({ enteredEmail }) => {
                             <h6 className='project-name mt-0 d-flex justify-content-start'>Please upload your project pdf here:</h6>
                             <div className="project-upload ">
                               <div className='project-wrap d-inline-flex align-items-center p-2'>
-                                <img src="https://files.codingninjas.in/upload-zip-31827.svg" />
+                                <img src="https://files.codingninjas.in/upload-zip-31827.svg" alt='' />
                                 {selectedFile ? (
                                   <div>
                                     <span className='float-end'>
