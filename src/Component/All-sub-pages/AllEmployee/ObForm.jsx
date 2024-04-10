@@ -445,7 +445,18 @@ const ObForm = ({ enteredEmail }) => {
                         <option value="Stock_Marketing">Stock Marketing</option>
                         <option value="Cyber_Security">Cyber Security</option>
                         <option value="Digital_Marketing">Digital Marketing</option>
-                        <option value="VLSI">VLSI</option>
+                        <option value="Genetic_Engineering">Genetic Engineering</option>
+                        <option value="Data_Science">Data Science</option>
+                        <option value="Bioinformatics">Bioinformatics</option>
+                        <option value="Artificial_Intelligence">Artificial Intelligence</option>
+                        <option value="Internet_of_Things">Internet of Things</option>
+                        <option value="Web_development">Web development</option>
+                        <option value="Robotics">Robotics</option>
+                        <option value="Finance">Finance</option>
+                        <option value="AWS">AWS</option>
+                        <option value="Machine_Learning">Machine Learning</option>
+                        <option value="App_Development">App Development</option>
+                        <option value="AutoCad">AutoCad</option>
                         </>
                       )}
                       {matchedType !== "EXPERT LED" && matchedType !== "EXPERT LED WITH ADD ON" && (
@@ -530,7 +541,7 @@ const ObForm = ({ enteredEmail }) => {
           </section>
           <Footer />
         </>
-      )};
+      )}
     </>
   );
 };
