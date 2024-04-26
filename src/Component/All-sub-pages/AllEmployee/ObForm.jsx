@@ -57,7 +57,6 @@ const ObForm = ({ enteredEmail }) => {
     validateField(name, value);
   };
 
-
   const validatewhatsapp_phone = (whatsapp_phone) => {
     const phonePattern = /^[6-9]\d{9}$/;
     if (!whatsapp_phone.match(phonePattern)) {
@@ -453,6 +452,7 @@ const ObForm = ({ enteredEmail }) => {
                         <option value="Web_development">Web development</option>
                         <option value="Robotics">Robotics</option>
                         <option value="Finance">Finance</option>
+                        <option value="Python">Python</option>
                         <option value="AWS">AWS</option>
                         <option value="Machine_Learning">Machine Learning</option>
                         <option value="App_Development">App Development</option>
@@ -483,12 +483,10 @@ const ObForm = ({ enteredEmail }) => {
                         <option value="App_Development">App Development</option>
                         <option value="HR">HR</option>
                         <option value="Hybrid_Electric_Vehicle">Hybrid Electric Vehicle</option>
-                        <option value="I.C.Engine">I.C. Engine</option>
                         <option value="AutoCad">AutoCad</option>
-                        <option value="Car_Designing">Car Designing</option>
+                        <option value="Python">Python</option>
                         </>
                       )}
-                      }
                       </select>
 
                       <label htmlFor="branch">Which month you want to start with the program?</label>

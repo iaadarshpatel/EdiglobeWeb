@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Home from './Home';
 import About from './Component/aboutUs/about';
 import TermsCondition from './Component/TermsCondition/TermsCondition';
-import { BrowserRouter, Routes, Route, HashRouter } from 'react-router-dom';
+import { Routes, Route, HashRouter } from 'react-router-dom';
 import FaqPage from './Component/FaqPage/FaqPage';
 import Privacy from './Component/Privacy-Policy/Privacy';
 import Contact from './Component/ContactUs/Contact';

@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-const ProjectRating = ({ color = "#FFD700" }) => {
+const ProjectRating = ({ projectName, color = "#FFD700" }) => {
   const [starCount, setStarCount] = useState(0);
   const [load, setLoad] = useState(true);
-  const [count, setCount] = useState([]);
+  const [ratingData, setRatingData] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await axios.get("https://sheetdb.io/api/v1/lvaph4ho3lol6");
-        setCount(response.data);
+        setRatingData(response.data);
       } catch (error) {
         setLoad(error.message);
       } finally {
@@ -21,24 +21,24 @@ const ProjectRating = ({ color = "#FFD700" }) => {
   }, []);
 
   useEffect(() => {
-    // Update star count based on the "Rating1" value from the API data
-    if (count && count.length > 0) {
-      // Calculate the total sum of Rating1 values
-      const totalRating = count.reduce((acc, item) => acc + parseInt(item.Rating1), 0);
-      // Calculate the average Rating1 value
-      const averageRating = Math.round(totalRating / count.length);
-      // Set the star count to the average Rating1 value
-      setStarCount(averageRating);
+    // Find the rating data for the specific project
+    const projectRating = ratingData.find(item => item.project_name1 === projectName);
+
+    if (projectRating) {
+      // Update star count based on the "Rating1" value for the specific project
+      const ratingValue = parseInt(projectRating.Rating1) || 0;
+      setStarCount(ratingValue);
     }
-  }, [count]);
+  }, [ratingData, projectName]);
 
   const handleStarClick = (clickedStarCount) => {
     setStarCount(clickedStarCount);
+
   };
 
   return (
     <div>
-      {Array.from({ length: starCount }, (_, index) => {
+      {Array.from({ length: 5 }, (_, index) => {
         const starClass = index < starCount ? "fa fa-star checked" : "fa fa-star";
         return (
           <span

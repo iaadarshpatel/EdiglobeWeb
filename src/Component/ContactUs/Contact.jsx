@@ -43,7 +43,9 @@ const Contact = () => {
                   <FaBuilding style={{ color: "#1e2a5a" }} />
                   <h6 >HSR Layout, Bengaluru</h6>
                 </div>
-                    <p> 3rd Floor Second Block, Hustle Hub Tech, Tech Park, ITI Layout, Sector 2, HSR Layout, Bengaluru, Karnataka 560102.</p>
+                    <p>2nd Floor, Aadishwar Supermart Building, 60th Main Road,
+                    AECS Layout, A Block, Singasandra,
+                    Bengaluru, Karnataka, 560068.</p>
                 <div className="info_item">
                 <FaLocationArrow style={{ color: "#1e2a5a" }}/>
                   <i className="ti-headphone"></i>
@@ -63,11 +65,11 @@ const Contact = () => {
                   <i className="ti-email"></i>
                   <h6><Link to="www.ediglobe.com"><span>www.ediglobe.com</span></Link></h6>
                 </div>
-                <p>For more information our website.</p>
+                <p>For more information visit our website.</p>
               </div>
           </div>
           <div className="col-lg-8">
-            <form className="contact_form" action="" method="post" id="contactForm" novalidate="novalidate">
+            <form className="contact_form" action=""  id="contactForm" novalidate="novalidate">
               <div className="col-md-10">
                 <div className="form-group">
                   <input type="text" className="form-control" id="name" name="name" placeholder="Enter your name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your name'" required="" />

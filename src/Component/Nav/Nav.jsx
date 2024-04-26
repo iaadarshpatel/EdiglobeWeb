@@ -64,7 +64,7 @@ const Nav = () => {
                                 </button>
                             <ul class="dropdown-menu" id='student-dropdown'>
                                 <Link to='/Openform' className='dropdown-item student-focus' type='submit'>OB Form</Link>
-                                <Link to='/Project' className='dropdown-item student-focus' type='submit'>Project Submit</Link>
+                                <Link to='/Project' className='dropdown-item student-focus' type='submit'>Submit Project</Link>
                                 </ul>
                             </div>
                         </div>

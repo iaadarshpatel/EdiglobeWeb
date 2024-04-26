@@ -18,8 +18,9 @@ const Project = ({ enteredEmail }) => {
   useEffect(() => {
     const apiData = async () => {
       try {
-        const response = await axios.get("https://sheetdb.io/api/v1/lvaph4ho3lol6");
-        setprojectData(response.data);
+        const response = await axios.get("https://script.google.com/macros/s/AKfycbxdDyMSUlLPRPtoBNSri1US3Vko2LXxDJOOlMNTf2BACyGcggPYm_CfFuDcOCtn5XQiag/exec?action=getUsers");
+        const filteredProjects = response.data.filter(project => project.student_email === enteredEmail);
+        setprojectData(filteredProjects);
       } catch (error) {
         setError(error.message);
       } finally {
@@ -27,7 +28,7 @@ const Project = ({ enteredEmail }) => {
       }
     };
     apiData();
-  }, []);
+  }, [enteredEmail]);
 
   const handleFileChange = (event) => {
     // Access the selected file from the event
@@ -51,13 +52,8 @@ const Project = ({ enteredEmail }) => {
           <section id='project' className='course_details_area section_gap'>
             <div className="container">
               <div className="main_title" data-aos="fade-up">
-              {
-                projectData.map(({ id, course_name}) => {
-                  return (
-                <h2 key={id}>{course_name}</h2>
-                )
-              })
-            }
+              {/* Filter and render only the first occurrence of course_name */}
+              {projectData.length > 0 && <h2>{projectData[0].course_name}</h2>}
                 <p>Replenish man have thing gathering lights yielding shall you</p>
               </div>
               <div className="project_container" data-aos="fade-up" data-aos-offset="0">
@@ -104,7 +100,7 @@ const Project = ({ enteredEmail }) => {
                 </div>
                 <div className="single_projects_container">
                   {
-                    projectData.map(({ id, course_name, deadline_date1, project_name1, project_type1, project1_link, project_details1 }) => {
+                    projectData.map(({ id, deadline_date1, project_name1, project_type1, project1_link, project_details1 }) => {
                       return (
                         <div className="single_project" key={id}>
                           <div className='project-pic' style={{ position: 'relative' }}>
@@ -120,7 +116,6 @@ const Project = ({ enteredEmail }) => {
                               </a>
                             </div>
                           </div>
-
                           <div className="project-content">
                             <div className='project-title'>
                               <h5 className='project-name'>{project_name1}</h5>
