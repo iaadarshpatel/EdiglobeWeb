@@ -19,7 +19,7 @@ const Projectsubmission = ({ enteredEmail, setEnteredEmail }) => {
     setEnteredEmail('')
     const apiData = async () => {
       try {
-        const response = await axios.get("https://script.google.com/macros/s/AKfycbxdDyMSUlLPRPtoBNSri1US3Vko2LXxDJOOlMNTf2BACyGcggPYm_CfFuDcOCtn5XQiag/exec?action=getUsers");
+        const response = await axios.get("https://sheetlabs.com/EDI/v1");
         setprojectData(response.data);
       } catch (error) {
         setError(error.message);
@@ -36,7 +36,7 @@ const Projectsubmission = ({ enteredEmail, setEnteredEmail }) => {
 
   const findObjectByEmail = (dataArray, email) => {
     console.log(email);
-    const foundObject = dataArray.find(obj => obj.student_email && obj.student_email.toLowerCase() === email.toLowerCase());
+    const foundObject = dataArray.find(obj => obj.studentemail && obj.studentemail.toLowerCase() === email.toLowerCase());
     if (foundObject) {
       return true;
     }

@@ -27,6 +27,7 @@ import Preloader from './Component/All-sub-pages/AllEmployee/Preloader';
 import PointConfetti from './Component/All-sub-pages/AllEmployee/PointConfetti';
 import Projectsubmission from './Component/All-sub-pages/Projects/Projectpage'
 import Project from './Component/All-sub-pages/Projects/Project'
+import Upload from './Upload';
 
 function App() {
   const [enteredEmail, setEnteredEmail] = useState('');
@@ -366,6 +367,7 @@ Digital marketing is a dynamic and strategic approach to promoting products or s
   return (
     <HashRouter>
       <Routes>
+      <Route path='/Upload' element={<Upload />} />
         <Route path='/' element={<Home />} />
         <Route path='/home' element={<Home />} />
         <Route path='/allemployee' element={<AllEmployee/>} />
