@@ -484,7 +484,6 @@ const ObForm = ({ enteredEmail }) => {
                         <option value="HR">HR</option>
                         <option value="Hybrid_Electric_Vehicle">Hybrid Electric Vehicle</option>
                         <option value="AutoCad">AutoCad</option>
-                        <option value="Python">Python</option>
                         </>
                       )}
                       </select>
@@ -499,9 +498,9 @@ const ObForm = ({ enteredEmail }) => {
                         onChange={postUserData}
                       >
                         <option selected>Select Month</option>
-                        <option value="May 2024">May 2024</option>
                         <option value="June 2024">June 2024</option>
                         <option value="July 2024">July 2024</option>
+                        <option value="August 2024">August 2024</option>
                       </select> 
                     </div>
 

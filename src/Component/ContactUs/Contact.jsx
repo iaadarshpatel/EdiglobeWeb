@@ -49,7 +49,7 @@ const Contact = () => {
                 <div className="info_item">
                 <FaLocationArrow style={{ color: "#1e2a5a" }}/>
                   <i className="ti-headphone"></i>
-                  <h6><a>+91 9113211755</a></h6>
+                  <h6><a>+91 8088279615</a></h6>
                 </div>
                 <p>Free to call us anytime for query</p>
 
