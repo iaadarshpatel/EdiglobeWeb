@@ -9,17 +9,19 @@ import ProjectRating from '../../departments/ProjectRating';
 import { ref as storageRef, uploadBytesResumable, getDownloadURL, getStorage } from 'firebase/storage';
 import FileUpload from './FileUpload';
 import FileNotUpload from './FileNotUpload';
+import Swal from 'sweetalert2';
 
 
 const Project = ({ enteredEmail }) => {
   const [selectedFile, setSelectedFile] = useState(null);
   const [projectData, setProjectData] = useState();
-  console.log(projectData);
   const [error, setError] = useState(true);
   const [uploadMessage, setUploadMessage] = useState(null);
   const [progressPercent, setProgressPercent] = useState(0);
   const [uploading, setUploading] = useState(false); // State to track uploading status
   const fileInputRef = useRef(null); // Ref for file input element
+  const [downloadURL, setDownloadURL] = useState(null); // State to hold download URL
+  console.log(downloadURL);
 
   useEffect(() => {
     const apiData = async () => {
@@ -46,25 +48,40 @@ const Project = ({ enteredEmail }) => {
     setSelectedFile(null);
   }
 
-  const [userData, setUserData] = useState({
-    projectlink: "",
-  });
-
 
   const navigate = useNavigate();
 
   const submitProject = () => {
     if (!selectedFile) return;
-
     const maxSizeMB = 10;
     const maxSizeBytes = maxSizeMB * 1024 * 1024;
     if (selectedFile.size > maxSizeBytes) {
-      alert(`File size exceeds the maximum limit of ${maxSizeMB} MB.`);
+      Swal.fire({
+        icon: 'error',
+        title: 'Submission Error',
+        text: error.message || 'File size should be less than 10 MB.',
+        showCancelButton: false, // Hide cancel button
+        confirmButtonText: 'OK', // Change confirm button text
+      }).then((result) => {
+        if (result.isConfirmed) {
+          removeUpload(); // Reset the selected file
+        }
+      });
       return;
     }
 
     if (!selectedFile.name.toLowerCase().endsWith(".zip") && !selectedFile.name.toLowerCase().endsWith(".pdf")) {
-      alert("Please select a file with .zip or .pdf extension.");
+      Swal.fire({
+        icon: 'error',
+        title: 'Submission Error',
+        text: error.message || 'Please select a file with .zip or .pdf extension.',
+        showCancelButton: false, // Hide cancel button
+        confirmButtonText: 'OK', // Change confirm button text
+      }).then((result) => {
+        if (result.isConfirmed) {
+          removeUpload(); // Reset the selected file
+        }
+      });
       return;
     }
 
@@ -106,6 +123,20 @@ const Project = ({ enteredEmail }) => {
       }
     );
   };
+
+  //Fetch the download file
+  useEffect(() => {
+    if (selectedFile) {
+      const storage = getStorage();
+      const storageReference = storageRef(storage, `Projects/${enteredEmail}_${selectedFile.name}`);
+      getDownloadURL(storageReference)
+        .then(url => setDownloadURL(url))
+        .catch(error => console.error('Error getting download URL:', error));
+    } else {
+      setDownloadURL(null); 
+    }
+  }, [selectedFile, enteredEmail, downloadURL]);
+
 
 
   return (
@@ -211,7 +242,7 @@ const Project = ({ enteredEmail }) => {
                               uploadMessage={uploadMessage}
                             />
                           ) : (
-                            <FileNotUpload/>
+                            <FileNotUpload />
                           )}
                         </div>
                       </div>
@@ -219,7 +250,6 @@ const Project = ({ enteredEmail }) => {
                   })
                   }
                 </div>
-
               </div>
             </div>
           </section>

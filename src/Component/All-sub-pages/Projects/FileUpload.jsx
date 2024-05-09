@@ -4,10 +4,13 @@ import { MdCancel } from "react-icons/md";
 const FileUpload = ({ selectedFile, handleFileChange, removeUpload, uploading, submitProject, progressPercent, uploadMessage }) => {
   const fileInputRef = useRef(null);
   const [showCancelIcon, setShowCancelIcon] = useState(true);
+  const [disableProgressBar, setDisableProgressBar] = useState(false);
 
   useEffect(() => {
     // Reset showCancelIcon state when selectedFile changes
     setShowCancelIcon(true);
+    // Enable progress bar initially
+    setDisableProgressBar(false);
   }, [selectedFile]);
 
   const handleUploadClick = () => {
@@ -16,6 +19,17 @@ const FileUpload = ({ selectedFile, handleFileChange, removeUpload, uploading, s
     // Call submitProject function to start uploading
     submitProject();
   };
+
+  useEffect(() => {
+    if (uploadMessage) {
+      // Disable progress bar after 5 seconds
+      const timer = setTimeout(() => {
+        setDisableProgressBar(true);
+      }, 5000);
+      // Clear the timer when component unmounts or when uploadMessage changes
+      return () => clearTimeout(timer);
+    }
+  }, [uploadMessage]);
 
   return (
     <div className="project-upload">
@@ -42,11 +56,12 @@ const FileUpload = ({ selectedFile, handleFileChange, removeUpload, uploading, s
         <button 
           className="primary-btn cards-btn" 
           type='button' 
-          onClick={handleUploadClick}>
+          onClick={handleUploadClick}
+          disabled={uploading || disableProgressBar}>
           {uploading ? "Uploading..." : "Upload"}
         </button> 
       </div>
-      {!uploadMessage ? (
+      {!uploadMessage && !disableProgressBar ? (
         <div className='outerbar'>
           <div className='innerbar' style={{ width: `${progressPercent}%` }}>{Math.round(progressPercent)}%</div>
         </div>

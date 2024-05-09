@@ -9,7 +9,7 @@ const ProjectRating = ({ projectName, color = "#FFD700" }) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("https://sheetdb.io/api/v1/lvaph4ho3lol6");
+        const response = await axios.get("https://script.google.com/macros/s/AKfycbxdDyMSUlLPRPtoBNSri1US3Vko2LXxDJOOlMNTf2BACyGcggPYm_CfFuDcOCtn5XQiag/exec?action=getUsers");
         setRatingData(response.data);
       } catch (error) {
         setLoad(error.message);
@@ -36,9 +36,11 @@ const ProjectRating = ({ projectName, color = "#FFD700" }) => {
 
   };
 
+  const data = 1;
+
   return (
     <div>
-      {Array.from({ length: 5 }, (_, index) => {
+      {Array.from({ length: data }, (_, index) => {
         const starClass = index < starCount ? "fa fa-star checked" : "fa fa-star";
         return (
           <span

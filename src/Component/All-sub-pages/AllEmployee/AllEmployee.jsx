@@ -15,7 +15,7 @@ const AllEmployee = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(process.env.REACT_APP_API_URL);
+        const response = await axios.get("https://script.google.com/macros/s/AKfycbxmHOoBa8dWdtQdRh3p1f5ox_6MdoaDeIJyO0CsjZZdlmijGvZ5zCckijrIIMdUt6W2Cg/exec?action=getUsers");
         setUserData(response.data);
       } catch (error) {
         setLoading(error.message);
