@@ -3,6 +3,7 @@ import axios from 'axios';
 
 const ProjectRating = ({ projectName, color = "#FFD700" }) => {
   const [starCount, setStarCount] = useState(0);
+  console.log(starCount);
   const [load, setLoad] = useState(true);
   const [ratingData, setRatingData] = useState([]);
 
@@ -36,11 +37,10 @@ const ProjectRating = ({ projectName, color = "#FFD700" }) => {
 
   };
 
-  const data = 1;
 
   return (
     <div>
-      {Array.from({ length: data }, (_, index) => {
+      {Array.from({ length: starCount }, (_, index) => {
         const starClass = index < starCount ? "fa fa-star checked" : "fa fa-star";
         return (
           <span

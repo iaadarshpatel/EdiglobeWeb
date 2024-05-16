@@ -64,6 +64,26 @@
   border-radius: 6px;
 }
 
+.project-details {
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* Show only two lines */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  width: 100%; /* Ensure full width */
+  height: 3rem;
+}
+
+.project-details p {
+  margin: 0;
+}
+
+.read-more-link {
+  cursor: pointer;
+  color: var(--text-color);
+  font-family: "Roboto";
+  font-weight: 700;
+}
+
 
 .project-content {
   display: flex;
@@ -178,6 +198,32 @@ input[type="file"]::before {
   width: 100%;
   height: 2px;
   background: var(--text-color);
+}
+
+.outerbar{
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  margin-left: 1rem;
+}
+
+.innerbar {
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  margin-left: 1rem;
+  color: var(--text-color); /* Color of the progress text (changed to yellow) */
+}
+
+.upload-message{
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  margin-left: 5px;
+  color: var(--text-color); /* Color of the progress text (changed to yellow) */
+  transition: width 0.3s ease; 
 }
 
 @media screen and (max-width: 990px) {

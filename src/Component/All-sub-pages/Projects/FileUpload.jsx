@@ -63,10 +63,12 @@ const FileUpload = ({ selectedFile, handleFileChange, removeUpload, uploading, s
       </div>
       {!uploadMessage && !disableProgressBar ? (
         <div className='outerbar'>
-          <div className='innerbar' style={{ width: `${progressPercent}%` }}>{Math.round(progressPercent)}%</div>
+          <div className='innerbar' style={{ width: `${progressPercent}%` }}>
+          <b>{Math.round(progressPercent)}%</b>
+          </div>
         </div>
       ) : (
-        <p>{uploadMessage}</p>
+        <p className='upload-message'>{uploadMessage}</p>
       )}
     </div>
   );

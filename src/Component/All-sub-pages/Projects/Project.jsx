@@ -21,7 +21,12 @@ const Project = ({ enteredEmail }) => {
   const [uploading, setUploading] = useState(false); // State to track uploading status
   const fileInputRef = useRef(null); // Ref for file input element
   const [downloadURL, setDownloadURL] = useState(null); // State to hold download URL
-  console.log(downloadURL);
+  const [Upload, setUpload] = useState("YES");
+
+  const [showAllText, setShowAllText] = useState(false);
+  const toggleShowAllText = () => {
+    setShowAllText(!showAllText);
+  };
 
   useEffect(() => {
     const apiData = async () => {
@@ -51,17 +56,18 @@ const Project = ({ enteredEmail }) => {
 
   const navigate = useNavigate();
 
-  const submitProject = () => {
+  const submitProject = (projectName) => {
     if (!selectedFile) return;
     const maxSizeMB = 10;
     const maxSizeBytes = maxSizeMB * 1024 * 1024;
     if (selectedFile.size > maxSizeBytes) {
+      // Show error message
       Swal.fire({
         icon: 'error',
         title: 'Submission Error',
         text: error.message || 'File size should be less than 10 MB.',
-        showCancelButton: false, // Hide cancel button
-        confirmButtonText: 'OK', // Change confirm button text
+        showCancelButton: false,
+        confirmButtonText: 'OK',
       }).then((result) => {
         if (result.isConfirmed) {
           removeUpload(); // Reset the selected file
@@ -69,14 +75,16 @@ const Project = ({ enteredEmail }) => {
       });
       return;
     }
-
+  
+    // Check file extension
     if (!selectedFile.name.toLowerCase().endsWith(".zip") && !selectedFile.name.toLowerCase().endsWith(".pdf")) {
+      // Show error message
       Swal.fire({
         icon: 'error',
         title: 'Submission Error',
         text: error.message || 'Please select a file with .zip or .pdf extension.',
-        showCancelButton: false, // Hide cancel button
-        confirmButtonText: 'OK', // Change confirm button text
+        showCancelButton: false,
+        confirmButtonText: 'OK',
       }).then((result) => {
         if (result.isConfirmed) {
           removeUpload(); // Reset the selected file
@@ -84,21 +92,19 @@ const Project = ({ enteredEmail }) => {
       });
       return;
     }
-
-
+  
     const storage = getStorage();
-    const storageReference = storageRef(storage, `Projects/${enteredEmail}_${selectedFile.name}`);
+    const storageReference = storageRef(storage, `Projects/${enteredEmail}_${projectData[0].coursename}_${projectName}_${selectedFile.name}`);
     const uploadTask = uploadBytesResumable(storageReference, selectedFile);
-
+  
     let intervalId;
-
+  
     uploadTask.on("state_changed",
       (snapshot) => {
         clearInterval(intervalId);
         intervalId = setInterval(() => {
           const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-          console.log(progress); // Log the progress value
-          setProgressPercent(progress); // Update the state with the progress value
+          setProgressPercent(progress);
         }, 50);
         setUploading(true); // Set uploading status to true
       },
@@ -110,20 +116,23 @@ const Project = ({ enteredEmail }) => {
         clearInterval(intervalId);
         try {
           const downloadURL = await getDownloadURL(uploadTask.snapshot.ref);
-          setUploadMessage("File Uploaded");
-          setTimeout(() => {
-            setUploadMessage(null);
-          }, 5000);
+          setUploadMessage("Redirecting to ProjectSubmission...");
           setSelectedFile(null);
+          setProgressPercent(0); // Reset progress percent
+          setUploading(false); // Reset uploading status
+          setTimeout(() => {
+            setUploadMessage(null); // Clear the message after 5 seconds
+            navigate("/Projectsubmission"); 
+          }, 5000);
         } catch (error) {
           console.error("Error getting download URL:", error);
         } finally {
-          setUploading(false); // Reset uploading status
+          setUpload("NO"); // Disable file upload after upload
         }
       }
     );
   };
-
+  
   //Fetch the download file
   useEffect(() => {
     if (selectedFile) {
@@ -151,7 +160,7 @@ const Project = ({ enteredEmail }) => {
             <div className="container">
               <div className="main_title" data-aos="fade-up">
                 {projectData && projectData.length > 0 && <h2>{projectData[0].coursename}</h2>}
-                <p>Replenish man have thing gathering lights yielding shall you</p>
+                <p>Transforming Ideas into Innovations: Explore Our Projects</p>
               </div>
               <div className="project_container" data-aos="fade-up" data-aos-offset="0">
                 <div className="form-checks">
@@ -218,16 +227,22 @@ const Project = ({ enteredEmail }) => {
                             <span className="badge rounded-pill text-bg-custom">{projecttype1}</span>
                           </div>
                           <div className='project-desc'>
-                            <p className='fs-6'>{projectdetails1}</p>
+                          <p className='fs-6 project-details'>
+                          {showAllText ? 
+                            projectdetails1 // If showAllText is true, display the entire project details
+                            : projectdetails1.split('\n').slice(0, 2).join('\n') // If showAllText is false, display only the first two lines
+                          }
+                          </p>
+                      {!showAllText && <span className="read-more-link text-decoration-underline" onClick={toggleShowAllText}><b>Read More</b></span>}
                           </div>
                           <div className="project-evaluation">
                             <h6 className='project-name mt-2 d-flex justify-content-start'>Evalaution:</h6>
                             <ul>
                               <li>Upon submission, your project will undergo automatic evaluation based on the predefined tasks outlined above.</li>
-                              <li>Successful completion of all tasks/requirements will result in a full score.</li>
-                              <li>Incomplete tasks will lead to a partial score based on successful completion.</li>
-                              <li>Please allow a some time for your project to be evaluated post-submission.</li>
-                              <li>Please make sure you should upload file using laptop or desktop.</li>
+                              <li>A per the guidelines, kindly upload the project file <b style={{color: "black"}}>only once.</b></li>
+                              <li>Kindly ensure that project are submitted exclusively in <b style={{color: "black"}}>PDF or ZIP</b> file formats only.</li>
+                              <li>Certificates will be issued after submission of both minor and major projects. It may takee 45 days to issue certificate</li>
+                              <li>Please make sure you should upload file using <b style={{color: "black"}}>laptop or desktop</b>.</li>
                             </ul>
                           </div>
                           <h6 className='project-name mt-0 d-flex justify-content-start'>Please upload your project pdf here:</h6>
@@ -237,7 +252,7 @@ const Project = ({ enteredEmail }) => {
                               handleFileChange={handleFileChange}
                               removeUpload={removeUpload}
                               uploading={uploading}
-                              submitProject={submitProject}
+                              submitProject={() => submitProject(projectname1)}
                               progressPercent={progressPercent}
                               uploadMessage={uploadMessage}
                             />
