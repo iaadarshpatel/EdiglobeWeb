@@ -3,7 +3,6 @@ import axios from 'axios';
 
 const ProjectRating = ({ projectName, color = "#FFD700" }) => {
   const [starCount, setStarCount] = useState(0);
-  console.log(starCount);
   const [load, setLoad] = useState(true);
   const [ratingData, setRatingData] = useState([]);
 

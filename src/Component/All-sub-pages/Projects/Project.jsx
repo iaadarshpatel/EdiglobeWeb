@@ -22,11 +22,8 @@ const Project = ({ enteredEmail }) => {
   const fileInputRef = useRef(null); // Ref for file input element
   const [downloadURL, setDownloadURL] = useState(null); // State to hold download URL
   const [Upload, setUpload] = useState("YES");
+  const [uploadedFileURL, setUploadedFileURL] = useState(null);
 
-  const [showAllText, setShowAllText] = useState(false);
-  const toggleShowAllText = () => {
-    setShowAllText(!showAllText);
-  };
 
   useEffect(() => {
     const apiData = async () => {
@@ -116,7 +113,7 @@ const Project = ({ enteredEmail }) => {
         clearInterval(intervalId);
         try {
           const downloadURL = await getDownloadURL(uploadTask.snapshot.ref);
-          setUploadMessage("Redirecting to ProjectSubmission...");
+          setUploadMessage(" File Uploaded, Redirecting to Main Page...");
           setSelectedFile(null);
           setProgressPercent(0); // Reset progress percent
           setUploading(false); // Reset uploading status
@@ -137,15 +134,20 @@ const Project = ({ enteredEmail }) => {
   useEffect(() => {
     if (selectedFile) {
       const storage = getStorage();
-      const storageReference = storageRef(storage, `Projects/${enteredEmail}_${selectedFile.name}`);
+      const storageReference = storageRef(storage, `Projects/${enteredEmail}_${projectData[0].coursename}_${selectedFile.name}`);
       getDownloadURL(storageReference)
-        .then(url => setDownloadURL(url))
-        .catch(error => console.error('Error getting download URL:', error));
+        .then(url => {
+          setUploadedFileURL(url);
+        })
+        .catch(error => {
+          console.error('Error getting download URL:', error);
+          setUploadedFileURL(null); // Reset uploadedFileURL state in case of error
+        });
     } else {
-      setDownloadURL(null); 
+      setUploadedFileURL(null); 
     }
-  }, [selectedFile, enteredEmail, downloadURL]);
-
+  }, [selectedFile, enteredEmail, projectData]);
+  
 
 
   return (
@@ -164,7 +166,7 @@ const Project = ({ enteredEmail }) => {
               </div>
               <div className="project_container" data-aos="fade-up" data-aos-offset="0">
                 <div className="form-checks">
-                  <h6 className="project_name">Web Developement</h6>
+                  <h6 className="project_name">Project Type</h6>
                   <div class="form-check">
                     <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" />
                     <label class="form-check-label" for="flexCheckChecked">
@@ -183,26 +185,7 @@ const Project = ({ enteredEmail }) => {
                       Resume worthy project
                     </label>
                   </div>
-                  <hr />
-                  <h6 className="course_name">Skills & competencies</h6>
-                  <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" />
-                    <label class="form-check-label" for="flexCheckChecked">
-                      <span>HTML & CSS</span>
-                    </label>
-                  </div>
-                  <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" />
-                    <label class="form-check-label" for="flexCheckChecked">
-                      Javascript
-                    </label>
-                  </div>
-                  <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" />
-                    <label class="form-check-label" for="flexCheckChecked">
-                      ReactJs
-                    </label>
-                  </div>
+                  
                 </div>
                 <div className="single_projects_container">
                   {projectData.map(({ id, deadlinedate1, projectname1, projecttype1, project1link, projectdetails1, AccessToUpload }) => {
@@ -212,12 +195,12 @@ const Project = ({ enteredEmail }) => {
                           <img src={projectpic} alt="" />
                           <div className='mt-4'>
                             <div className='mb-2'>
-                              <h6 className='d-flex'>Rating: <ProjectRating /></h6>
+                              <h6 className='d-flex'>Rating: N/A<ProjectRating /></h6>
                               <hr className='line' />
                               <h6 className='d-flex'>Deadline: {deadlinedate1}</h6>
                             </div>
                             <a href={project1link} target="_blank" rel="noopener noreferrer">
-                              <button className="project-btn">Download Kit</button>
+                              <button className="project-btn">View Project</button>
                             </a>
                           </div>
                         </div>
@@ -228,12 +211,8 @@ const Project = ({ enteredEmail }) => {
                           </div>
                           <div className='project-desc'>
                           <p className='fs-6 project-details'>
-                          {showAllText ? 
-                            projectdetails1 // If showAllText is true, display the entire project details
-                            : projectdetails1.split('\n').slice(0, 2).join('\n') // If showAllText is false, display only the first two lines
-                          }
+                            {projectdetails1} 
                           </p>
-                      {!showAllText && <span className="read-more-link text-decoration-underline" onClick={toggleShowAllText}><b>Read More</b></span>}
                           </div>
                           <div className="project-evaluation">
                             <h6 className='project-name mt-2 d-flex justify-content-start'>Evalaution:</h6>
