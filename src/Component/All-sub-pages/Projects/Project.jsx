@@ -20,7 +20,6 @@ const Project = ({ enteredEmail }) => {
   const [progressPercent, setProgressPercent] = useState(0);
   const [uploading, setUploading] = useState(false); // State to track uploading status
   const fileInputRef = useRef(null); // Ref for file input element
-  const [downloadURL, setDownloadURL] = useState(null); // State to hold download URL
   const [Upload, setUpload] = useState("YES");
   const [uploadedFileURL, setUploadedFileURL] = useState(null);
 
@@ -28,7 +27,7 @@ const Project = ({ enteredEmail }) => {
   useEffect(() => {
     const apiData = async () => {
       try {
-        const response = await axios.get("https://script.google.com/macros/s/AKfycbxdDyMSUlLPRPtoBNSri1US3Vko2LXxDJOOlMNTf2BACyGcggPYm_CfFuDcOCtn5XQiag/exec?action=getUsers");
+        const response = await axios.get(process.env.REACT_APP_PROJECT_DATA);
         const filteredProjects = response.data.filter(project => project.studentemail === enteredEmail && project.coursename !== "");
         setProjectData(filteredProjects);
       } catch (error) {
@@ -231,6 +230,7 @@ const Project = ({ enteredEmail }) => {
                               handleFileChange={handleFileChange}
                               removeUpload={removeUpload}
                               uploading={uploading}
+                              style={{ display: 'none' }} 
                               submitProject={() => submitProject(projectname1)}
                               progressPercent={progressPercent}
                               uploadMessage={uploadMessage}

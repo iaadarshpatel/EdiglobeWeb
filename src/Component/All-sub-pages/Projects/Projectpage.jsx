@@ -19,7 +19,7 @@ const Projectsubmission = ({ enteredEmail, setEnteredEmail }) => {
     setEnteredEmail('')
     const apiData = async () => {
       try {
-        const response = await axios.get("https://sheetlabs.com/EDI/v1");
+        const response = await axios.get(process.env.REACT_APP_PROJECT_DATA);
         setprojectData(response.data);
       } catch (error) {
         setError(error.message);
