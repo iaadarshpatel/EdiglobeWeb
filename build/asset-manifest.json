@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.6f88017a.css",
-    "main.js": "/static/js/main.eba2ff11.js",
+    "main.js": "/static/js/main.fc806d02.js",
     "static/media/iot.jpg": "/static/media/iot.1776362910e38cf0581a.jpg",
     "static/media/market-mang.jpg": "/static/media/market-mang.026c30b4538a30175277.jpg",
     "static/media/ca2.jpg": "/static/media/ca2.83640dd859bb4f9ae2c7.jpg",
@@ -74,10 +74,10 @@
     "static/media/fa-v4compatibility.woff2": "/static/media/fa-v4compatibility.1bac2991f3dbfa237aec.woff2",
     "index.html": "/index.html",
     "main.6f88017a.css.map": "/static/css/main.6f88017a.css.map",
-    "main.eba2ff11.js.map": "/static/js/main.eba2ff11.js.map"
+    "main.fc806d02.js.map": "/static/js/main.fc806d02.js.map"
   },
   "entrypoints": [
     "static/css/main.6f88017a.css",
-    "static/js/main.eba2ff11.js"
+    "static/js/main.fc806d02.js"
   ]
 }
