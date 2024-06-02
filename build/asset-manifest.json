@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.7db28713.css",
-    "main.js": "/static/js/main.d5aa85dd.js",
+    "main.css": "/static/css/main.f45b3cf7.css",
+    "main.js": "/static/js/main.f5278e1e.js",
     "static/media/iot.jpg": "/static/media/iot.1776362910e38cf0581a.jpg",
     "static/media/market-mang.jpg": "/static/media/market-mang.026c30b4538a30175277.jpg",
     "static/media/ca2.jpg": "/static/media/ca2.83640dd859bb4f9ae2c7.jpg",
@@ -23,7 +23,6 @@
     "static/media/web.jpg": "/static/media/web.0d1c49f1f56359b0740f.jpg",
     "static/media/arvr.jpg": "/static/media/arvr.e3e3724fc082e447a9d5.jpg",
     "static/media/finance.jpg": "/static/media/finance.5ff38760074c2e8d52a5.jpg",
-    "static/media/home-banner-3.png": "/static/media/home-banner-3.df73dbb4d9883d2c3f2a.png",
     "static/media/c2.png": "/static/media/c2.9ab22d06b8adf15af6c6.png",
     "static/media/ai.jpg": "/static/media/ai.9c584f2912480413e831.jpg",
     "static/media/ml.png": "/static/media/ml.643ccb0be6b81f2fcdc5.png",
@@ -32,6 +31,7 @@
     "static/media/sm.jpg": "/static/media/sm.71b67c7895fc6037139e.jpg",
     "static/media/certificate1.png": "/static/media/certificate1.daffd7001a8cd0d5d030.png",
     "static/media/fa-solid-900.ttf": "/static/media/fa-solid-900.d75e3fd1eb12e9bd6655.ttf",
+    "static/media/home-banner-3.png": "/static/media/home-banner-3.cbd23d13ec323a2dabcf.png",
     "static/media/Meta-Logo.png": "/static/media/Meta-Logo.19bc696d31e7b99c9211.png",
     "static/media/certi_1.jpeg": "/static/media/certi_1.4a39d0ea0043f67da4c5.jpeg",
     "static/media/course-details.jpg": "/static/media/course-details.0eefa66b661831272ff0.jpg",
@@ -73,11 +73,11 @@
     "static/media/fa-v4compatibility.ttf": "/static/media/fa-v4compatibility.c6a0c95b0a95c4553700.ttf",
     "static/media/fa-v4compatibility.woff2": "/static/media/fa-v4compatibility.1bac2991f3dbfa237aec.woff2",
     "index.html": "/index.html",
-    "main.7db28713.css.map": "/static/css/main.7db28713.css.map",
-    "main.d5aa85dd.js.map": "/static/js/main.d5aa85dd.js.map"
+    "main.f45b3cf7.css.map": "/static/css/main.f45b3cf7.css.map",
+    "main.f5278e1e.js.map": "/static/js/main.f5278e1e.js.map"
   },
   "entrypoints": [
-    "static/css/main.7db28713.css",
-    "static/js/main.d5aa85dd.js"
+    "static/css/main.f45b3cf7.css",
+    "static/js/main.f5278e1e.js"
   ]
 }
