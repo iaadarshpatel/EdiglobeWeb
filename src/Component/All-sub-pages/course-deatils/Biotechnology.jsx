@@ -79,6 +79,7 @@ const BioTechnology = () => {
             {
               data.map(({ id, Image, course_name, course_detail, user_icon, like_icon,link_path }) => {
                 return (
+                  <Link to={link_path}>
                   <div className="single_course" key={id}>
                     <div className="course_head">
                       <img src={Image} alt="course_pic" />
@@ -107,6 +108,7 @@ const BioTechnology = () => {
                       </div>
                     </div>
                   </div>
+                  </Link>
                 )
               }
               )

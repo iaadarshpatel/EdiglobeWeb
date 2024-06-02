@@ -94,6 +94,10 @@
     font-family: "Rubik", sans-serif;
 }
 
+.single_course p{
+    color: var(--text-color);
+}
+
 .single_course p:hover{
     color: var(--text-color);
 }

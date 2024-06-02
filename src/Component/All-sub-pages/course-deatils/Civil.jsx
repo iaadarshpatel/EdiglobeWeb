@@ -57,7 +57,7 @@ const Civil = () => {
                                 <div className="banner_content text-center">
                                     <h2>Civil Engineering</h2>
                                     <div className="page_link">
-                                    <Link to="/">Home</Link>
+                                        <Link to="/">Home</Link>
                                         <a>Civil Engineering</a>
                                     </div>
                                 </div>
@@ -77,33 +77,35 @@ const Civil = () => {
                         {
                             ECE_data.map(({ id, Image, course_name, course_detail, user_icon, like_icon, link_path }) => {
                                 return (
-                                    <div className="single_course" key={id}>
-                                        <div className="course_head">
-                                            <img src={Image} alt="course_pic" />
-                                        </div>
-                                        <div className="course_content">
-                                            <span className="course_tag">Civil</span>
-                                            <h4 className="course_name">
-                                                <a href="http://">{course_name}</a>
-                                            </h4>
-                                            <p>{course_detail}</p>
+                                    <Link to={link_path}>
+                                        <div className="single_course" key={id}>
+                                            <div className="course_head">
+                                                <img src={Image} alt="course_pic" />
+                                            </div>
+                                            <div className="course_content">
+                                                <span className="course_tag">Civil</span>
+                                                <h4 className="course_name">
+                                                    <a href="http://">{course_name}</a>
+                                                </h4>
+                                                <p>{course_detail}</p>
 
-                                            <div className="course_meta">
-                                            <Link to={link_path}>
-                                            <button className="btn btn-outline-success" type="submit" >View Details</button>
-                                            </Link>
-                                                <div className='follows'>
-                                                    <span className="meta_info">
-                                                        <a href="/"><i>{user_icon}</i>25</a>
-                                                    </span>
-                                                    <span className="meta_like">
-                                                        <a href="/"><i>{like_icon}</i>35</a>
-                                                    </span>
+                                                <div className="course_meta">
+                                                    <Link to={link_path}>
+                                                        <button className="btn btn-outline-success" type="submit" >View Details</button>
+                                                    </Link>
+                                                    <div className='follows'>
+                                                        <span className="meta_info">
+                                                            <a href="/"><i>{user_icon}</i>25</a>
+                                                        </span>
+                                                        <span className="meta_like">
+                                                            <a href="/"><i>{like_icon}</i>35</a>
+                                                        </span>
+                                                    </div>
+
                                                 </div>
-
                                             </div>
                                         </div>
-                                    </div>
+                                    </Link>
                                 )
                             }
                             )

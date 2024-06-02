@@ -73,8 +73,9 @@ const Mechanical = () => {
                     <div className="courses_container" data-aos="fade-up" data-aos-offset="0">
 
                         {
-                            ECE_data.map(({ id, Image, course_name, course_detail, user_icon, like_icon }) => {
+                            ECE_data.map(({ id, Image, course_name, course_detail, user_icon, like_icon, link_path }) => {
                                 return (
+                                    <Link to={link_path}>
                                     <div className="single_course" key={id}>
                                         <div className="course_head">
                                             <img src={Image} alt="course_pic" />
@@ -100,6 +101,7 @@ const Mechanical = () => {
                                             </div>
                                         </div>
                                     </div>
+                                    </Link>
                                 )
                             }
                             )
