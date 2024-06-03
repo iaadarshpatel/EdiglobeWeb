@@ -19,12 +19,14 @@ const Projectsubmission = ({ enteredEmail, setEnteredEmail }) => {
     setEnteredEmail('')
     const apiData = async () => {
       try {
-        const response = await axios.get(process.env.REACT_APP_PROJECT_DATA);
+        const response = await axios.get(process.env.REACT_APP_PROJECTDATA);
         setprojectData(response.data);
       } catch (error) {
         setError(error.message);
+        console.error('Error fetching project data: ', error.message); 
       } finally {
         setError(false);
+        console.error('Error fetching project data: ', error.message); 
       }
     };
     apiData();
@@ -35,7 +37,6 @@ const Projectsubmission = ({ enteredEmail, setEnteredEmail }) => {
   };
 
   const findObjectByEmail = (dataArray, email) => {
-    console.log(email);
     const foundObject = dataArray.find(obj => obj.studentemail && obj.studentemail.toLowerCase() === email.toLowerCase());
     if (foundObject) {
       return true;

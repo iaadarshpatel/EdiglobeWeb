@@ -6,10 +6,11 @@ import projectpic from '../../../assets/project.jpeg'
 import axios from 'axios';
 import Preloader from '../AllEmployee/Preloader';
 import ProjectRating from '../../departments/ProjectRating';
-import { ref as storageRef, uploadBytesResumable, getDownloadURL, getStorage } from 'firebase/storage';
+import { ref as storageRef, getDownloadURL, getStorage, uploadBytesResumable, listAll } from 'firebase/storage';
 import FileUpload from './FileUpload';
 import FileNotUpload from './FileNotUpload';
 import Swal from 'sweetalert2';
+import AllprojectLinks from './AllprojectLinks';
 
 
 const Project = ({ enteredEmail }) => {
@@ -21,18 +22,18 @@ const Project = ({ enteredEmail }) => {
   const [uploading, setUploading] = useState(false); // State to track uploading status
   const fileInputRef = useRef(null); // Ref for file input element
   const [Upload, setUpload] = useState("YES");
-  const [uploadedFileURL, setUploadedFileURL] = useState(null);
+  const [allDownloadURL, setAllDownloadURL] = useState([])
 
 
   useEffect(() => {
     const apiData = async () => {
       try {
-        const response = await axios.get(process.env.REACT_APP_PROJECT_DATA);
+        const response = await axios.get(process.env.REACT_APP_PROJECTDATA);
         const filteredProjects = response.data.filter(project => project.studentemail === enteredEmail && project.coursename !== "");
         setProjectData(filteredProjects);
       } catch (error) {
         setError(error.message);
-        console.error('Error fetching project data: ', error.message); // Log any errors
+        console.error('Error fetching project data: ', error.message); 
       } finally {
         setError(false);
       }
@@ -118,8 +119,12 @@ const Project = ({ enteredEmail }) => {
           setUploading(false); // Reset uploading status
           setTimeout(() => {
             setUploadMessage(null); // Clear the message after 5 seconds
-            navigate("/Projectsubmission"); 
+            navigate("/Projectsubmission");
           }, 5000);
+          
+          // Now that the file is uploaded, you can use the downloadURL as needed
+          // console.log("Email: ", enteredEmail, "Download URL:", downloadURL);
+          
         } catch (error) {
           console.error("Error getting download URL:", error);
         } finally {
@@ -128,24 +133,22 @@ const Project = ({ enteredEmail }) => {
       }
     );
   };
-  
-  //Fetch the download file
+
+  //Fetch all the data from Storage bucket
   useEffect(() => {
-    if (selectedFile) {
-      const storage = getStorage();
-      const storageReference = storageRef(storage, `Projects/${enteredEmail}_${projectData[0].coursename}_${selectedFile.name}`);
-      getDownloadURL(storageReference)
-        .then(url => {
-          setUploadedFileURL(url);
-        })
-        .catch(error => {
-          console.error('Error getting download URL:', error);
-          setUploadedFileURL(null); // Reset uploadedFileURL state in case of error
-        });
-    } else {
-      setUploadedFileURL(null); 
-    }
-  }, [selectedFile, enteredEmail, projectData]);
+    const fetchDownloadURLs = async () => {
+      try {
+        const storage = getStorage();
+        const listRef = storageRef(storage, 'Projects');
+        const items = await listAll(listRef);
+        const urls = await Promise.all(items.items.map(async item => await getDownloadURL(item)));
+        setAllDownloadURL(urls);
+      } catch (error) {
+        console.error('Error fetching download URLs:', error);
+      }
+    };
+    fetchDownloadURLs();
+  }, []);
   
 
 
@@ -184,7 +187,6 @@ const Project = ({ enteredEmail }) => {
                       Resume worthy project
                     </label>
                   </div>
-                  
                 </div>
                 <div className="single_projects_container">
                   {projectData.map(({ id, deadlinedate1, projectname1, projecttype1, project1link, projectdetails1, AccessToUpload }) => {
