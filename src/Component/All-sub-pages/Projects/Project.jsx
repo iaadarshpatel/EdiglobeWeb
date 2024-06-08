@@ -10,8 +10,7 @@ import { ref as storageRef, getDownloadURL, getStorage, uploadBytesResumable, li
 import FileUpload from './FileUpload';
 import FileNotUpload from './FileNotUpload';
 import Swal from 'sweetalert2';
-import AllprojectLinks from './AllprojectLinks';
-
+import { FaInfo  } from "react-icons/fa";
 
 const Project = ({ enteredEmail }) => {
   const [selectedFile, setSelectedFile] = useState(null);
@@ -149,8 +148,13 @@ const Project = ({ enteredEmail }) => {
     };
     fetchDownloadURLs();
   }, []);
-  
 
+  const toProperCase = (name) => {
+  return name.toLowerCase().replace(/\b\w/g, char => char.toUpperCase());
+};
+  const studentName = projectData && projectData.length > 0 ? toProperCase(projectData[0].studentname) : '';
+  const courseName = projectData && projectData.length > 0 ? projectData[0].coursename : '';
+  const projectType = projectData && projectData.length > 0 ? projectData[0].projecttype1 : '';
 
   return (
     <>
@@ -168,25 +172,19 @@ const Project = ({ enteredEmail }) => {
               </div>
               <div className="project_container" data-aos="fade-up" data-aos-offset="0">
                 <div className="form-checks">
-                  <h6 className="project_name">Project Type</h6>
-                  <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" />
-                    <label class="form-check-label" for="flexCheckChecked">
-                      <span>Minor Project</span>
+                  <h6 className="project_name text-decoration-underline">Project Details:</h6>
+                  <label class="form-check-label">
+                    Name:<br></br> <span>{studentName}</span>
+                  </label>
+                  <label class="form-check-label">
+                    Email:<br></br> <span>{enteredEmail}</span>
                     </label>
-                  </div>
-                  <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" />
-                    <label class="form-check-label" for="flexCheckChecked">
-                      Major Project
+                    <label class="form-check-label">
+                    Course Name:<br></br> <span>{courseName}</span>
                     </label>
-                  </div>
-                  <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" />
-                    <label class="form-check-label" for="flexCheckChecked">
-                      Resume worthy project
+                    <label class="form-check-label">
+                    Project Name:<br></br> <span>{projectType}</span>
                     </label>
-                  </div>
                 </div>
                 <div className="single_projects_container">
                   {projectData.map(({ id, deadlinedate1, projectname1, projecttype1, project1link, projectdetails1, AccessToUpload }) => {

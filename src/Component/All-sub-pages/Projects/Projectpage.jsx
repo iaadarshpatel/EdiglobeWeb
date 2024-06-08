@@ -11,6 +11,7 @@ const Projectsubmission = ({ enteredEmail, setEnteredEmail }) => {
   const [projectPage, setprojectPage] = useState(false);
   const [dataError, setDataError] = useState();
   const [projectData, setprojectData] = useState();
+  console.log(projectData);
   const [error, setError] = useState(true);
   const [inputValid, setInputValid] = useState('');
   const [emails, setEmails] = useState([]);
