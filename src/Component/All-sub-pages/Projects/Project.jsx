@@ -28,7 +28,7 @@ const Project = ({ enteredEmail }) => {
     const apiData = async () => {
       try {
         const response = await axios.get(process.env.REACT_APP_PROJECTDATA);
-        const filteredProjects = response.data.filter(project => project.studentemail === enteredEmail && project.coursename !== "");
+        const filteredProjects = response.data.filter(project => project.studentemail.toLowerCase() === enteredEmail.toLowerCase() && project.coursename !== "");
         setProjectData(filteredProjects);
       } catch (error) {
         setError(error.message);
@@ -39,6 +39,8 @@ const Project = ({ enteredEmail }) => {
     };
     apiData();
   }, [enteredEmail]);
+
+  
 
   const handleFileChange = (e) => {
     const file = e.target.files[0];

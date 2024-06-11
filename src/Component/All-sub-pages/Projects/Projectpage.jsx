@@ -21,7 +21,6 @@ const Projectsubmission = ({ enteredEmail, setEnteredEmail }) => {
       try {
         const response = await axios.get(process.env.REACT_APP_PROJECTDATA);
         setprojectData(response.data);
-        console.log(response)
       } catch (error) {
         setError(error.message);
         console.error('Error fetching project data: ', error.message); 
