@@ -10,7 +10,6 @@ import { ref as storageRef, getDownloadURL, getStorage, uploadBytesResumable, li
 import FileUpload from './FileUpload';
 import FileNotUpload from './FileNotUpload';
 import Swal from 'sweetalert2';
-import { FaInfo  } from "react-icons/fa";
 
 const Project = ({ enteredEmail }) => {
   const [selectedFile, setSelectedFile] = useState(null);
@@ -32,7 +31,7 @@ const Project = ({ enteredEmail }) => {
         setProjectData(filteredProjects);
       } catch (error) {
         setError(error.message);
-        console.error('Error fetching project data: ', error.message); 
+        console.error('Error fetching project data: ', error.message);
       } finally {
         setError(false);
       }
@@ -40,7 +39,7 @@ const Project = ({ enteredEmail }) => {
     apiData();
   }, [enteredEmail]);
 
-  
+
 
   const handleFileChange = (e) => {
     const file = e.target.files[0];
@@ -73,7 +72,7 @@ const Project = ({ enteredEmail }) => {
       });
       return;
     }
-  
+
     // Check file extension
     if (!selectedFile.name.toLowerCase().endsWith(".zip") && !selectedFile.name.toLowerCase().endsWith(".pdf")) {
       // Show error message
@@ -90,13 +89,13 @@ const Project = ({ enteredEmail }) => {
       });
       return;
     }
-  
+
     const storage = getStorage();
     const storageReference = storageRef(storage, `Projects/${enteredEmail}_${projectData[0].coursename}_${projectName}_${selectedFile.name}`);
     const uploadTask = uploadBytesResumable(storageReference, selectedFile);
-  
+
     let intervalId;
-  
+
     uploadTask.on("state_changed",
       (snapshot) => {
         clearInterval(intervalId);
@@ -122,10 +121,10 @@ const Project = ({ enteredEmail }) => {
             setUploadMessage(null); // Clear the message after 5 seconds
             navigate("/Projectsubmission");
           }, 5000);
-          
+
           // Now that the file is uploaded, you can use the downloadURL as needed
           // console.log("Email: ", enteredEmail, "Download URL:", downloadURL);
-          
+
         } catch (error) {
           console.error("Error getting download URL:", error);
         } finally {
@@ -152,8 +151,8 @@ const Project = ({ enteredEmail }) => {
   }, []);
 
   const toProperCase = (name) => {
-  return name.toLowerCase().replace(/\b\w/g, char => char.toUpperCase());
-};
+    return name.toLowerCase().replace(/\b\w/g, char => char.toUpperCase());
+  };
   const studentName = projectData && projectData.length > 0 ? toProperCase(projectData[0].studentname) : '';
   const courseName = projectData && projectData.length > 0 ? projectData[0].coursename : '';
   const projectType = projectData && projectData.length > 0 ? projectData[0].projecttype1 : '';
@@ -180,13 +179,18 @@ const Project = ({ enteredEmail }) => {
                   </label>
                   <label class="form-check-label">
                     Email:<br></br> <span>{enteredEmail}</span>
-                    </label>
-                    <label class="form-check-label">
+                  </label>
+                  <label class="form-check-label">
                     Course Name:<br></br> <span>{courseName}</span>
-                    </label>
-                    <label class="form-check-label">
-                    Project Name:<br></br> <span>{projectType}</span>
-                    </label>
+                  </label>
+                  <label class="form-check-label">
+                    Project Name:<br></br> <span className='badge rounded-pill text-bg-custom'>{projectType}</span>
+                  </label>
+                  <label className="form-check-label">
+                    Submission Status:<br></br>
+                    <span>{projectData && projectData.length > 0 && projectData[0].AccessToUpload === "YES" ? "Not submitted" : "Submitted"}</span>
+                  </label>
+
                 </div>
                 <div className="single_projects_container">
                   {projectData.map(({ id, deadlinedate1, projectname1, projecttype1, project1link, projectdetails1, AccessToUpload }) => {
@@ -211,18 +215,18 @@ const Project = ({ enteredEmail }) => {
                             <span className="badge rounded-pill text-bg-custom">{projecttype1}</span>
                           </div>
                           <div className='project-desc'>
-                          <p className='fs-6 project-details'>
-                            {projectdetails1} 
-                          </p>
+                            <p className='fs-6 project-details'>
+                              {projectdetails1}
+                            </p>
                           </div>
                           <div className="project-evaluation">
                             <h6 className='project-name mt-2 d-flex justify-content-start'>Evalaution:</h6>
                             <ul>
                               <li>Upon submission, your project will undergo automatic evaluation based on the predefined tasks outlined above.</li>
-                              <li>A per the guidelines, kindly upload the project file <b style={{color: "black"}}>only once.</b></li>
-                              <li>Kindly ensure that project are submitted exclusively in <b style={{color: "black"}}>PDF or ZIP</b> file formats only.</li>
+                              <li>A per the guidelines, kindly upload the project file <b style={{ color: "black" }}>only once.</b></li>
+                              <li>Kindly ensure that project are submitted exclusively in <b style={{ color: "black" }}>PDF or ZIP</b> file formats only.</li>
                               <li>Certificates will be issued after submission of both minor and major projects. It may takee 45 days to issue certificate</li>
-                              <li>Please make sure you should upload file using <b style={{color: "black"}}>laptop or desktop</b>.</li>
+                              <li>Please make sure you should upload file using <b style={{ color: "black" }}>laptop or desktop</b>.</li>
                             </ul>
                           </div>
                           <h6 className='project-name mt-0 d-flex justify-content-start'>Please upload your project pdf here:</h6>
@@ -232,7 +236,7 @@ const Project = ({ enteredEmail }) => {
                               handleFileChange={handleFileChange}
                               removeUpload={removeUpload}
                               uploading={uploading}
-                              style={{ display: 'none' }} 
+                              style={{ display: 'none' }}
                               submitProject={() => submitProject(projectname1)}
                               progressPercent={progressPercent}
                               uploadMessage={uploadMessage}
