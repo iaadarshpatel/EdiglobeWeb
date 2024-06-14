@@ -189,6 +189,7 @@ const Project = ({ enteredEmail }) => {
                   <label className="form-check-label">
                     Submission Status:<br></br>
                     <span>{projectData && projectData.length > 0 && projectData[0].AccessToUpload === "YES" ? "Not submitted" : "Submitted"}</span>
+                    adad
                   </label>
 
                 </div>
