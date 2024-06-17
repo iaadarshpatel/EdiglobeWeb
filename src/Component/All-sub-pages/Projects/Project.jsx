@@ -135,20 +135,20 @@ const Project = ({ enteredEmail }) => {
   };
 
   //Fetch all the data from Storage bucket
-  useEffect(() => {
-    const fetchDownloadURLs = async () => {
-      try {
-        const storage = getStorage();
-        const listRef = storageRef(storage, 'Projects');
-        const items = await listAll(listRef);
-        const urls = await Promise.all(items.items.map(async item => await getDownloadURL(item)));
-        setAllDownloadURL(urls);
-      } catch (error) {
-        console.error('Error fetching download URLs:', error);
-      }
-    };
-    fetchDownloadURLs();
-  }, []);
+  // useEffect(() => {
+  //   const fetchDownloadURLs = async () => {
+  //     try {
+  //       const storage = getStorage();
+  //       const listRef = storageRef(storage, 'Projects');
+  //       const items = await listAll(listRef);
+  //       const urls = await Promise.all(items.items.map(async item => await getDownloadURL(item)));
+  //       setAllDownloadURL(urls);
+  //     } catch (error) {
+  //       console.error('Error fetching download URLs:', error);
+  //     }
+  //   };
+  //   fetchDownloadURLs();
+  // }, []);
 
   const toProperCase = (name) => {
     return name.toLowerCase().replace(/\b\w/g, char => char.toUpperCase());
@@ -189,7 +189,6 @@ const Project = ({ enteredEmail }) => {
                   <label className="form-check-label">
                     Submission Status:<br></br>
                     <span>{projectData && projectData.length > 0 && projectData[0].AccessToUpload === "YES" ? "Not submitted" : "Submitted"}</span>
-                    adad
                   </label>
 
                 </div>

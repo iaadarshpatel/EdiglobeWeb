@@ -9,7 +9,7 @@ const ProjectRating = ({ projectName, color = "#FFD700" }) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("https://script.google.com/macros/s/AKfycbxdDyMSUlLPRPtoBNSri1US3Vko2LXxDJOOlMNTf2BACyGcggPYm_CfFuDcOCtn5XQiag/exec?action=getUsers");
+        const response = await axios.get(process.env.REACT_APP_PROJECTDATA);
         setRatingData(response.data);
       } catch (error) {
         setLoad(error.message);
