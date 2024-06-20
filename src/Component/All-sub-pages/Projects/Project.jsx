@@ -1,8 +1,8 @@
-import React, { useEffect, useRef, useState } from 'react'
-import Nav from '../../Nav/Nav'
-import Footer from '../../footer/Footer'
-import { Navigate, useNavigate } from 'react-router-dom';
-import projectpic from '../../../assets/project.jpeg'
+import React, { useEffect, useRef, useState } from 'react';
+import Nav from '../../Nav/Nav';
+import Footer from '../../footer/Footer';
+import { Link, Navigate, useNavigate } from 'react-router-dom';
+import projectpic from '../../../assets/project.jpeg';
 import axios from 'axios';
 import Preloader from '../AllEmployee/Preloader';
 import ProjectRating from '../../departments/ProjectRating';
@@ -10,6 +10,7 @@ import { ref as storageRef, getDownloadURL, getStorage, uploadBytesResumable, li
 import FileUpload from './FileUpload';
 import FileNotUpload from './FileNotUpload';
 import Swal from 'sweetalert2';
+import { v4 as uuidv4 } from 'uuid';
 
 const Project = ({ enteredEmail }) => {
   const [selectedFile, setSelectedFile] = useState(null);
@@ -17,11 +18,11 @@ const Project = ({ enteredEmail }) => {
   const [error, setError] = useState(true);
   const [uploadMessage, setUploadMessage] = useState(null);
   const [progressPercent, setProgressPercent] = useState(0);
-  const [uploading, setUploading] = useState(false); // State to track uploading status
-  const fileInputRef = useRef(null); // Ref for file input element
+  const [uploading, setUploading] = useState(false);
+  const fileInputRef = useRef(null);
   const [Upload, setUpload] = useState("YES");
-  const [allDownloadURL, setAllDownloadURL] = useState([])
-
+  const [allDownloadURL, setAllDownloadURL] = useState([]);
+  const [uploadedFiles, setUploadedFiles] = useState({});
 
   useEffect(() => {
     const apiData = async () => {
@@ -39,7 +40,30 @@ const Project = ({ enteredEmail }) => {
     apiData();
   }, [enteredEmail]);
 
+  useEffect(() => {
+    const fetchDownloadURLs = async () => {
+      try {
+        const storage = getStorage();
+        const listRef = storageRef(storage, 'Projects');
+        const items = await listAll(listRef);
+        const urls = await Promise.all(items.items.map(async item => {
+          const url = await getDownloadURL(item);
+          const nameParts = item.name.split('+');
+          const email = nameParts[0];
+          const course = nameParts[1];
+          const projectName = nameParts[2];
+          const projectType = nameParts[3];
+          const fileName = nameParts.slice(4).join('+'); // in case file name contains '+'
 
+          return { url, email, course, projectName, projectType, fileName };
+        }));
+        setUploadedFiles(urls);
+      } catch (error) {
+        console.error('Error fetching download URLs:', error);
+      }
+    };
+    fetchDownloadURLs();
+  }, []);
 
   const handleFileChange = (e) => {
     const file = e.target.files[0];
@@ -50,48 +74,45 @@ const Project = ({ enteredEmail }) => {
     setSelectedFile(null);
   }
 
-
   const navigate = useNavigate();
 
-  const submitProject = (projectName) => {
+  const submitProject = (projectName, projectType) => {
     if (!selectedFile) return;
     const maxSizeMB = 10;
     const maxSizeBytes = maxSizeMB * 1024 * 1024;
     if (selectedFile.size > maxSizeBytes) {
-      // Show error message
       Swal.fire({
         icon: 'error',
         title: 'Submission Error',
-        text: error.message || 'File size should be less than 10 MB.',
+        text: 'File size should be less than 10 MB.',
         showCancelButton: false,
         confirmButtonText: 'OK',
       }).then((result) => {
         if (result.isConfirmed) {
-          removeUpload(); // Reset the selected file
+          removeUpload();
         }
       });
       return;
     }
 
-    // Check file extension
     if (!selectedFile.name.toLowerCase().endsWith(".zip") && !selectedFile.name.toLowerCase().endsWith(".pdf")) {
-      // Show error message
       Swal.fire({
         icon: 'error',
         title: 'Submission Error',
-        text: error.message || 'Please select a file with .zip or .pdf extension.',
+        text: 'Please select a file with .zip or .pdf extension.',
         showCancelButton: false,
         confirmButtonText: 'OK',
       }).then((result) => {
         if (result.isConfirmed) {
-          removeUpload(); // Reset the selected file
+          removeUpload();
         }
       });
       return;
     }
 
     const storage = getStorage();
-    const storageReference = storageRef(storage, `Projects/${enteredEmail}_${projectData[0].coursename}_${projectName}_${selectedFile.name}`);
+    const storageReference = storageRef(storage,
+      `Projects/${enteredEmail}+${projectData[0].coursename}+${projectName}+${projectType}+${selectedFile.name}`);
     const uploadTask = uploadBytesResumable(storageReference, selectedFile);
 
     let intervalId;
@@ -103,7 +124,7 @@ const Project = ({ enteredEmail }) => {
           const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
           setProgressPercent(progress);
         }, 50);
-        setUploading(true); // Set uploading status to true
+        setUploading(true);
       },
       (error) => {
         clearInterval(intervalId);
@@ -115,47 +136,27 @@ const Project = ({ enteredEmail }) => {
           const downloadURL = await getDownloadURL(uploadTask.snapshot.ref);
           setUploadMessage(" File Uploaded, Redirecting to Main Page...");
           setSelectedFile(null);
-          setProgressPercent(0); // Reset progress percent
-          setUploading(false); // Reset uploading status
+          setProgressPercent(0);
+          setUploading(false);
           setTimeout(() => {
-            setUploadMessage(null); // Clear the message after 5 seconds
+            setUploadMessage(null);
             navigate("/Projectsubmission");
           }, 5000);
-
-          // Now that the file is uploaded, you can use the downloadURL as needed
-          // console.log("Email: ", enteredEmail, "Download URL:", downloadURL);
 
         } catch (error) {
           console.error("Error getting download URL:", error);
         } finally {
-          setUpload("NO"); // Disable file upload after upload
+          setUpload("NO");
         }
       }
     );
   };
-
-  //Fetch all the data from Storage bucket
-  // useEffect(() => {
-  //   const fetchDownloadURLs = async () => {
-  //     try {
-  //       const storage = getStorage();
-  //       const listRef = storageRef(storage, 'Projects');
-  //       const items = await listAll(listRef);
-  //       const urls = await Promise.all(items.items.map(async item => await getDownloadURL(item)));
-  //       setAllDownloadURL(urls);
-  //     } catch (error) {
-  //       console.error('Error fetching download URLs:', error);
-  //     }
-  //   };
-  //   fetchDownloadURLs();
-  // }, []);
 
   const toProperCase = (name) => {
     return name.toLowerCase().replace(/\b\w/g, char => char.toUpperCase());
   };
   const studentName = projectData && projectData.length > 0 ? toProperCase(projectData[0].studentname) : '';
   const courseName = projectData && projectData.length > 0 ? projectData[0].coursename : '';
-  const projectType = projectData && projectData.length > 0 ? projectData[0].projecttype1 : '';
 
   return (
     <>
@@ -174,26 +175,25 @@ const Project = ({ enteredEmail }) => {
               <div className="project_container" data-aos="fade-up" data-aos-offset="0">
                 <div className="form-checks">
                   <h6 className="project_name text-decoration-underline">Project Details:</h6>
-                  <label class="form-check-label">
+                  <label className="form-check-label">
                     Name:<br></br> <span>{studentName}</span>
                   </label>
-                  <label class="form-check-label">
+                  <label className="form-check-label">
                     Email:<br></br> <span>{enteredEmail}</span>
                   </label>
-                  <label class="form-check-label">
+                  <label className="form-check-label">
                     Course Name:<br></br> <span>{courseName}</span>
                   </label>
-                  <label class="form-check-label">
-                    Project Name:<br></br> <span className='badge rounded-pill text-bg-custom'>{projectType}</span>
-                  </label>
-                  <label className="form-check-label">
-                    Submission Status:<br></br>
-                    <span>{projectData && projectData.length > 0 && projectData[0].AccessToUpload === "YES" ? "Not submitted" : "Submitted"}</span>
-                  </label>
-
                 </div>
                 <div className="single_projects_container">
                   {projectData.map(({ id, deadlinedate1, projectname1, projecttype1, project1link, projectdetails1, AccessToUpload }) => {
+                    const existingFile = uploadedFiles.find(file => 
+                      file.email === enteredEmail &&
+                      file.course === projectData[0].coursename &&
+                      file.projectName === projectname1 &&
+                      file.projectType === projecttype1
+                    );
+
                     return (
                       <div className="single_project" key={id}>
                         <div className='project-pic' style={{ position: 'relative' }}>
@@ -220,24 +220,29 @@ const Project = ({ enteredEmail }) => {
                             </p>
                           </div>
                           <div className="project-evaluation">
-                            <h6 className='project-name mt-2 d-flex justify-content-start'>Evalaution:</h6>
+                            <h6 className='project-name mt-2 d-flex justify-content-start'>Evaluation:</h6>
                             <ul>
                               <li>Upon submission, your project will undergo automatic evaluation based on the predefined tasks outlined above.</li>
-                              <li>A per the guidelines, kindly upload the project file <b style={{ color: "black" }}>only once.</b></li>
-                              <li>Kindly ensure that project are submitted exclusively in <b style={{ color: "black" }}>PDF or ZIP</b> file formats only.</li>
-                              <li>Certificates will be issued after submission of both minor and major projects. It may takee 45 days to issue certificate</li>
-                              <li>Please make sure you should upload file using <b style={{ color: "black" }}>laptop or desktop</b>.</li>
+                              <li>As per the guidelines, kindly upload the project file <b style={{ color: "black" }}>only once.</b></li>
+                              <li>Kindly ensure that projects are submitted exclusively in <b style={{ color: "black" }}>PDF or ZIP</b> file formats only.</li>
+                              <li>Certificates will be issued after submission of both minor and major projects. It may take 45 days to issue a certificate.</li>
+                              <li>Please make sure you should upload the file using a <b style={{ color: "black" }}>laptop or desktop</b>.</li>
                             </ul>
                           </div>
                           <h6 className='project-name mt-0 d-flex justify-content-start'>Please upload your project pdf here:</h6>
-                          {AccessToUpload === "YES" ? (
+                          {existingFile ? (
+                            <div>
+                              <p>File already uploaded</p>
+                              <Link to={existingFile.url} target="_blank" className='font-monospace text-decoration-underline' rel="noopener noreferrer" style={{color: '#1e2a5a'}}>View Upload</Link>
+                            </div>
+                          ) : AccessToUpload === "YES" ? (
                             <FileUpload
                               selectedFile={selectedFile}
                               handleFileChange={handleFileChange}
                               removeUpload={removeUpload}
                               uploading={uploading}
                               style={{ display: 'none' }}
-                              submitProject={() => submitProject(projectname1)}
+                              submitProject={() => submitProject(projectname1, projecttype1)}
                               progressPercent={progressPercent}
                               uploadMessage={uploadMessage}
                             />
@@ -257,7 +262,7 @@ const Project = ({ enteredEmail }) => {
         </>
       )}
     </>
-  )
+  );
 }
 
-export default Project
+export default Project;

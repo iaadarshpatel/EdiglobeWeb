@@ -48,7 +48,6 @@ const AllEmployee = () => {
   };
 
 
-
   useEffect(() => {
     if (filteredUserData.length > 0) {
       setTotalEmployees(filteredUserData.length);
