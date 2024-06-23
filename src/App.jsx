@@ -46,7 +46,7 @@ function App() {
       eligibility: "There are no specific eligibility criteria for Android app development. However, a strong understanding of programming languages such as Java or Kotlin, familiarity with development tools like Android Studio, and knowledge of app design principles are beneficial.",
       course_outline: appdev,
       check_curriculum: "The app development curriculum encompasses programming, UI/UX design, and backend development using Swift and Flutter, guiding learners through cross-platform deployment and API integration for a comprehensive skill set.",
-      download: "https://drive.google.com/uc?export=download&id=1p65EP0fM3E8txn71uRlE3UO3wG5e490B"
+      download: "https://drive.google.com/uc?export=download&id=1z8KDJQb5aZYrK30a6gFMsieXAkj2NgnF"
     },
     {
       id: 2,
@@ -85,15 +85,14 @@ function App() {
       title: "Digital Marketing",
       course_desc: "It is a dynamic and strategic approach to promoting products or services using digital channels.",
       objective: (
-        <>
-        
+        <>  
 Digital marketing is a dynamic and strategic approach to promoting products or services using digital channels. It encompasses a wide range of online platforms such as social media, search engines, email, and websites. The primary goal of digital marketing is to reach and engage with a target audience, driving brand awareness, customer acquisition, and conversions.
         </>
       ),
       eligibility: "Eligibility for digital marketing typically requires a basic understanding of marketing principles, digital platforms, and communication skills. Individuals with a background in business, marketing, or related fields often find it advantageous. However, digital marketing is inclusive, welcoming diverse skill sets, making it accessible to a broad range of professionals and enthusiasts.",
       course_outline: digitalmarketing,
       check_curriculum: "With a focus on resilience and integrity, our cybersecurity services ensure that your data, privacy, and online operations remain safeguarded in the face of ever-changing online risks, allowing you to confidently embrace the opportunities of the digital age.",
-      download: "https://drive.google.com/uc?export=download&id=1p65EP0fM3E8txn71uRlE3UO3wG5e490B"
+      download: "https://drive.google.com/uc?export=download&id=1tnkiau0xR58yp00A0p89Jy8znb2-_By3"
     },
     {
       id: 5,
@@ -121,7 +120,7 @@ Digital marketing is a dynamic and strategic approach to promoting products or s
       eligibility: "Eligibility for finance typically requires a strong foundation in financial principles, analytical skills, and relevant education or experience. Candidates often hold degrees in finance, business, or related fields. Financial certifications and a demonstrated understanding of economic trends enhance eligibility. Specific requirements vary by employer and position, emphasizing a blend of education and practical expertise.",
       course_outline: finance,
       check_curriculum: "With a focus on resilience and integrity, our cybersecurity services ensure that your data, privacy, and online operations remain safeguarded in the face of ever-changing online risks, allowing you to confidently embrace the opportunities of the digital age.",
-      download: "https://drive.google.com/uc?export=download&id=1p65EP0fM3E8txn71uRlE3UO3wG5e490B"
+      download: "hhttps://drive.google.com/uc?export=download&id=1C46OzHDQfqsGrHgD9eiuDHATN1GeBB4n"
     },
     {
       id: 7,
@@ -135,7 +134,7 @@ Digital marketing is a dynamic and strategic approach to promoting products or s
       eligibility: "Eligibility for human resources roles typically requires a bachelor's degree in human resources, business, or a related field. Relevant experience, strong communication skills, and knowledge of employment laws are often essential. Some positions may demand additional certifications such as SHRM or PHR. Specific requirements vary by employer.",
       course_outline: hr,
       check_curriculum: "The HR curriculum includes topics such as recruitment, employee relations, performance management, and HR strategy, providing comprehensive knowledge for effective human resource management.",
-      download: "https://drive.google.com/uc?export=download&id=1p65EP0fM3E8txn71uRlE3UO3wG5e490B"
+      download: "https://drive.google.com/uc?export=download&id=1HmyRUQ2PP2K0VVO3oUHBmQ0EQEQqhH9N"
     },
     {
       id: 8,
@@ -149,7 +148,7 @@ Digital marketing is a dynamic and strategic approach to promoting products or s
       eligibility: "Eligibility for AutoCAD programs typically requires a basic understanding of computer-aided design (CAD) concepts and familiarity with relevant software.",
       course_outline: autocad,
       check_curriculum: "AutoCAD curriculum covers essential CAD skills, including 2D and 3D drafting, design principles, and software proficiency.",
-      download: "https://drive.google.com/uc?export=download&id=1p65EP0fM3E8txn71uRlE3UO3wG5e490B"
+      download: "https://drive.google.com/uc?export=download&id=1otQ7RFCbUqKqInGEDFiwrqm0mqYJ-4pq"
     },
     {
       id: 9,
@@ -163,7 +162,7 @@ Digital marketing is a dynamic and strategic approach to promoting products or s
       eligibility: "STAAD.Pro is a structural analysis and design software widely used in civil engineering. Eligibility typically includes a background in civil or structural engineering, as the software requires understanding of structural concepts. Users should have knowledge of engineering principles, mathematical aptitude, and familiarity with construction practices for effective utilization of STAAD.Pro.",
       course_outline: staadpro,
       check_curriculum: "The STAAD Pro curriculum covers structural analysis and design, including topics like modeling, loading, analysis, and design of various structures using the STAAD Pro software.",
-      download: "https://drive.google.com/uc?export=download&id=1p65EP0fM3E8txn71uRlE3UO3wG5e490B"
+      download: "https://drive.google.com/uc?export=download&id=1zBjzNVOuIqa6f-bDrgIezceGKsAOZqKr"
     },
     {
       id: 10,
@@ -191,7 +190,7 @@ Digital marketing is a dynamic and strategic approach to promoting products or s
       eligibility: "Eligibility for VLSI (Very Large Scale Integration) courses typically requires a bachelor's degree in electrical engineering, electronics, or a related field. Some programs may also consider candidates with relevant work experience. Proficiency in programming languages and a solid foundation in digital electronics are often prerequisites for admission.",
       course_outline: vlsi,
       check_curriculum: "Focuses on semiconductor design, digital and analog circuits, FPGA programming, and advanced topics like ASIC design and verification in a hands-on learning environment.",
-      download: "https://drive.google.com/uc?export=download&id=1p65EP0fM3E8txn71uRlE3UO3wG5e490B"
+      download: "hhttps://drive.google.com/uc?export=download&id=1QYQELtkSMtd62tcIzNApPxqz_Gi9Dp9l"
     },
     {
       id: 12,
@@ -205,7 +204,7 @@ Digital marketing is a dynamic and strategic approach to promoting products or s
       eligibility: "Eligibility for bioinformatics programs typically requires a bachelor's degree in biology, computer science, or a related field. Some programs may have specific prerequisites in biology, chemistry, and mathematics. Strong analytical and computational skills are essential. Check the admission requirements of the specific institution offering the bioinformatics program for detailed criteria.",
       course_outline: bioinformatics,
       check_curriculum: "FBioinformatics curriculum covers the intersection of biology and computing, exploring genetic data analysis, computational biology, and molecular modeling.",
-      download: "https://drive.google.com/uc?export=download&id=1p65EP0fM3E8txn71uRlE3UO3wG5e490B"
+      download: "https://drive.google.com/c?export=download&id=1VSovnn6QNOxFyLq6FzAhuXiVD6U2sHKg"
     },
     {
       id: 13,
@@ -219,7 +218,7 @@ Digital marketing is a dynamic and strategic approach to promoting products or s
       eligibility: "Robotics eligibility typically requires a background in engineering, computer science, or a related field. Candidates should possess strong analytical and problem-solving skills. Proficiency in programming languages and a solid understanding of mechanical and electrical systems are crucial. Advanced degrees may be preferred for research or specialized roles.",
       course_outline: robotics,
       check_curriculum: "Covers programming, electronics, and mechanics, equipping students with skills for designing and building robots.",
-      download: "https://drive.google.com/uc?export=download&id=1p65EP0fM3E8txn71uRlE3UO3wG5e490B"
+      download: "https://drive.google.com/fuc?export=download&id=1BeJcJR5OfPZp31tl9jVZ9aHPIT8Fjoas"
     },
     {
       id: 14,
@@ -233,7 +232,7 @@ Digital marketing is a dynamic and strategic approach to promoting products or s
       eligibility: "Eligibility for genetic engineering typically requires a strong educational background in biological sciences or a related field, such as molecular biology. Advanced degrees, such as a master's or Ph.D., are often preferred. Practical experience in a laboratory setting and a deep understanding of genetics and biotechnology are essential for pursuing a career in genetic engineering.",
       course_outline: geneticengineering,
       check_curriculum: "Covers programming, electronics, and mechanics, equipping students with skills for designing and building robots.",
-      download: "https://drive.google.com/uc?export=download&id=1p65EP0fM3E8txn71uRlE3UO3wG5e490B"
+      download: "https://drive.google.com/uc?export=download&id=1bzVFcmJM7UkBTdBlxagpthCF-pqHC0JJ"
     },
     {
       id: 15,
@@ -304,7 +303,7 @@ Digital marketing is a dynamic and strategic approach to promoting products or s
       eligibility: "Eligibility for a stock market course typically requires a basic understanding of finance, economics, and a high school diploma or equivalent.",
       course_outline: stockmarket,
       check_curriculum: "The stock market course curriculum includes basics of financial markets, stock analysis techniques, portfolio management strategies, trading tactics, and regulatory considerations. Students learn to understand, analyze, and engage in stock market activities efficiently.",
-      download: ""
+      download: "https://drive.google.com/uc?export=download&id=1XCagl1RmZFtQk0-W1blBU6S9yqCeq1Qb"
     },
     {
       id: 20,
@@ -318,7 +317,7 @@ Digital marketing is a dynamic and strategic approach to promoting products or s
       eligibility: "Eligibility for an Internet of Things course typically requires a relevant educational background in fields like computer science or engineering, along with a basic understanding of programming and technical concepts.",
       course_outline: iot,
       check_curriculum: "An IoT curriculum typically includes topics such as IoT architecture, embedded systems, networking protocols (Wi-Fi, Bluetooth, etc.), data analytics, security and privacy, cloud and edge computing, machine learning, IoT applications (smart cities, healthcare, etc.), and hands-on projects.",
-      download: ""
+      download: "https://drive.google.com/uc?export=download&id=1GrAmmQ0tOGCP6PMUqOTo_c41CysCldpr"
     },
     {
       id: 21,
@@ -332,7 +331,7 @@ Digital marketing is a dynamic and strategic approach to promoting products or s
       eligibility: "Eligibility for Nanoscience/Nanotechnology internships or courses typically requires candidates to have a background in fields like physics, chemistry, materials science, engineering, or biology. Candidates should have a good academic standing and may need to meet specific GPA requirements.",
       course_outline: nanoscience,
       check_curriculum: "The curriculum for a Nanoscience/Nanotechnology internship course typically covers fundamental concepts such as nanomaterial synthesis, characterization methods, nanofabrication techniques, nanodevices, nanobiotechnology applications.",
-      download: ""
+      download: "https://drive.google.com/uc?export=download&id=1RqLqdu3kLbztBwwQoRnci_4PLeNu4hBU"
     },
     {
       id: 22,
@@ -346,7 +345,7 @@ Digital marketing is a dynamic and strategic approach to promoting products or s
       eligibility: "Eligibility for Nanoscience/Nanotechnology internships or courses typically requires candidates to have a background in fields like physics, chemistry, materials science, engineering, or biology. Candidates should have a good academic standing and may need to meet specific GPA requirements.",
       course_outline: nanoscience,
       check_curriculum: "The curriculum for a Nanoscience/Nanotechnology internship course typically covers fundamental concepts such as nanomaterial synthesis, characterization methods, nanofabrication techniques, nanodevices, nanobiotechnology applications.",
-      download: ""
+      download: "https://drive.google.com/uc?export=download&id=15jARgCpG-p4FL3us_acshpQh1DE7Bkqp"
     },
     {
       id: 23,
@@ -360,7 +359,7 @@ Digital marketing is a dynamic and strategic approach to promoting products or s
       eligibility: "Eligibility for data science roles typically requires a solid background in mathematics, statistics, and programming languages such as Python, R, or SQL. A bachelor's degree in computer science, mathematics, statistics, engineering, or a related field is commonly sought after for entry-level positions. Advanced roles in data science often necessitate a master's degree or Ph.D. in data science, machine learning, or a related discipline, coupled with relevant work experience in data analytics, machine learning algorithms, data visualization, and big data technologies. Proficiency in data manipulation, statistical modeling, and machine learning frameworks is highly valued in the field of data science.",
       course_outline: datascience,
       check_curriculum: "A data science curriculum for a website typically encompasses several key areas. It begins with an introduction to the field, covering the basics of data and its significance in modern contexts. ",
-      download: ""
+      download: "https://drive.google.com/uc?export=download&id=1cJUIB635DhvZC8pho7mi1K9o5-q_DPbf"
     }
   ];
   return (
