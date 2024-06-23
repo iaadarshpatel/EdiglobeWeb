@@ -14,6 +14,7 @@ const Projectsubmission = ({ enteredEmail, setEnteredEmail }) => {
   const [error, setError] = useState(true);
   const [inputValid, setInputValid] = useState('');
   const [emails, setEmails] = useState([]);
+  const [loading, setLoading] = useState(true);  // new state for loading
 
   useEffect(() => {
     setEnteredEmail('')
@@ -25,8 +26,8 @@ const Projectsubmission = ({ enteredEmail, setEnteredEmail }) => {
         setError(error.message);
         console.error('Error fetching project data: ', error.message); 
       } finally {
+        setLoading(false);  // set loading to false after API call is done
         setError(false);
-        console.error('Error fetching project data: ', error.message); 
       }
     };
     apiData();
@@ -44,7 +45,7 @@ const Projectsubmission = ({ enteredEmail, setEnteredEmail }) => {
     return false;
   };
 
-  const errorMessage = "No Project Avaiable with this email-id"
+  const errorMessage = "No Project Available with this email-id"
 
   const handleCheckButtonClick = (event) => {
     setInputValid(event.target.value)
@@ -101,7 +102,6 @@ const Projectsubmission = ({ enteredEmail, setEnteredEmail }) => {
     color: 'white'
   };
 
-
   return (
     <>
       <Nav />
@@ -152,8 +152,8 @@ const Projectsubmission = ({ enteredEmail, setEnteredEmail }) => {
                       style={buttonColor}
                       type='button'
                       onClick={handleCheckButtonClick}>
-                      Check
-                      </button>
+                      {loading ? 'Loading...' : 'Check Now'}
+                </button>
               </form>
             </div>
           </div>
