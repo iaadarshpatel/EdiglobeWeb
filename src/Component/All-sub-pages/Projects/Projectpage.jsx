@@ -11,6 +11,7 @@ const Projectsubmission = ({ enteredEmail, setEnteredEmail }) => {
   const [projectPage, setprojectPage] = useState(false);
   const [dataError, setDataError] = useState();
   const [projectData, setprojectData] = useState();
+  console.log(projectData);
   const [error, setError] = useState(true);
   const [inputValid, setInputValid] = useState('');
   const [emails, setEmails] = useState([]);
@@ -141,7 +142,7 @@ const Projectsubmission = ({ enteredEmail, setEnteredEmail }) => {
                     onChange={handleEmailChange}
                     autoComplete='off'
                     required
-                    pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$"
+                    pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$"
                   />
                   <p className='text-danger' style={{ fontSize: "14px" }}>{dataError}</p>
                 </div>

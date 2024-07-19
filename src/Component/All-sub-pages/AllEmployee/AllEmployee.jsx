@@ -21,7 +21,7 @@ const AllEmployee = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(process.env.REACT_APP_EMPLOYEE_DATA);
+        const response = await axios.get(process.env.REACT_APP_EMPLOYEE_DATA1);
         setUserData(response.data);
       } catch (error) {
         setLoading(error.message);
@@ -52,13 +52,13 @@ const AllEmployee = () => {
     if (filteredUserData.length > 0) {
       setTotalEmployees(filteredUserData.length);
       setCurrentlyWorkingCount(filteredUserData.filter(
-        (employee) => employee.working_status === 'Currently Working'
+        (employee) => employee.Working_Status === 'Currently Working'
       ).length);
       setDepartedCount(filteredUserData.filter(
-        (employee) => employee.working_status === 'Departed'
+        (employee) => employee.Working_Status === 'Departed'
       ).length);
       setNoticePeriodCount(filteredUserData.filter(
-        (employee) => employee.working_status === 'Notice Period'
+        (employee) => employee.Working_Status === 'Notice Period'
       ).length);
     }
   }, [filteredUserData])
@@ -153,76 +153,76 @@ const AllEmployee = () => {
                 {loading ? (
                   <div className="spinner-border" role="status"></div>
                 ) : filteredUserData && filteredUserData.length > 0 ? (
-                  filteredUserData.map(({ id, full_name, employee_id, working_status, email, phone, team, designation, dof, dob, gender, per_address, res_address, aadhar_card, pan_card, offer_letter, gov_id, bank_passbook, photo, marksheet_12th, marksheet_grad, marksheet_10th }) => (
+                  filteredUserData.map(({ id, Name, Employee_Intern_ID, Date_of_Birth, Personal_Email, Phone_Number, Date_Of_Joining, Gender, Designation, Working_Status, Department, Report_To, Permanent_Address, Residential_Address, Aadhar_Card, Pan_Card, Marksheet_12, Graduation_Marksheet }) => (
                     <div className="col-lg-4 mb-2" key={id}>
                       <div className="blog_right_sidebar rounded position-relative">
 
-                        <div className={`spinner-grow ${working_status === "Currently Working"
+                        <div className={`spinner-grow ${Working_Status === "Currently Working"
                           ? "bg-success bg-opacity-25"
-                          : working_status === "Departed"
+                          : Working_Status === "Departed"
                             ? "bg-danger bg-opacity-25"
-                            : working_status === "Notice Period"
+                            : Working_Status === "Notice Period"
                               ? "bg-warning bg-opacity-25"
                               : "bg-blue"
                           }`} role="status" style={{ "backgroundColor": "purple" }}></div>
                         <aside className="single_sidebar_widget author_widget mt-2">
                           <img
-                            src={process.env.REACT_APP_DUMMY_IMG}
-                            alt=""
+                            src="https://drive.google.com/uc?id=1vsJu3SeG9OumWEWWuS88ZOq0U78qdGkb"
+                            alt="Avatar"
                             className="avatar xl rounded-circle img-thumbnail shadow-sm"
                           />
 
-                          <h4>{full_name}</h4>
-                          <span className="text-muted small d-inline-block">Employee Id :{employee_id}</span>
-                          <span className={`light-info-bg text-center w-auto p-3 fs-6 fw-bolder py-1 px-1 rounded-1 d-inline-block mb-2 mt-1 ${working_status === "Currently Working"
+                          <h4>{Name}</h4>
+                          <span className="text-muted small d-inline-block">Employee Id :{Employee_Intern_ID}</span>
+                          <span className={`light-info-bg text-center w-auto p-3 fs-6 fw-bolder py-1 px-1 rounded-1 d-inline-block mb-2 mt-1 ${Working_Status === "Currently Working"
                             ? "bg-success bg-opacity-25"
-                            : working_status === "Departed"
+                            : Working_Status === "Departed"
                               ? "bg-danger bg-opacity-25"
-                              : working_status === "Notice Period"
+                              : Working_Status === "Notice Period"
                                 ? "bg-warning bg-opacity-25"
                                 : "bg-blue"
-                            }`}>{working_status}</span>
+                            }`}>{Working_Status}</span>
                           <ul class="list-group w-auto">
                             <li class="list-group-item small">
                               <i class="fa-solid fa-envelope me-2"></i>Email:
-                              <span class="text-muted ms-2">{email}</span>
+                              <span class="text-muted ms-2">{Personal_Email}</span>
                             </li>
                             <li class="list-group-item small">
                               <i class="fa-solid fa-phone me-2"></i>Contact:
-                              <span class="text-muted ms-2">{phone}</span>
+                              <span class="text-muted ms-2">{Phone_Number}</span>
                             </li>
                             <li class="list-group-item small">
-                              <i class="fa-solid fa-user-plus me-2"></i>Team:
-                              <span class="badge rounded-pill text-bg-warning w-auto ms-2">{team}</span>
+                              <i class="fa-solid fa-user-plus me-2"></i>Report To:
+                              <span class="badge rounded-pill text-bg-warning w-auto ms-2">{Report_To}</span>
                             </li>
                             <li class="list-group-item small">
                               <i class="fa-solid fa-briefcase me-2"></i>Designation:
-                              <span class="text-muted ms-2">{designation}</span>
+                              <span class="text-muted ms-2">{Designation}</span>
                             </li>
                             <li class="list-group-item small">
                               <i class="fa-solid fa-cake-candles me-2"></i>Birthday:
-                              <span class="text-muted ms-2">{dob}</span>
+                              <span class="text-muted ms-2">{Date_of_Birth}</span>
                             </li>
                             <li class="list-group-item small">
                               <i class="fa-solid fa-calendar-days me-2"></i>DOJ:
-                              <span class="text-muted ms-2">{dof}</span>
+                              <span class="text-muted ms-2">{Date_Of_Joining}</span>
                             </li>
                             <li class="list-group-item small">
                               <i class="fa-solid fa-person-half-dress me-2"></i>Gender:
-                              <span class="text-muted ms-2">{gender}</span>
+                              <span class="text-muted ms-2">{Gender}</span>
                             </li>
                             <li class="list-group-item small">
                               <i class="fa-solid fa-map-location me-2"></i>Per. Address:
-                              <span class="text-muted ms-2">{per_address}</span>
+                              <span class="text-muted ms-2">{Permanent_Address}</span>
                             </li>
                             <li class="list-group-item small">
                               <i class="fa-solid fa-house me-2"></i>Res. Address:
-                              <span class="text-muted ms-2">{res_address}</span>
+                              <span class="text-muted ms-2">{Residential_Address}</span>
                             </li>
                             <li class="list-group-item small">
                               <i class="fa-solid fa-link me-2"></i>Aadhar:
                               <span class="text-muted ms-2">
-                                <a href={`https://drive.google.com/uc?id=${aadhar_card}`} style={{ "color": "#1e2a5a" }}>Check it</a>
+                                <a href={`https://drive.google.com/uc?id=${Aadhar_Card}`} style={{ "color": "#1e2a5a" }}>Check it</a>
                               </span>
                             </li>
                             <li class="list-group-item small">
@@ -269,11 +269,11 @@ const AllEmployee = () => {
                             </li>
                           </ul>
                         </aside>
-                        <button className={`badge fs-6 w-auto mt-2 p-3 text-dark ${working_status === "Currently Working"
+                        <button className={`badge fs-6 w-auto mt-2 p-3 text-dark ${Working_Status === "Currently Working"
                           ? "bg-success bg-opacity-25"
-                          : working_status === "Departed"
+                          : Working_Status === "Departed"
                             ? "bg-danger bg-opacity-25"
-                            : working_status === "Notice Period"
+                            : Working_Status === "Notice Period"
                               ? "bg-warning bg-opacity-25"
                               : "bg-blue"
                           }`} data-bs-toggle="modal" data-bs-target="#staticBackdrop">

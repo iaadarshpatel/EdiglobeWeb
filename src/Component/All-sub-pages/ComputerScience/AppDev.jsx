@@ -101,7 +101,7 @@ const AppDev = () => {
                 </div>
                 <h4 className="title">Course Outline</h4>
                 <div className="content">
-                  <courseData/>asas
+                  <courseData/>
                 </div>
               </div>
             </div>
