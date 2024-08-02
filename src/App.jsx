@@ -29,7 +29,7 @@ import Project from './Component/All-sub-pages/Projects/Project'
 import Upload from './Upload';
 import Login from './Login';
 import { Routes, Route, HashRouter, Navigate } from 'react-router-dom';
-import { onAuthStateChanged, signOut } from "firebase/auth";
+import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "./FirebaseConfig";
 
 
@@ -389,7 +389,6 @@ function App() {
             </div>) 
 
         } />
-        <Route path='/login' element={<Login />} />
         <Route path='/Upload' element={<Upload />} />
         <Route path='/' element={<Home />} />
         <Route path='/home' element={<Home />} />
