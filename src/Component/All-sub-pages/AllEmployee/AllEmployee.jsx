@@ -264,7 +264,7 @@ const AllEmployee = () => {
                             <li class="list-group-item small">
                               <i class="fa-solid fa-link me-2"></i>Aadhar:
                               <span class="text-muted ms-2">
-                                <a href={`https://drive.google.com/uc?id=${Aadhar_Card}`} style={{ "color": "#1e2a5a" }}>Check it</a>
+                                <Link to={`https://drive.google.com/uc?id=${Aadhar_Card}`} style={{ "color": "#1e2a5a" }}>Check it</Link>
                               </span>
                             </li>
                             <li className="list-group-item small" data-tip={Permanent_Address} data-for="permanentAddressTooltip">
@@ -274,43 +274,43 @@ const AllEmployee = () => {
                             <li class="list-group-item small">
                               <i class="fa-solid fa-link me-2"></i>PAN:
                               <span class="text-muted ms-2">
-                                <a href="" style={{ "color": "#1e2a5a" }}>Check it</a>
+                                <Link to="" style={{ "color": "#1e2a5a" }}>Check it</Link>
                               </span>
                             </li>
                             <li className="list-group-item small">
                               <i className="fa-solid fa-link me-2"></i>Signed Copy of Offer Letter:
                               <span className="text-muted ms-2">
-                                <a href="" style={{ "color": "#1e2a5a" }}>Check it</a>
+                                <Link to="" style={{ "color": "#1e2a5a" }}>Check it</Link>
                               </span>
                             </li>
                             <li className="list-group-item small">
                               <i className="fa-solid fa-link me-2"></i>Driving License or Voters ID:
                               <span className="text-muted ms-2">
-                                <a href="" style={{ "color": "#1e2a5a" }}>Check it</a>
+                                <Link to="" style={{ "color": "#1e2a5a" }}>Check it</Link>
                               </span>
                             </li>
                             <li className="list-group-item small">
                               <i className="fa-solid fa-link me-2"></i>Bank Passbook:
                               <span className="text-muted ms-2">
-                                <a href="" style={{ "color": "#1e2a5a" }}>Check it</a>
+                                <Link to="" style={{ "color": "#1e2a5a" }}>Check it</Link>
                               </span>
                             </li>
                             <li className="list-group-item small">
                               <i className="fa-solid fa-file-lines me-2"></i>10th Marksheet:
                               <span className="text-muted ms-2">
-                                <a href="" style={{ "color": "#1e2a5a" }}>Check it</a>
+                                <Link to="" style={{ "color": "#1e2a5a" }}>Check it</Link>
                               </span>
                             </li>
                             <li class="list-group-item small">
                               <i className="fa-solid fa-file-lines me-2"></i>12th Marksheet:
                               <span class="text-muted ms-2">
-                                <a href="" style={{ "color": "#1e2a5a" }}>Check it</a>
+                                <Link to="" style={{ "color": "#1e2a5a" }}>Check it</Link>
                               </span>
                             </li>
                             <li class="list-group-item small">
                               <i className="fa-solid fa-file-lines me-2"></i>Grad. Marksheet:
                               <span class="text-muted ms-2">
-                                <a href="" style={{ "color": "#1e2a5a" }}>Check it</a>
+                                <Link to="" style={{ "color": "#1e2a5a" }}>Check it</Link>
                               </span>
                             </li>
                           </ul>
