@@ -87,7 +87,7 @@ const ECE = () => {
                                             <div className="course_content">
                                                 <span className="course_tag">ECE</span>
                                                 <h4 className="course_name">
-                                                    <a href="http://">{course_name}</a>
+                                                    <Link to="http://">{course_name}</Link>
                                                 </h4>
                                                 <p>{course_detail}</p>
 
@@ -97,10 +97,10 @@ const ECE = () => {
                                                     </Link>
                                                     <div className='follows'>
                                                         <span className="meta_info">
-                                                            <a href="/"><i>{user_icon}</i>25</a>
+                                                            <Link to="/"><i>{user_icon}</i>25</Link>
                                                         </span>
                                                         <span className="meta_like">
-                                                            <a href="/"><i>{like_icon}</i>35</a>
+                                                            <Link to="/"><i>{like_icon}</i>35</Link>
                                                         </span>
                                                     </div>
 

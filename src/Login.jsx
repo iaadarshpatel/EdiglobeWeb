@@ -41,7 +41,8 @@ const Login = () => {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
-          <button type="submit" onKeyDown={(e) => e.key === "Enter" && handleLogin()}>Login</button>
+          <button type="submit" className="primary-btn" onKeyDown={(e) => e.key === "Enter" && handleLogin()}>Login</button>
+          
         </form>
         {error && <p className="error">{error}</p>}
       </div>

@@ -83,19 +83,19 @@ const Mechanical = () => {
                                         <div className="course_content">
                                             <span className="course_tag">Mechanical</span>
                                             <h4 className="course_name">
-                                                <a href="http://">{course_name}</a>
+                                                <Link to="http://">{course_name}</Link>
                                             </h4>
                                             <p>{course_detail}</p>
 
                                             <div className="course_meta">
                                                 <button className="btn btn-outline-success" type="submit" >View Details</button>
                                                 <div className='follows'>
-                                                    <span className="meta_info">
-                                                        <a href="/"><i>{user_icon}</i>25</a>
-                                                    </span>
-                                                    <span className="meta_like">
-                                                        <a href="/"><i>{like_icon}</i>35</a>
-                                                    </span>
+                                                <span className="meta_info">
+                                                            <Link to="/"><i>{user_icon}</i>25</Link>
+                                                        </span>
+                                                        <span className="meta_like">
+                                                            <Link to="/"><i>{like_icon}</i>35</Link>
+                                                        </span>
                                                 </div>
 
                                             </div>

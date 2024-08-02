@@ -148,7 +148,7 @@ const AppDev = () => {
                     </div>
                   </div>
                 </div>
-                <h4 className="title">Check our Curriculum <a style={{ color: "inherit" }} href={appDev} download> <FaDownload className='ms-2' /></a></h4>
+                <h4 className="title">Check our Curriculum <Link style={{ color: "inherit" }} to={appDev} download> <FaDownload className='ms-2' /></Link></h4>
                 <div className="content">
                   <div className="review-top row pt-40">
                     <div className="col-lg-12">

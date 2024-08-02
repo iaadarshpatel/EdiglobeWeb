@@ -75,7 +75,7 @@ const AllDeparts = () => {
                                 <div className="banner_content text-center">
                                     <h2>All Departments</h2>
                                     <div className="page_link">
-                                        <a href="/">Home</a>
+                                        <Link href="/">Home</Link>
                                         <a>All Departments</a>
                                     </div>
                                 </div>

@@ -5,7 +5,7 @@ import Nav from '../../Nav/Nav';
 import Footer from '../../footer/Footer';
 import student from '../../../assets/student.gif'
 import PointConfetti from './PointConfetti';
-import { Navigate, useNavigate } from 'react-router-dom';
+import { Link, Navigate, useNavigate } from 'react-router-dom';
 import Preloader from './Preloader';
 import Swal from 'sweetalert2';
 import { db } from '../../../FirebaseConfig';
@@ -508,11 +508,11 @@ const ObForm = ({ enteredEmail }) => {
                       <div className="col-sm-6 add_on_certificate mt-3">
                         <label htmlFor="certificate" id='remove-margin'>Add On Certificate:</label>
                         <small className='font-monospace mb-2'>Mention only Certificate <b className='text-dark'>Series Number</b> from
-                          <a
-                            href="https://drive.google.com/file/d/1FH3o0K1Xt0N51z1eTZ6SQ0o1oh6vniJ6/view"
+                          <Link
+                            to="https://drive.google.com/file/d/1FH3o0K1Xt0N51z1eTZ6SQ0o1oh6vniJ6/view"
                             style={{ color: 'dodgerblue' }}
                             target="_blank" rel="noopener noreferrer"> Certification PDF Link
-                          </a></small>
+                          </Link></small>
                         <input
                           type='text'
                           placeholder="Series Number"

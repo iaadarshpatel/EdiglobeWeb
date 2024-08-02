@@ -171,7 +171,7 @@ function Dev({ title, course_desc, objective, eligibility, check_curriculum, cou
                                         </div>
                                     </div>
                                 </div>
-                                <h4 className="title">Check our Curriculum <a style={{ color: "inherit" }} href={download} download> <FaDownload className='ms-2' /></a></h4>
+                                <h4 className="title">Check our Curriculum <Link style={{ color: "inherit" }} to={download} download> <FaDownload className='ms-2' /></Link></h4>
                                 <div className="content">
                                     <div className="review-top row pt-40">
                                         <div className="col-lg-12">

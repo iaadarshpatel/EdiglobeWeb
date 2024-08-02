@@ -203,9 +203,9 @@ const Project = ({ enteredEmail }) => {
                           <hr className='line' />
                           <h6 className='d-flex'>Deadline: {deadlinedate1}</h6>
                         </div>
-                        <a href={project1link} target="_blank" rel="noopener noreferrer">
+                        <Link to={project1link} target='_blank' rel="noopener noreferrer">
                           <button className="project-btn">View Project</button>
-                        </a>
+                        </Link>
                       </div>
                     </div>
                     <div className="project-content">
