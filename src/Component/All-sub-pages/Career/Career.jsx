@@ -81,7 +81,6 @@ const Career = () => {
             {selectedDepartment === 'Operations' && <Operations />}
             {selectedDepartment === 'B2B' && <B2B />}
             {selectedDepartment === 'LeadGen' && <LeadGen />}
-
             <Footer />
         </>
     )

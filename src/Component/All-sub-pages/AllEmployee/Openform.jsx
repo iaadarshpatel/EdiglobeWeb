@@ -3,7 +3,7 @@
   import Footer from '../../footer/Footer';
   import axios from 'axios';
   import Nav from '../../Nav/Nav';
-  import db from '../../../FirebaseConfig';
+  import {db} from '../../../FirebaseConfig';
   import { onValue, ref } from "firebase/database";
 
   const Openform = ({ enteredEmail, setEnteredEmail }) => {
@@ -55,7 +55,6 @@
     const handleCheckButtonClick = (event) => {
       setInputValid(event.target.value)
       const matchedObject = findObjectByEmail(emails, enteredEmail);
-      console.log(emails);
       const matchedRazorpayObject = findObjectByEmail(razorpayData, enteredEmail);
     
       if (matchedRazorpayObject && !matchedObject) {

@@ -1,36 +1,41 @@
 ::-webkit-scrollbar {
-    width: 5px;
+    display: none;
 }
 
-iframe{
-    padding-left: 10%;
-    padding-right: 10%;
-    scroll-behavior: unset;
+.birthday-highlight {
+    background-color: #fffbea;
+  }
+
+.working_status {
+    border: 2px solid var(--text-color);
+    padding: 10px 20px 10px 10px;
 }
 
 /* Handle of the scrollbar */
 ::-webkit-scrollbar-thumb {
     background-color: var(--text-color);
-    border-radius: 5px;
-  }
+    border-radius: 2px;
+}
 
-.checkbtn:hover{
+.checkbtn:hover {
     background-color: var(--text-color) !important;
 }
 
-  .preloader-container {
+.preloader-container {
     padding: 2rem !important;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh !important;
-    background-color: white; 
-    overflow: hidden; 
-  }
+    background-color: white;
+    overflow: hidden;
+}
 
-  .preloader-container img {
-    max-width: 100%; /* Adjust the maximum width as needed */
-    max-height: 100%; /* Adjust the maximum height as needed */
+.preloader-container img {
+    max-width: 100%;
+    /* Adjust the maximum width as needed */
+    max-height: 100%;
+    /* Adjust the maximum height as needed */
     overflow-y: hidden;
 }
 
@@ -38,11 +43,11 @@ iframe{
     margin-bottom: 40px;
 }
 
-.search_btn{
+.search_btn {
     background-color: #002347;
 }
 
-.light-info-bg{
+.light-info-bg {
     color: black;
     font-size: 12px !important;
 }
@@ -58,13 +63,19 @@ iframe{
 }
 
 .single_sidebar_widget img {
-    width: 140px;
-    height: 140px;
+    width: 1000px;
+    height: 1000px;
 }
 
-.text-muted{
+#test-img{
+    height: 1000px;
+    width: 1000px;
+}
+
+.text-muted {
     font: 13px 'Open-sans', sans-serif !important;
 }
+
 
 .search_btn:hover,
 .search_btn:focus {
@@ -73,7 +84,7 @@ iframe{
     border-color: none !important;
 }
 
-.active:focus{
+.active:focus {
     background-color: #002347 !important;
 }
 
@@ -396,14 +407,14 @@ label {
     margin: 0px;
 }
 
-#remove-margin{
+#remove-margin {
     padding-bottom: 0px;
 }
 
 
 /* Full-width input fields */
-input[type=text], input[type=email], select {
-  /* 
+/* input[type=text], input[type=email], select {
+  
   width: 100%;
   padding: 8px;
   margin-bottom: 5px;
@@ -411,78 +422,84 @@ input[type=text], input[type=email], select {
   border: none;
   background: #fff;
   border: 1px solid #dee2e6;
-   */
-}
+  
+} */
 
-select {
-    /* padding: 8px !important; */
-}
+/* select {
+    padding: 8px !important;
+} */
 
 /* Add a background color when the inputs get focus */
-input[type=text]:focus, input[type=email]:focus, input[type=email]:focus {
-  background-color: #fff;
-  outline: none;
+input[type=text]:focus,
+input[type=email]:focus,
+input[type=email]:focus {
+    background-color: #fff;
+    outline: none;
 }
 
 
 button:hover {
-  opacity:1;
+    opacity: 1;
 }
 
 
 /* Modal Content/Box */
 .modal-content {
-  background-color: #fefefe;
-  margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
-  border: 1px solid #888;
-  width: 80%; /* Could be more or less, depending on screen size */
+    background-color: #fefefe;
+    margin: 5% auto 15% auto;
+    /* 5% from the top, 15% from the bottom and centered */
+    border: 1px solid #888;
+    width: 80%;
+    /* Could be more or less, depending on screen size */
 }
 
 /* Style the horizontal ruler */
 hr {
-  border: 1px solid #eee;
-  margin-bottom: 25px;
+    border: 1px solid #eee;
+    margin-bottom: 25px;
 }
 
-#alert_line{
+#alert_line {
     margin-bottom: 10px;
 }
 
-.list-group-item{
+.list-group-item {
     font-size: 14px;
 }
 
-.onboarding_info{
+.onboarding_info {
     background-color: #002347;
     color: #eee;
 }
- 
+
 /* The Close Button (x) */
 .close {
-  position: absolute;
-  right: 35px;
-  top: 15px;
-  font-size: 40px;
-  font-weight: bold;
-  color: #f1f1f1;
+    position: absolute;
+    right: 35px;
+    top: 15px;
+    font-size: 40px;
+    font-weight: bold;
+    color: #f1f1f1;
 }
 
 .close:hover,
 .close:focus {
-  color: #f44336;
-  cursor: pointer;
+    color: #f44336;
+    cursor: pointer;
 }
 
 /* Clear floats */
 .clearfix::after {
-  content: "";
-  clear: both;
-  display: table;
+    content: "";
+    clear: both;
+    display: table;
 }
 
 /* Change styles for cancel button and signup button on extra small screens */
 @media screen and (max-width: 300px) {
-  .cancelbtn, .signupbtn {
-     width: 100%;
-  }
+
+    .cancelbtn,
+    .signupbtn {
+        width: 100%;
+    }
 }

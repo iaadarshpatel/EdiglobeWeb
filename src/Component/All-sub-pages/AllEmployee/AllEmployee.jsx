@@ -5,6 +5,9 @@ import Footer from '../../footer/Footer';
 import Nav from '../../Nav/Nav';
 import EmployeePerformace from './EmployeePerformace';
 import Preloader from './Preloader';
+import { signOut } from 'firebase/auth';
+import { auth } from '../../../FirebaseConfig';
+import "./allemployee.css";
 
 const AllEmployee = () => {
   const [userData, setUserData] = useState([]);
@@ -17,6 +20,8 @@ const AllEmployee = () => {
   const [currentlyWorkingCount, setCurrentlyWorkingCount] = useState(0);
   const [departedCount, setDepartedCount] = useState(0);
   const [noticePeriodCount, setNoticePeriodCount] = useState(0);
+
+  const [selectedWorkingStatus, setSelectedWorkingStatus] = useState('');
 
   useEffect(() => {
     const fetchData = async () => {
@@ -34,19 +39,22 @@ const AllEmployee = () => {
   }, []);
 
   useEffect(() => {
-    setFilteredUserData(userData);
-  }, [userData]);
+    let filteredUsers = userData;
 
-  const handleSearchInputChange = (e) => {
-    setSearchInput(e.target.value);
-    const filteredUsers = userData.filter((user) => {
-      const emailMatch = user.email.toLowerCase().includes(e.target.value.toLowerCase());
-      const nameMatch = user.full_name.toLowerCase().includes(e.target.value.toLowerCase());
-      return emailMatch || nameMatch;
-    });
+    if (searchInput) {
+      filteredUsers = filteredUsers.filter((user) => {
+        const emailMatch = user.Personal_Email && user.Personal_Email.toLowerCase().includes(searchInput.toLowerCase());
+        const nameMatch = user.Name && user.Name.toLowerCase().includes(searchInput.toLowerCase());
+        return emailMatch || nameMatch;
+      });
+    }
+
+    if (selectedWorkingStatus) {
+      filteredUsers = filteredUsers.filter((user) => user.Working_Status === selectedWorkingStatus);
+    }
+
     setFilteredUserData(filteredUsers);
-  };
-
+  }, [userData, searchInput, selectedWorkingStatus]);
 
   useEffect(() => {
     if (filteredUserData.length > 0) {
@@ -61,7 +69,46 @@ const AllEmployee = () => {
         (employee) => employee.Working_Status === 'Notice Period'
       ).length);
     }
-  }, [filteredUserData])
+  }, [filteredUserData]);
+
+  const handleSearchInputChange = (e) => {
+    setSearchInput(e.target.value);
+  };
+
+  const handleLogout = async () => {
+    try {
+      await signOut(auth);
+    } catch (error) {
+      console.error("Logout error:", error);
+    }
+  };
+
+  const handleSelectChange = (event) => {
+    setSelectedWorkingStatus(event.target.value);
+  };
+
+  const handleClearClick = () => {
+    setSelectedWorkingStatus('');
+  };
+
+  // Function to format the date
+  const formatDate = (dateString) => {
+    const options = { day: '2-digit', month: 'short', year: 'numeric' };
+    const date = new Date(dateString);
+    return date.toLocaleDateString('en-GB', options).replace(/ /g, ' ');
+  };
+
+  // Function to check if today is the birthday
+  const isTodayBirthday = (dateOfBirth) => {
+    const today = new Date();
+    const birthDate = new Date(dateOfBirth);
+    console.log(`Checking birthday: ${birthDate.getDate()}-${birthDate.getMonth()} against today's date: ${today.getDate()}-${today.getMonth()}`);
+    return (
+      birthDate.getDate() === today.getDate() &&
+      birthDate.getMonth() === today.getMonth()
+    );
+  };
+
 
   return (
     <>
@@ -91,7 +138,9 @@ const AllEmployee = () => {
           <section className='section_gap'>
             <div className="main_title" data-aos="fade-up">
               <h2>Let's Know about our Employee</h2>
-              <p>Looking for better working Environment</p>
+              <h6 style={{ cursor: 'pointer' }} onClick={handleLogout}>
+                Sign Out <i className="fa fa-sign-out"></i>
+              </h6>
             </div>
           </section>
           <section className='mb-2'>
@@ -99,34 +148,22 @@ const AllEmployee = () => {
               <div className="row">
                 <div className="col-md-12 d-flex">
                   <div className='search-filter col-3'>
-                    <div className="dropdown">
-                      <button
-                        className="btn btn-secondary dropdown-toggle search_btn"
-                        type="button"
-                        id="dropdownMenuButton2"
-                        data-bs-toggle="dropdown"
-                        aria-expanded="false"
-                      >
-                        Filter By
+                    <select
+                      className='working_status'
+                      name="working_status"
+                      required=""
+                      value={selectedWorkingStatus}
+                      onChange={handleSelectChange}>
+                      <option value="" disabled>Filter By</option>
+                      <option value="Currently Working">Currently Working</option>
+                      <option value="Departed">Departed</option>
+                      <option value="Notice Period">Notice Period</option>
+                    </select>
+                    {selectedWorkingStatus && (
+                      <button className="clear-button" onClick={handleClearClick}>
+                        Clear
                       </button>
-                      <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton2">
-                        <li>
-                          <a className="dropdown-item" href="#">
-                            Currently Working
-                          </a>
-                        </li>
-                        <li>
-                          <a className="dropdown-item" href="#">
-                            Departed
-                          </a>
-                        </li>
-                        <li>
-                          <a className="dropdown-item" href="#">
-                            Notice Period
-                          </a>
-                        </li>
-                      </ul>
-                    </div>
+                    )}
                   </div>
                   <form id="form" role="search" className='col d-flex justify-content-end'>
                     <input
@@ -153,10 +190,9 @@ const AllEmployee = () => {
                 {loading ? (
                   <div className="spinner-border" role="status"></div>
                 ) : filteredUserData && filteredUserData.length > 0 ? (
-                  filteredUserData.map(({ id, Name, Employee_Intern_ID, Date_of_Birth, Personal_Email, Phone_Number, Date_Of_Joining, Gender, Designation, Working_Status, Department, Report_To, Permanent_Address, Residential_Address, Aadhar_Card, Pan_Card, Marksheet_12, Graduation_Marksheet }) => (
+                  filteredUserData.map(({ id, Name, Employee_Intern_ID, Date_of_Birth, Personal_Email, Phone_Number, Date_Of_Joining, Gender, Designation, Working_Status, Department, Report_To, Permanent_Address, Residential_Address, Aadhar_Card }) => (
                     <div className="col-lg-4 mb-2" key={id}>
-                      <div className="blog_right_sidebar rounded position-relative">
-
+                      <div className={`blog_right_sidebar rounded position-relative ${isTodayBirthday(Date_of_Birth) ? "birthday-highlight" : ""}`}>
                         <div className={`spinner-grow ${Working_Status === "Currently Working"
                           ? "bg-success bg-opacity-25"
                           : Working_Status === "Departed"
@@ -166,11 +202,17 @@ const AllEmployee = () => {
                               : "bg-blue"
                           }`} role="status" style={{ "backgroundColor": "purple" }}></div>
                         <aside className="single_sidebar_widget author_widget mt-2">
-                          <img
+                          {/* <img
                             src="https://drive.google.com/uc?id=1vsJu3SeG9OumWEWWuS88ZOq0U78qdGkb"
                             alt="Avatar"
                             className="avatar xl rounded-circle img-thumbnail shadow-sm"
-                          />
+                          /> */}
+                          <iframe
+                            src="https://drive.google.com/file/d/1vsJu3SeG9OumWEWWuS88ZOq0U78qdGkb/preview"
+                            width="140" height="140" allow="autoplay" alt="Avatar"
+                            className="avatar xl rounded-circle img-thumbnail shadow-sm"
+                            sandbox=""
+                          ></iframe>
 
                           <h4>{Name}</h4>
                           <span className="text-muted small d-inline-block">Employee Id :{Employee_Intern_ID}</span>
@@ -201,11 +243,11 @@ const AllEmployee = () => {
                             </li>
                             <li class="list-group-item small">
                               <i class="fa-solid fa-cake-candles me-2"></i>Birthday:
-                              <span class="text-muted ms-2">{Date_of_Birth}</span>
+                              <span class="text-muted ms-2" style={{ fontWeight: isTodayBirthday(Date_of_Birth) ? 'bold' : 'normal', color: isTodayBirthday(Date_of_Birth) ? 'red' : 'inherit' }}>{formatDate(Date_of_Birth)}</span>
                             </li>
                             <li class="list-group-item small">
                               <i class="fa-solid fa-calendar-days me-2"></i>DOJ:
-                              <span class="text-muted ms-2">{Date_Of_Joining}</span>
+                              <span class="text-muted ms-2">{formatDate(Date_Of_Joining)}</span>
                             </li>
                             <li class="list-group-item small">
                               <i class="fa-solid fa-person-half-dress me-2"></i>Gender:
@@ -224,6 +266,10 @@ const AllEmployee = () => {
                               <span class="text-muted ms-2">
                                 <a href={`https://drive.google.com/uc?id=${Aadhar_Card}`} style={{ "color": "#1e2a5a" }}>Check it</a>
                               </span>
+                            </li>
+                            <li className="list-group-item small" data-tip={Permanent_Address} data-for="permanentAddressTooltip">
+                              <i className="fa-solid fa-map-location me-2"></i>Per. Address:
+                              <span className="text-muted ms-2">{Permanent_Address}</span>
                             </li>
                             <li class="list-group-item small">
                               <i class="fa-solid fa-link me-2"></i>PAN:

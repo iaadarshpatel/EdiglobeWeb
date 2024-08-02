@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Swal from 'sweetalert2';
-import db from '../../FirebaseConfig';
+import {db}  from '../../FirebaseConfig';
 import { push, ref, set, onValue } from "firebase/database";
 
 
@@ -71,7 +71,6 @@ const RegistrationForm = () => {
     }
   };
 
-  // Connect with Firebase
 // Connect with Firebase
 const submitRCDData = async (event) => {
   event.preventDefault();

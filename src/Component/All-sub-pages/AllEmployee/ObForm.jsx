@@ -8,7 +8,7 @@ import PointConfetti from './PointConfetti';
 import { Navigate, useNavigate } from 'react-router-dom';
 import Preloader from './Preloader';
 import Swal from 'sweetalert2';
-import db from '../../../FirebaseConfig';
+import { db } from '../../../FirebaseConfig';
 import { push, ref, set } from "firebase/database";
 
 const ObForm = ({ enteredEmail }) => {

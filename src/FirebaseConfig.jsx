@@ -1,19 +1,21 @@
+// FirebaseConfig.jsx
 import { initializeApp } from "firebase/app";
-import { getDatabase  } from "firebase/database";
+import { getDatabase } from "firebase/database";
+import { getAuth } from "firebase/auth";
 
 const firebaseConfig = {
-  apiKey: process.env.REACT_apiKey,
-  authDomain: process.env.REACT_authDomain,
-  databaseURL: process.env.REACT_databaseURL,
-  projectId: "onboarding-b9e49",
-  storageBucket: "onboarding-b9e49.appspot.com",
-  messagingSenderId: "779678839483",
-  appId: "1:779678839483:web:fea39f0d2df8844926ef9e"
+  apiKey: process.env.REACT_APP_API_KEY,
+  authDomain: process.env.REACT_APP_AUTH_DOMAIN,
+  databaseURL: process.env.REACT_APP_DATABASE_URL,
+  projectId: process.env.REACT_APP_PROJECT_ID,
+  storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
+  messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID,
+  appId: process.env.REACT_APP_APP_ID,
 };
 
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const db = getDatabase(app);
+const auth = getAuth(app);
 
-  // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
-  const db = getDatabase(app)
-
-export default db; 
+export  { app, db, auth };

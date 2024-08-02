@@ -3,15 +3,14 @@ import { Navigate } from 'react-router-dom';
 import Nav from '../../Nav/Nav';
 import Footer from '../../footer/Footer';
 import './projectpage.css';
-import axios from 'axios';  
-import db from '../../../FirebaseConfig';
+import axios from 'axios';
+import { db } from '../../../FirebaseConfig';
 import { onValue, ref } from "firebase/database";
 
 const Projectsubmission = ({ enteredEmail, setEnteredEmail }) => {
   const [projectPage, setprojectPage] = useState(false);
   const [dataError, setDataError] = useState();
   const [projectData, setprojectData] = useState();
-  console.log(projectData);
   const [error, setError] = useState(true);
   const [inputValid, setInputValid] = useState('');
   const [emails, setEmails] = useState([]);
@@ -25,7 +24,7 @@ const Projectsubmission = ({ enteredEmail, setEnteredEmail }) => {
         setprojectData(response.data);
       } catch (error) {
         setError(error.message);
-        console.error('Error fetching project data: ', error.message); 
+        console.error('Error fetching project data: ', error.message);
       } finally {
         setLoading(false);  // set loading to false after API call is done
         setError(false);
@@ -146,14 +145,14 @@ const Projectsubmission = ({ enteredEmail, setEnteredEmail }) => {
                   />
                   <p className='text-danger' style={{ fontSize: "14px" }}>{dataError}</p>
                 </div>
-                <button 
-                      disabled={!isInputvalid || projectData == null || emails == null} 
-                      id='checkbtn'
-                      className={`checkbtn btn`}
-                      style={buttonColor}
-                      type='button'
-                      onClick={handleCheckButtonClick}>
-                      {loading ? 'Loading...' : 'Check Now'}
+                <button
+                  disabled={!isInputvalid || projectData == null || emails == null}
+                  id='checkbtn'
+                  className={`checkbtn btn`}
+                  style={buttonColor}
+                  type='button'
+                  onClick={handleCheckButtonClick}>
+                  {loading ? 'Loading...' : 'Check Now'}
                 </button>
               </form>
             </div>

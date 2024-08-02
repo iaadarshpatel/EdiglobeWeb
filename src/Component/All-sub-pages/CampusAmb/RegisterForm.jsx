@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import Swal from 'sweetalert2';
-import db from '../../../FirebaseConfig';
+import {db} from '../../../FirebaseConfig';
 import { ref, set, onValue, push } from "firebase/database";
 
 const RegisterForm = ({ containerClass }) => {
