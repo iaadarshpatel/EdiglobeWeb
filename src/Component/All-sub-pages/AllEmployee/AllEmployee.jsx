@@ -212,7 +212,7 @@ const AllEmployee = () => {
                            {employee.Name}{index < birthdayEmployees.length - 1 ? ', ' : ''}
                         </span>
                       ))
-                      : 'No birthdays today'}
+                      : 'No birthdays'}
                   </span>
                 </h4>
               </ul>
