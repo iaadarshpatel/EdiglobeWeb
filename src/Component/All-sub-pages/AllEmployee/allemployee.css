@@ -492,9 +492,9 @@ hr {
         margin-bottom: 10px;
     }
 
-    .d-flex {
+    /* .d-flex {
         display: block !important;
-    }
+    } */
 
     .search-filter, form#form {
         width: 100%;

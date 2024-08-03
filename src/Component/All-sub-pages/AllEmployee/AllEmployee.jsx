@@ -238,7 +238,7 @@ const AllEmployee = () => {
                             className="avatar xl rounded-circle img-thumbnail shadow-sm"
                           /> */}
                           <h4>{Name}</h4>
-                          <span className="text-muted small d-inline-block">Employee Id :{Employee_Intern_ID}</span>
+                          <span className="text-muted small d-inline-block">Employee Id: {Employee_Intern_ID}</span>
                           <span className={`light-info-bg text-center w-auto p-3 fs-6 fw-bolder py-1 px-1 rounded-1 d-inline-block mb-2 mt-1 ${Working_Status === "Currently Working"
                             ? "bg-success bg-opacity-25"
                             : Working_Status === "Departed"
