@@ -15,13 +15,14 @@ const AllEmployee = () => {
   const [searchInput, setSearchInput] = useState('');
   const [filteredUserData, setFilteredUserData] = useState([]);
 
-
   const [totalEmployee, setTotalEmployees] = useState(0);
   const [currentlyWorkingCount, setCurrentlyWorkingCount] = useState(0);
   const [departedCount, setDepartedCount] = useState(0);
   const [noticePeriodCount, setNoticePeriodCount] = useState(0);
 
   const [selectedWorkingStatus, setSelectedWorkingStatus] = useState('');
+  const [birthdayEmployees, setBirthdayEmployees] = useState([]);
+  
 
   useEffect(() => {
     const fetchData = async () => {
@@ -37,6 +38,15 @@ const AllEmployee = () => {
 
     fetchData();
   }, []);
+
+  //Birthday employees
+  useEffect(() => {
+    if (filteredUserData.length > 0) {
+      // Filter employees with today's birthday
+      const todayBirthdayEmployees = filteredUserData.filter((employee) => isTodayBirthday(employee.Date_of_Birth));
+      setBirthdayEmployees(todayBirthdayEmployees);
+    }
+  }, [filteredUserData]);
 
   useEffect(() => {
     let filteredUsers = userData;
@@ -102,7 +112,6 @@ const AllEmployee = () => {
   const isTodayBirthday = (dateOfBirth) => {
     const today = new Date();
     const birthDate = new Date(dateOfBirth);
-    console.log(`Checking birthday: ${birthDate.getDate()}-${birthDate.getMonth()} against today's date: ${today.getDate()}-${today.getMonth()}`);
     return (
       birthDate.getDate() === today.getDate() &&
       birthDate.getMonth() === today.getMonth()
@@ -145,9 +154,9 @@ const AllEmployee = () => {
           </section>
           <section className='mb-2'>
             <div className="container">
-              <div className="row">
-                <div className="col-md-12 d-flex">
-                  <div className='search-filter col-3'>
+              <div className="row align-items-center">
+                <div className="col-md-4 d-flex">
+                  <div className='search-filter w-100'>
                     <select
                       className='working_status'
                       name="working_status"
@@ -160,17 +169,19 @@ const AllEmployee = () => {
                       <option value="Notice Period">Notice Period</option>
                     </select>
                     {selectedWorkingStatus && (
-                      <button className="clear-button" onClick={handleClearClick}>
+                      <button className="clear-button mt-2" onClick={handleClearClick}>
                         Clear
                       </button>
                     )}
                   </div>
-                  <form id="form" role="search" className='col d-flex justify-content-end'>
+                </div>
+                <div className="col-md-8 d-flex justify-content-end">
+                  <form id="form" role="search" className='w-100 d-flex justify-content-center'>
                     <input
                       type="search"
-                      className='p-2 border rounded'
+                      className='p-2 border rounded w-100'
                       name="search"
-                      placeholder="Search Employee"
+                      placeholder="Search Employee by name & email"
                       aria-label="Search through site content"
                       value={searchInput}
                       onChange={handleSearchInputChange}
@@ -180,13 +191,32 @@ const AllEmployee = () => {
               </div>
             </div>
           </section>
-          <section>
+
+          <section className='mt-4'>
             <div className="container">
-              <p className="text-center">{`Total Employees: ${totalEmployee}`}</p>
-              <p className="text-center">{`Currently Working: ${currentlyWorkingCount} employees`}</p>
-              <p className="text-center">{`Departed: ${departedCount} employees`}</p>
-              <p className="text-center">{`Notice Period: ${noticePeriodCount} employees`}</p>
-              <div className="row">
+              <ul className='list-group'>
+                <h4 className="text-start fs-6 py-1">
+                  Currently Working: <span className='light-info-bg py-1 px-1 rounded-1 bg-success bg-opacity-25' style={{ fontSize: '2 rem' }}>{currentlyWorkingCount} employees</span>
+                </h4>
+                <h4 className="text-start fs-6 py-1">
+                  Departed: <span className='light-info-bg py-1 px-1 rounded-1 bg-danger bg-opacity-25' style={{ fontSize: '2 rem' }}>{departedCount} employees</span>
+                </h4>
+                <h4 className="text-start fs-6 py-1">
+                  Notice Period: <span className='light-info-bg py-1 px-1 rounded-1 bg-warning bg-opacity-25' style={{ fontSize: '2 rem' }}>{noticePeriodCount} employees</span>
+                </h4>
+                <h4 className="text-start fs-6 py-1">
+                  Birthday: <span className='light-info-bg py-1 px-1 rounded-1 bg-primary bg-opacity-25' style={{ fontSize: '2rem' }}>
+                    {birthdayEmployees.length > 0
+                      ? birthdayEmployees.map((employee, index) => (
+                        <span key={index}>
+                           {employee.Name}{index < birthdayEmployees.length - 1 ? ', ' : ''}
+                        </span>
+                      ))
+                      : 'No birthdays today'}
+                  </span>
+                </h4>
+              </ul>
+              <div className="row mt-3">
                 {loading ? (
                   <div className="spinner-border" role="status"></div>
                 ) : filteredUserData && filteredUserData.length > 0 ? (
@@ -203,17 +233,10 @@ const AllEmployee = () => {
                           }`} role="status" style={{ "backgroundColor": "purple" }}></div>
                         <aside className="single_sidebar_widget author_widget mt-2">
                           {/* <img
-                            src="https://drive.google.com/uc?id=1vsJu3SeG9OumWEWWuS88ZOq0U78qdGkb"
+                            src="https://drive.google.com/file/d/1vsJu3SeG9OumWEWWuS88ZOq0U78qdGkb/preview"
                             alt="Avatar"
                             className="avatar xl rounded-circle img-thumbnail shadow-sm"
                           /> */}
-                          <iframe
-                            src="https://drive.google.com/file/d/1vsJu3SeG9OumWEWWuS88ZOq0U78qdGkb/preview"
-                            width="140" height="140" allow="autoplay" alt="Avatar"
-                            className="avatar xl rounded-circle img-thumbnail shadow-sm"
-                            sandbox=""
-                          ></iframe>
-
                           <h4>{Name}</h4>
                           <span className="text-muted small d-inline-block">Employee Id :{Employee_Intern_ID}</span>
                           <span className={`light-info-bg text-center w-auto p-3 fs-6 fw-bolder py-1 px-1 rounded-1 d-inline-block mb-2 mt-1 ${Working_Status === "Currently Working"
@@ -335,7 +358,6 @@ const AllEmployee = () => {
               </div>
             </div>
           </section>
-          <div>ada</div>
           <Footer />
         </>
       )};
