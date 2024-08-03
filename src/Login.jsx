@@ -27,7 +27,7 @@ const Login = () => {
     <section className="loginPage">
     <div className="login-container">
       <div className="login-box">
-        <h2>Login</h2>
+        <h2>Admin Login</h2>
         <form onSubmit={handleLogin}>
           <input
             type="email"
@@ -42,7 +42,6 @@ const Login = () => {
             onChange={(e) => setPassword(e.target.value)}
           />
           <button type="submit" className="primary-btn" onKeyDown={(e) => e.key === "Enter" && handleLogin()}>Login</button>
-          
         </form>
         {error && <p className="error">{error}</p>}
       </div>
