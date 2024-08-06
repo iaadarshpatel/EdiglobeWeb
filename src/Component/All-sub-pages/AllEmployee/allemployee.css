@@ -63,13 +63,8 @@
 }
 
 .single_sidebar_widget img {
-    width: 1000px;
-    height: 1000px;
-}
-
-#test-img{
-    height: 1000px;
-    width: 1000px;
+    width: 140px;
+    height: 140px;
 }
 
 .text-muted {

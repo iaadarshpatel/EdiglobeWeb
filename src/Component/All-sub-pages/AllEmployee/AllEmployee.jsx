@@ -22,7 +22,8 @@ const AllEmployee = () => {
 
   const [selectedWorkingStatus, setSelectedWorkingStatus] = useState('');
   const [birthdayEmployees, setBirthdayEmployees] = useState([]);
-  
+  const [anniversaryEmployees, setAnniversaryEmployees] = useState([]);
+
 
   useEffect(() => {
     const fetchData = async () => {
@@ -45,6 +46,15 @@ const AllEmployee = () => {
       // Filter employees with today's birthday
       const todayBirthdayEmployees = filteredUserData.filter((employee) => isTodayBirthday(employee.Date_of_Birth));
       setBirthdayEmployees(todayBirthdayEmployees);
+    }
+  }, [filteredUserData]);
+
+  //Anniversary employees
+  useEffect(() => {
+    if (filteredUserData.length > 0) {
+      // Filter employees with today's anniversary
+      const todayAnniversaryEmployees = filteredUserData.filter((employee) => isTodayAnniversary(employee.Date_Of_Joining));
+      setAnniversaryEmployees(todayAnniversaryEmployees);
     }
   }, [filteredUserData]);
 
@@ -118,6 +128,17 @@ const AllEmployee = () => {
     );
   };
 
+  // Function to check if today is the anniversary
+  const isTodayAnniversary = (dateOfJoining) => {
+    const today = new Date();
+    const anniversaryDate = new Date(dateOfJoining);
+    return (
+      anniversaryDate.getDate() === today.getDate() &&
+      anniversaryDate.getMonth() === today.getMonth()
+    );
+  };
+
+
 
   return (
     <>
@@ -163,7 +184,7 @@ const AllEmployee = () => {
                       required=""
                       value={selectedWorkingStatus}
                       onChange={handleSelectChange}>
-                      <option value="" disabled>Filter By</option>
+                      <option value="" disabled>Filter By Working Status</option>
                       <option value="Currently Working">Currently Working</option>
                       <option value="Departed">Departed</option>
                       <option value="Notice Period">Notice Period</option>
@@ -191,31 +212,53 @@ const AllEmployee = () => {
               </div>
             </div>
           </section>
-
           <section className='mt-4'>
             <div className="container">
-              <ul className='list-group'>
-                <h4 className="text-start fs-6 py-1">
-                  Currently Working: <span className='light-info-bg py-1 px-1 rounded-1 bg-success bg-opacity-25' style={{ fontSize: '2 rem' }}>{currentlyWorkingCount} employees</span>
+              <div className="d-flex flex-wrap justify-content-between align-items-center mb-4 py-1" style={{ gap: '1rem' }}>
+                <h4 className="fs-6 py-1 flex-fill">
+                  Total Employees:
+                  <span className='light-info-bg py-1 px-1 rounded-1'>
+                    {totalEmployee} employees
+                  </span>
                 </h4>
-                <h4 className="text-start fs-6 py-1">
-                  Departed: <span className='light-info-bg py-1 px-1 rounded-1 bg-danger bg-opacity-25' style={{ fontSize: '2 rem' }}>{departedCount} employees</span>
+                <h4 className="fs-6 py-1 flex-fill">
+                  Currently Working: <span className='light-info-bg py-1 px-1 rounded-1 bg-success bg-opacity-25'>
+                    {currentlyWorkingCount} employees
+                  </span>
                 </h4>
-                <h4 className="text-start fs-6 py-1">
-                  Notice Period: <span className='light-info-bg py-1 px-1 rounded-1 bg-warning bg-opacity-25' style={{ fontSize: '2 rem' }}>{noticePeriodCount} employees</span>
+                <h4 className="fs-6 py-1 flex-fill">
+                  Departed: <span className='light-info-bg py-1 px-1 rounded-1 bg-danger bg-opacity-25'>
+                    {departedCount} employees
+                  </span>
                 </h4>
-                <h4 className="text-start fs-6 py-1">
-                  Birthday: <span className='light-info-bg py-1 px-1 rounded-1 bg-primary bg-opacity-25' style={{ fontSize: '2rem' }}>
+                <h4 className="fs-6 py-1 flex-fill">
+                  Notice Period: <span className='light-info-bg py-1 px-1 rounded-1 bg-warning bg-opacity-25'>
+                    {noticePeriodCount} employees
+                  </span>
+                </h4>
+                <h4 className="fs-6 py-1 flex-fill">
+                  Birthday: <span className='light-info-bg bg-primary bg-opacity-25 py-1 px-1 rounded-1'>
                     {birthdayEmployees.length > 0
                       ? birthdayEmployees.map((employee, index) => (
-                        <span key={index}>
-                           {employee.Name}{index < birthdayEmployees.length - 1 ? ', ' : ''}
+                        <span key={index} className='light-info-bg'>
+                          {employee.Name}{index < birthdayEmployees.length - 1 ? ', ' : ''}
                         </span>
                       ))
                       : 'No birthdays'}
                   </span>
                 </h4>
-              </ul>
+                <h4 className="fs-6 py-1 flex-fill">
+                  Anniversary: <span className='light-info-bg bg-dark bg-opacity-25 py-1 px-1 rounded-1' style={{ fontSize: '2rem', }}>
+                    {anniversaryEmployees.length > 0
+                      ? anniversaryEmployees.map((employee, index) => (
+                        <span key={index} className='light-info-bg'>
+                          {employee.Name}{index < anniversaryEmployees.length - 1 ? ', ' : ''}
+                        </span>
+                      ))
+                      : 'No anniversaries'}
+                  </span>
+                </h4>
+              </div>
               <div className="row mt-3">
                 {loading ? (
                   <div className="spinner-border" role="status"></div>
@@ -232,11 +275,11 @@ const AllEmployee = () => {
                               : "bg-blue"
                           }`} role="status" style={{ "backgroundColor": "purple" }}></div>
                         <aside className="single_sidebar_widget author_widget mt-2">
-                          {/* <img
+                          <img
                             src="https://drive.google.com/file/d/1vsJu3SeG9OumWEWWuS88ZOq0U78qdGkb/preview"
                             alt="Avatar"
                             className="avatar xl rounded-circle img-thumbnail shadow-sm"
-                          /> */}
+                          />
                           <h4>{Name}</h4>
                           <span className="text-muted small d-inline-block">Employee Id: {Employee_Intern_ID}</span>
                           <span className={`light-info-bg text-center w-auto p-3 fs-6 fw-bolder py-1 px-1 rounded-1 d-inline-block mb-2 mt-1 ${Working_Status === "Currently Working"
@@ -289,10 +332,6 @@ const AllEmployee = () => {
                               <span class="text-muted ms-2">
                                 <Link to={`https://drive.google.com/uc?id=${Aadhar_Card}`} style={{ "color": "#1e2a5a" }}>Check it</Link>
                               </span>
-                            </li>
-                            <li className="list-group-item small" data-tip={Permanent_Address} data-for="permanentAddressTooltip">
-                              <i className="fa-solid fa-map-location me-2"></i>Per. Address:
-                              <span className="text-muted ms-2">{Permanent_Address}</span>
                             </li>
                             <li class="list-group-item small">
                               <i class="fa-solid fa-link me-2"></i>PAN:
@@ -358,6 +397,7 @@ const AllEmployee = () => {
               </div>
             </div>
           </section>
+
           <Footer />
         </>
       )};
